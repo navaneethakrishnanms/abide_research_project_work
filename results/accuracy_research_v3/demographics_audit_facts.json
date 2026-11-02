@@ -1,0 +1,38 @@
+{
+ "n": 600,
+ "age_missing_cohort_csv": 0,
+ "sex_missing_cohort_csv": 0,
+ "age_missing_or_-9999_phenotype": 0,
+ "sex_missing_phenotype": 0,
+ "age_sources_equal_max_abs_diff": 0.0,
+ "sex_sources_equal_all": true,
+ "sex_values": [
+  1,
+  2
+ ],
+ "age_range": [
+  6.47,
+  58.0
+ ],
+ "dx_from_phenotype_matches_manifest": true,
+ "age_ASD_mean_sd_median": [
+  17.422720522388058,
+  8.00495796851814,
+  14.98
+ ],
+ "female_pct_ASD": 13.805970149253731,
+ "age_TC_mean_sd_median": [
+  16.9007,
+  6.654341333912587,
+  15.0
+ ],
+ "female_pct_TC": 20.783132530120483,
+ "age_dx_mannwhitney_p": 0.9812920464747904,
+ "sex_dx_chi2_p": 0.03399476485472379,
+ "female_vs_ASD_MH_common_odds_ratio_within_sites": 0.6742118136054137,
+ "female_vs_ASD_crude_odds_ratio": 0.6105150887759584,
+ "age_within_site_AUC_equivalent_ASD_vs_TC": 0.45887655098003954,
+ "age_within_site_p": 0.08307981819373296,
+ "age_variance_share_explained_by_site_eta2": 0.48098660737152066,
+ "female_by_site_chi2_p": 7.257610768598986e-08
+}

@@ -1,0 +1,8 @@
+characteristic,status,evidence,source,notes
+motion_correction,NOT_CONFIRMED,"No motion-correction log, config, or sidecar file found.",Project-wide search near UCLA_1 raw tree,
+global_signal_regression,NOT_CONFIRMED,"No GSR config/log found for the raw NIfTI volumes. Note: fetch_abide.py sets global_signal_regression=True, but that parameter applies to the SEPARATE already-extracted CC200 .1D pipeline (abide_pcp/), not these raw volumes.",fetch_abide.py (unrelated CC200 pipeline); no evidence for raw volumes,
+nuisance_regression,NOT_CONFIRMED,No nuisance-regression config/log found.,Project-wide search,
+bandpass_filtering,NOT_CONFIRMED,No band-pass filter config/log found for the raw volumes. Note: fetch_abide.py sets band_pass_filtering=True for the separate CC200 pipeline only.,fetch_abide.py (unrelated CC200 pipeline); no evidence for raw volumes,
+temporal_filtering,NOT_CONFIRMED,No temporal-filter config/log found.,Project-wide search,
+spatial_normalization,NOT_CONFIRMED,"No normalization config/log found; header geometry (native-looking 64x64x34 @ 3x3x4mm) is consistent with un-normalized data but this is inference from header shape, not direct evidence -- see Step 8.",nibabel header inspection of representative sample,"Inference, not proof."
+smoothing,NOT_CONFIRMED,No smoothing-kernel config/log found.,Project-wide search,

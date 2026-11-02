@@ -1,0 +1,396 @@
+{
+ "folds_found": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "problems": [],
+ "trace_all_consistent": true,
+ "subject_level_predictions_saved": false,
+ "paired_ssae42_vs_baseline": {
+  "accuracy": [
+   -0.01333333333333333,
+   0.04510789534241449,
+   1
+  ],
+  "balanced_accuracy": [
+   -0.017124829445302536,
+   0.04824340722125737,
+   1
+  ],
+  "roc_auc": [
+   -0.016494792412374327,
+   0.032004729960275376,
+   2
+  ],
+  "f1": [
+   -0.03298271586767163,
+   0.06763803188394989,
+   1
+  ]
+ },
+ "paired_ssae42_vs_en": {
+  "accuracy": [
+   0.008333333333333304,
+   0.018633899812498255,
+   3
+  ],
+  "balanced_accuracy": [
+   0.005789472686121555,
+   0.017577265977634263,
+   4
+  ],
+  "roc_auc": [
+   0.0044739298235965345,
+   0.015887011327877835,
+   3
+  ],
+  "f1": [
+   -0.001682447265787379,
+   0.01745757493755193,
+   2
+  ]
+ },
+ "paired_en_vs_baseline": {
+  "accuracy": [
+   -0.021666666666666633,
+   0.04433145359423461,
+   2
+  ],
+  "balanced_accuracy": [
+   -0.02291430213142409,
+   0.050151539604322955,
+   2
+  ],
+  "roc_auc": [
+   -0.02096872223597086,
+   0.01965739010181577,
+   1
+  ],
+  "f1": [
+   -0.03130026860188425,
+   0.07841688247100029,
+   2
+  ]
+ },
+ "paired_by_seed_vs_baseline": {
+  "42": {
+   "accuracy": [
+    -0.01333333333333333,
+    0.04510789534241449,
+    1
+   ],
+   "balanced_accuracy": [
+    -0.017124829445302536,
+    0.04824340722125737,
+    1
+   ],
+   "roc_auc": [
+    -0.016494792412374327,
+    0.032004729960275376,
+    2
+   ],
+   "f1": [
+    -0.03298271586767163,
+    0.06763803188394989,
+    1
+   ]
+  },
+  "123": {
+   "accuracy": [
+    -0.009999999999999986,
+    0.045414755311462336,
+    1
+   ],
+   "balanced_accuracy": [
+    -0.013421125741598839,
+    0.04857702079850198,
+    1
+   ],
+   "roc_auc": [
+    -0.015485513162223952,
+    0.03151024104694561,
+    2
+   ],
+   "f1": [
+    -0.02762173637825176,
+    0.06824496596624591,
+    1
+   ]
+  },
+  "2026": {
+   "accuracy": [
+    -0.016666666666666653,
+    0.04039733214513605,
+    1
+   ],
+   "balanced_accuracy": [
+    -0.02056171401426259,
+    0.043041368596950874,
+    1
+   ],
+   "roc_auc": [
+    -0.016325004164110514,
+    0.03225028959827665,
+    2
+   ],
+   "f1": [
+    -0.03694724806749794,
+    0.060485620240373454,
+    1
+   ]
+  }
+ },
+ "seed_means": {
+  "42": {
+   "accuracy": 0.6283333333333333,
+   "roc_auc": 0.6779153593572067,
+   "balanced_accuracy": 0.620702045328911
+  },
+  "123": {
+   "accuracy": 0.6316666666666666,
+   "roc_auc": 0.6789246386073571,
+   "balanced_accuracy": 0.6244057490326147
+  },
+  "2026": {
+   "accuracy": 0.625,
+   "roc_auc": 0.6780851476054706,
+   "balanced_accuracy": 0.6172651607599511
+  }
+ },
+ "config_selection_counts": {
+  "S2": 5
+ },
+ "C_selected": [
+  0.03,
+  0.03,
+  0.03,
+  0.3,
+  0.03
+ ],
+ "features": [
+  149,
+  154,
+  158,
+  580,
+  147
+ ],
+ "inner_auc_by_fold_selected_config": [
+  0.6426891478348394,
+  0.657306542837778,
+  0.6268481486277023,
+  0.6761924448366132,
+  0.6338344541580813
+ ],
+ "outer_auc_seed42": [
+  0.6430976430976432,
+  0.706509539842873,
+  0.6975308641975309,
+  0.6778372289495916,
+  0.6646015206983948
+ ],
+ "train_loss_vs_es_loss_seed42": [
+  [
+   0.08335283413237217,
+   0.24519380927085876,
+   58
+  ],
+  [
+   0.08180421532369127,
+   0.311670184135437,
+   55
+  ],
+  [
+   0.07082675163652383,
+   0.2633706033229828,
+   80
+  ],
+  [
+   0.04094061912859187,
+   0.1806015819311142,
+   76
+  ],
+  [
+   0.07561979822668374,
+   0.23002532124519348,
+   80
+  ]
+ ],
+ "params_ssae_incl_decoders": [
+  250451,
+  255456,
+  259460,
+  681882,
+  248449
+ ],
+ "selection_seconds": [
+  89.2,
+  96.4,
+  103.3,
+  90.4,
+  81.2
+ ],
+ "fold_seconds": [
+  115.6,
+  122.2,
+  129.6,
+  174.4,
+  102.6
+ ],
+ "feature_jaccard_mean": 0.1814140763341478,
+ "trace_table": [
+  {
+   "fold": 0,
+   "method": "EN classifier",
+   "n_equals_manifest_fold_size": true,
+   "ASD_count_equals_manifest": true,
+   "max_abs_metric_diff_vs_recomputed_from_confusion": 0.0
+  },
+  {
+   "fold": 0,
+   "method": "EN+SSAE seed 42",
+   "n_equals_manifest_fold_size": true,
+   "ASD_count_equals_manifest": true,
+   "max_abs_metric_diff_vs_recomputed_from_confusion": 0.0
+  },
+  {
+   "fold": 0,
+   "method": "EN+SSAE seed 123",
+   "n_equals_manifest_fold_size": true,
+   "ASD_count_equals_manifest": true,
+   "max_abs_metric_diff_vs_recomputed_from_confusion": 0.0
+  },
+  {
+   "fold": 0,
+   "method": "EN+SSAE seed 2026",
+   "n_equals_manifest_fold_size": true,
+   "ASD_count_equals_manifest": true,
+   "max_abs_metric_diff_vs_recomputed_from_confusion": 0.0
+  },
+  {
+   "fold": 1,
+   "method": "EN classifier",
+   "n_equals_manifest_fold_size": true,
+   "ASD_count_equals_manifest": true,
+   "max_abs_metric_diff_vs_recomputed_from_confusion": 0.0
+  },
+  {
+   "fold": 1,
+   "method": "EN+SSAE seed 42",
+   "n_equals_manifest_fold_size": true,
+   "ASD_count_equals_manifest": true,
+   "max_abs_metric_diff_vs_recomputed_from_confusion": 0.0
+  },
+  {
+   "fold": 1,
+   "method": "EN+SSAE seed 123",
+   "n_equals_manifest_fold_size": true,
+   "ASD_count_equals_manifest": true,
+   "max_abs_metric_diff_vs_recomputed_from_confusion": 0.0
+  },
+  {
+   "fold": 1,
+   "method": "EN+SSAE seed 2026",
+   "n_equals_manifest_fold_size": true,
+   "ASD_count_equals_manifest": true,
+   "max_abs_metric_diff_vs_recomputed_from_confusion": 0.0
+  },
+  {
+   "fold": 2,
+   "method": "EN classifier",
+   "n_equals_manifest_fold_size": true,
+   "ASD_count_equals_manifest": true,
+   "max_abs_metric_diff_vs_recomputed_from_confusion": 0.0
+  },
+  {
+   "fold": 2,
+   "method": "EN+SSAE seed 42",
+   "n_equals_manifest_fold_size": true,
+   "ASD_count_equals_manifest": true,
+   "max_abs_metric_diff_vs_recomputed_from_confusion": 0.0
+  },
+  {
+   "fold": 2,
+   "method": "EN+SSAE seed 123",
+   "n_equals_manifest_fold_size": true,
+   "ASD_count_equals_manifest": true,
+   "max_abs_metric_diff_vs_recomputed_from_confusion": 0.0
+  },
+  {
+   "fold": 2,
+   "method": "EN+SSAE seed 2026",
+   "n_equals_manifest_fold_size": true,
+   "ASD_count_equals_manifest": true,
+   "max_abs_metric_diff_vs_recomputed_from_confusion": 0.0
+  },
+  {
+   "fold": 3,
+   "method": "EN classifier",
+   "n_equals_manifest_fold_size": true,
+   "ASD_count_equals_manifest": true,
+   "max_abs_metric_diff_vs_recomputed_from_confusion": 0.0
+  },
+  {
+   "fold": 3,
+   "method": "EN+SSAE seed 42",
+   "n_equals_manifest_fold_size": true,
+   "ASD_count_equals_manifest": true,
+   "max_abs_metric_diff_vs_recomputed_from_confusion": 0.0
+  },
+  {
+   "fold": 3,
+   "method": "EN+SSAE seed 123",
+   "n_equals_manifest_fold_size": true,
+   "ASD_count_equals_manifest": true,
+   "max_abs_metric_diff_vs_recomputed_from_confusion": 0.0
+  },
+  {
+   "fold": 3,
+   "method": "EN+SSAE seed 2026",
+   "n_equals_manifest_fold_size": true,
+   "ASD_count_equals_manifest": true,
+   "max_abs_metric_diff_vs_recomputed_from_confusion": 0.0
+  },
+  {
+   "fold": 4,
+   "method": "EN classifier",
+   "n_equals_manifest_fold_size": true,
+   "ASD_count_equals_manifest": true,
+   "max_abs_metric_diff_vs_recomputed_from_confusion": 0.0
+  },
+  {
+   "fold": 4,
+   "method": "EN+SSAE seed 42",
+   "n_equals_manifest_fold_size": true,
+   "ASD_count_equals_manifest": true,
+   "max_abs_metric_diff_vs_recomputed_from_confusion": 0.0
+  },
+  {
+   "fold": 4,
+   "method": "EN+SSAE seed 123",
+   "n_equals_manifest_fold_size": true,
+   "ASD_count_equals_manifest": true,
+   "max_abs_metric_diff_vs_recomputed_from_confusion": 0.0
+  },
+  {
+   "fold": 4,
+   "method": "EN+SSAE seed 2026",
+   "n_equals_manifest_fold_size": true,
+   "ASD_count_equals_manifest": true,
+   "max_abs_metric_diff_vs_recomputed_from_confusion": 0.0
+  }
+ ],
+ "run_output_fold_metrics.csv": true,
+ "run_output_baseline_comparison.csv": true,
+ "run_output_training_log.csv": true,
+ "run_output_integrity_report.md": true,
+ "run_output_final_report.md": true,
+ "run_output_config.json": true,
+ "run_output_implementation_notes.md": false,
+ "log_has_reports_written": true,
+ "log_has_time_budget_stop": false,
+ "log_perturbation_check_pass_count": 2,
+ "log_integrity_before_changed0": true
+}

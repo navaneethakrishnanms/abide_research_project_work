@@ -1,0 +1,67 @@
+{
+  "generated_utc": "2026-09-15T04:59:17.006035+00:00",
+  "pipeline": "CPAC",
+  "derivative": "rois_aal",
+  "strategy": "filt_global",
+  "phase2_cohort": {
+    "total": 780,
+    "asd": 351,
+    "control": 429
+  },
+  "download": {
+    "target_dir": "C:\\abide\\abide_pcp",
+    "files_before": 1153,
+    "files_after": 1748,
+    "new_files": 596,
+    "changed_files": 0,
+    "total_size_before_mb": 948.5,
+    "total_size_after_mb": 1072.0,
+    "downloaded_volume_mb": 123.6,
+    "aal_files_downloaded": 596,
+    "non_aal_new_files": []
+  },
+  "coverage": {
+    "phase2_total": 780,
+    "downloaded_total": 596,
+    "overlap": 536,
+    "missing": 244,
+    "extra": 60,
+    "overlap_percentage": 68.72,
+    "overlap_ASD": 239,
+    "overlap_Control": 297
+  },
+  "integrity": {
+    "files_inspected": 596,
+    "corrupt_files": [],
+    "duplicate_subject_files": {},
+    "observed_roi_counts": [
+      116
+    ],
+    "roi_check_pass": true
+  },
+  "timepoints": {
+    "min": 116,
+    "max": 316,
+    "median": 176.0,
+    "unique_counts": [
+      116,
+      124,
+      146,
+      152,
+      176,
+      196,
+      202,
+      232,
+      236,
+      246,
+      296,
+      316
+    ]
+  },
+  "audit": {
+    "phase1_2_3_35_36_unchanged": true,
+    "only_approved_derivative_downloaded": true,
+    "overall_pass": false
+  },
+  "final_decision": "STOP -- AAL-116 data integrity/coverage issue detected.\nDo not begin Phase 4. Issues: 244 Phase-2 subjects missing from download; diagnosis counts do not match 351 ASD / 429 Control"
+}

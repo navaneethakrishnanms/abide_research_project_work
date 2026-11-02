@@ -1,0 +1,12 @@
+{
+ "candidate": "H_incombat_age_sex",
+ "rule": "mean accuracy and balanced accuracy >= +0.02 vs E0 (same seed), accuracy higher in >=4/5 folds, in >=2 of 3 seeds",
+ "seeds_meeting_rule": 0,
+ "improves": false,
+ "protected_files_changed": 0,
+ "runtime_s": 93.0,
+ "parent_process_warnings": 1,
+ "warning_categories": [
+  "ResourceWarning"
+ ]
+}

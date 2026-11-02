@@ -1,0 +1,20 @@
+{
+ "rule_conditions": {
+  "pooled_accuracy_gain_ge_0.02": true,
+  "pooled_balanced_accuracy_gain_ge_0.02": true,
+  "pooled_auc_not_lower": true,
+  "accuracy_higher_at_majority_of_13_sites_n_ge_20": false
+ },
+ "rule_passed": false,
+ "pooled_gain_accuracy": 0.03499999999999992,
+ "pooled_gain_balanced_accuracy": 0.037380866750584496,
+ "pooled_auc_change": 0.02468081280345269,
+ "sites_n_ge_20_accuracy_higher_lower_equal": [
+  6,
+  1,
+  6
+ ],
+ "protocol": "see docstring of run_test_site_centering.py",
+ "protected_files_changed": 0,
+ "runtime_s": 101.2
+}

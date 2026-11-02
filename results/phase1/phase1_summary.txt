@@ -1,0 +1,31 @@
+PHASE 1 SUMMARY -- ABIDE-I Dataset Inventory
+============================================================
+
+DATASET
+  Source: ABIDE-I (CPAC pipeline, CC200 atlas, quality_checked=True)
+  Total subjects found (phenotypic_qc.csv): 871
+  ASD count: 403
+  Control count: 468
+  Unique subject count: 871
+  Duplicate rows: 0
+
+DEMOGRAPHICS
+  Age range: 6.47 - 58.0
+  Missing age: 0
+  Sex distribution: {1: 727, 2: 144}
+  Missing sex: 0
+
+SITE
+  Number of sites: 20
+  Subjects per site: {'NYU': 172, 'UM_1': 86, 'USM': 67, 'UCLA_1': 64, 'PITT': 50, 'MAX_MUN': 46, 'TRINITY': 44, 'YALE': 41, 'UM_2': 34, 'KKI': 33, 'LEUVEN_2': 28, 'LEUVEN_1': 28, 'OLIN': 28, 'SDSU': 27, 'SBL': 26, 'STANFORD': 25, 'OHSU': 25, 'UCLA_2': 21, 'CALTECH': 15, 'CMU': 11}
+
+DATA AVAILABILITY
+  Subjects with fMRI (CC200 ROI derivative): 871
+  Subjects with preprocessed fMRI: 871
+  Subjects with ROI data: 871
+  Subjects with FD/QC information: 871
+
+PAPER COMPARISON
+  Paper target: 884 total / 408 ASD / 476 Control / 17 sites / age 7-64
+  Our data:     871 total / 403 ASD / 468 Control / 20 sites / age 6.47-58.0
+  Match status: NO

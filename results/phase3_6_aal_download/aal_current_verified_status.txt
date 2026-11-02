@@ -1,0 +1,21 @@
+AAL-116 / CPAC -- CURRENT VERIFIED STATUS (authoritative)
+============================================================
+
+Generated: 2026-09-15T09:54:02.890602+00:00
+
+Phase-2 cohort (authoritative): 780 (351 ASD, 429 Control, 0 duplicates)
+AAL files on disk: 871
+
+Coverage: 780/780 (100.0%)  missing=0  extra=91
+Overlap ASD=351  Overlap Control=429
+
+Observed ROI counts: [116]  (pass=True)
+Timepoints: min=78 max=316 median=176.0
+Corrupt files: 0  Stale .part files: 0
+
+OVERALL: PASS
+
+AAL-116 CPAC data successfully acquired and verified.
+Phase 4 may begin.
+
+Supersedes (for decision-making; NOT deleted/modified): C:\abide\results\phase3_6_aal_download\aal_download_summary.json

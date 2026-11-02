@@ -1,0 +1,64 @@
+{
+  "_readme": "Settings of the historical CC200 pipeline that are VERIFIED from code or files. 'source' gives the file (and line) that proves each setting. Anything not provable is listed under 'not_recoverable' and was NOT guessed. Atlas: CC200 only.",
+  "run_identity": {
+    "claim": "fc_v2_results.csv row 'LogReg-L2 (baseline)', exp 2A, reported holdout accuracy 0.7412",
+    "script": "train_fc_v2.py (last saved 2026-08-22 08:56:25)",
+    "invocation": "python train_fc_v2.py --quick",
+    "invocation_status": "INFERRED, not recorded: one row, cv_auc_std = cv_acc_std = 0.0, elapsed 0.44 min, file written 45 s after the script was saved; no log of the run exists",
+    "result_file": "C:\\abide\\fc_v2_results.csv"
+  },
+  "data": {
+    "download": {"source": "fetch_abide.py:12-14", "nilearn_function": "fetch_abide_pcp", "pipeline": "cpac", "band_pass_filtering": true, "global_signal_regression": true,
+                  "derivatives": ["rois_cc200"], "quality_checked": true},
+    "time_series_file": {"path": "C:\\abide\\abide_pcp\\ts_cc200.npy", "format": "numpy object array, one (timepoints x 200) array per subject, order of d.rois_cc200", "rows": 871,
+                          "sha256": "3852839a73110b906c38b54d2b547387ff7c60ff45b4c224c396676b86247cf8", "sha256_check": "matches the value recorded in splits/phase2_split_metadata.json (2026-09-09)", "source": "fetch_abide.py:42; splits/phase2_split_metadata.json"},
+    "phenotype_file": {"path": "C:\\abide\\abide_pcp\\phenotypic_qc.csv", "rows": 871, "duplicate_SUB_ID": 0, "sha256": "a6c1471ab1b3ab62a6c9b65b35e571cbbd10f4801293853b9150e62be278e5a4", "sha256_check": "matches the recorded value", "source": "fetch_abide.py:41"},
+    "raw_per_subject_files": "abide_pcp/ABIDE_pcp/cpac/filt_global/*_rois_cc200.1D (871 files present)",
+    "subject_filter": {"rule": "keep subjects with >= 100 timepoints", "source": "train_fc_v2.py:74,441", "result": {"kept": 846, "dropped": 25, "ASD": 391, "TC": 455, "sites": 19, "timepoints_range": [116, 316]}, "result_source": "fc_quick.log"},
+    "label": {"column": "DX_GROUP", "encoding": "1 -> ASD (positive class = 1), 2 -> control (0)", "source": "train_fc_v2.py:444"}
+  },
+  "features": {
+    "roi_count": 200,
+    "covariance": {"preprocessing": "per subject: z-score each ROI over time (x - mean) / (std + 1e-8)", "estimator": "sklearn LedoitWolf(store_precision=False, assume_centered=True)", "symmetrized": true,
+                    "stored_in": "C:\\abide\\abide_pcp\\covs_cc200.npy, shape (846, 200, 200) float64", "source": "tangent.py:110-127"},
+    "connectivity": {"kind": "correlation", "formula": "corr = cov / (sqrt(diag_i) * sqrt(diag_j) + 1e-12)", "note": "a Ledoit-Wolf shrunk correlation, NOT the plain sample Pearson correlation", "source": "tangent.py:172-175"},
+    "fisher_z": {"transform": "arctanh", "clip": [-0.999999, 0.999999], "source": "tangent.py:175"},
+    "vectorization": {"triangle": "upper triangle, diagonal excluded, np.triu_indices(200, k=1), row-major (i < j)", "scale": "x sqrt(2) (irrelevant after StandardScaler)", "n_features": 19900,
+                       "note": "equivalent set of 19,900 unordered ROI pairs to a lower-triangle extraction; only the column order would differ", "source": "tangent.py:130-138"},
+    "demographics": {"age": "AGE_AT_SCAN (years), numeric, 1 column", "sex": "SEX numeric as in the phenotype file (1/2), 1 column", "missing": "-9999 -> NaN -> training-fold median", "scaling": "separate StandardScaler fitted on training rows",
+                      "position": "appended after the 19,900 connectivity columns (last two columns)", "total_columns": 19902, "source": "train_fc_v2.py:447-450,272-284"}
+  },
+  "model": {
+    "scaler": "StandardScaler fitted on the training portion (applied to all 19,902 columns)",
+    "classifier": "sklearn LogisticRegression(penalty L2, solver lbfgs, max_iter 5000, class_weight 'balanced')",
+    "C_grid": [0.001, 0.01, 0.1, 1.0, 10.0],
+    "C_selection": "GridSearchCV, scoring roc_auc, refit=True, inner StratifiedKFold(5, shuffle=True, random_state=<outer seed>)",
+    "site_harmonization": false,
+    "feature_selection": false,
+    "source": "train_fc_v2.py:79-86,286-305"
+  },
+  "evaluation": {
+    "split": {"function": "sklearn train_test_split(range(846), test_size=0.20, stratify=y, random_state=42)", "train_val": 676, "holdout": 170, "holdout_ASD_TC_derived_from_reported_rates": [79, 91],
+               "stratification": "diagnosis only (not site)", "source": "train_fc_v2.py:456-465", "holdout_status": "reused across scripts; superseded by the phase-2 split (see audit_report.md)"},
+    "cv_quick_run": {"outer": "StratifiedKFold(5, shuffle=True, random_state=0)", "seeds": [0], "score": "out-of-fold scores pooled", "source": "train_fc_v2.py:431-432,248-252"},
+    "cv_full_run_if_not_quick": {"outer": "StratifiedKFold(10, shuffle=True, random_state=seed)", "seeds": [0, 1, 2]},
+    "threshold": "Youden's J on the pooled out-of-fold scores of the 676 train/val subjects (the same scores later summarized as CV accuracy)",
+    "threshold_value_recorded": 0.47197340214635164,
+    "holdout_step": "refit on all 676 (inner StratifiedKFold(5, random_state=42)), score the 170 once with the recorded threshold",
+    "source": "train_fc_v2.py:310,334,357-419,683-763"
+  },
+  "recorded_results": {
+    "source": "C:\\abide\\fc_v2_results.csv (see metrics_table.csv rows H1, C1)",
+    "cv_5fold_1seed_oof": {"auc": 0.7101472245703013, "accuracy": 0.6701183431952663, "balanced_accuracy": 0.6710164835164836},
+    "holdout_170": {"accuracy": 0.7411764705882353, "balanced_accuracy": 0.7365419390735847, "auc": 0.8104047850883294, "f1": 0.7066666666666667, "sensitivity": 0.6708860759493671, "specificity": 0.8021978021978023},
+    "status": "recorded and internally consistent; NOT independently verified or validated (holdout reused)"
+  },
+  "not_recoverable": [
+    "the fitted estimator, scaler and threshold (nothing is serialized by train_fc*.py)",
+    "per-subject CV or holdout predictions and scores",
+    "the log of the run that wrote fc_v2_results.csv, hence the exact invocation (inferred only)",
+    "the C value selected for the final fit",
+    "software versions (python, numpy, scikit-learn) used at the time",
+    "the script that first created covs_cc200.npy (file dated 2026-08-19 16:26; the current train_fc.py reuses it when its row count equals the filtered subject count); no hash of it was recorded"
+  ]
+}

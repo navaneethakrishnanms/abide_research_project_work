@@ -1,0 +1,19 @@
+PHASE 3.5 SUMMARY -- Option B (CPAC BOLD -> independent AAL-116 extraction) Feasibility Audit
+======================================================================
+
+Phase-2 cohort: 780 subjects (351 ASD, 429 Control)
+
+CPAC filt_global BOLD availability:
+  Available:   54 / 780
+  Unavailable: 726 / 780
+  Uncertain:   0 / 780
+
+Pipeline identity: CONFIRMED=0  LIKELY=0  UNCERTAIN=54
+
+AAL-116 atlas locally available: NO
+AAL extraction feasibility (image-space): UNCERTAIN
+
+OPTION B: PARTIAL
+Reason: 54/780 (6.9%) of the Phase-2 cohort has any functional NIfTI file at all, restricted entirely to the single-site UCLA_1 raw download (28 ASD / 26 Control; 1 of 20 sites covered). CPAC/filt_global identity: 0 CONFIRMED, 0 LIKELY, 54 UNCERTAIN -- i.e. zero positive evidence anywhere that these are CPAC-preprocessed rather than raw. AAL-116 atlas locally available: NO. AAL extraction feasibility from image headers: UNCERTAIN. Note: although this falls in the PARTIAL bucket per the decision rule (some subjects have data, mapping is unambiguous), the practical scope here -- 6.9% coverage, single-site only, zero confirmed CPAC identity, no local AAL atlas -- is not sufficient to support a genuine 780-subject paper reproduction. Treat this as functionally NOT FEASIBLE for Phase 4 as currently scoped.
+
+Recommended next step: Do NOT proceed to Phase 4 under Option B as scoped. Three alternatives for your decision: (a) Option C -- check whether a genuine ABIDE PCP release already provides AAL-116 ROI derivatives directly (avoiding raw-volume preprocessing entirely); (b) Option D -- perform full CPAC-equivalent preprocessing + AAL parcellation ourselves on raw multi-site ABIDE-I data, which requires downloading raw data for all 780 subjects (not just the 54 UCLA_1 subjects on disk) plus an AAL-116 atlas file, and building a real preprocessing pipeline -- substantially beyond this audit's scope; or (c) reconsider CC200 as the working atlas with your explicit, documented sign-off that this is a deliberate methodology deviation from the paper's AAL-116 basis, not a silent substitution.

@@ -1,0 +1,89 @@
+{
+ "edges_diagnosis_p_lt_0.05_pct": 17.93103448275862,
+ "split_half_reliability_median_raw": 0.3611759867028287,
+ "split_half_reliability_median_spearman_brown": 0.5306822778221547,
+ "within_site_split_half_reliability_median": 0.33912447463551526,
+ "within_site_spearman_brown": 0.5064868588015692,
+ "reliability_by_scan_length_tercile_sb": {
+  "mid": 0.5276738983985149,
+  "short": 0.5071831017840046,
+  "long": 0.5725814241174008
+ },
+ "T_terciles": [
+  116.0,
+  176.0,
+  206.0,
+  316.0
+ ],
+ "ts_metrics_median": {
+  "T": 176.0,
+  "lag1_autocorr": 0.7713770841861316,
+  "hf_power_share_above_half_nyquist": 0.0007864037750331856,
+  "lf_power_share_below_0.2_nyquist": 0.5374989602920437,
+  "linear_trend_variance_share": 0.00030224916754236983,
+  "global_signal_ratio": 0.1277487156967665,
+  "mean_edge_r": 0.0017968157858449809,
+  "mean_abs_roi_mean": 0.1277808649364407,
+  "n_const_roi": 0.0
+ },
+ "ts_metrics_p5_p95": {
+  "lag1_autocorr": [
+   0.5262005102264486,
+   0.8659727617245332
+  ],
+  "hf_power_share_above_half_nyquist": [
+   0.0004137240776066116,
+   0.12741547947324802
+  ],
+  "linear_trend_variance_share": [
+   9.835020836547084e-05,
+   0.0008888804722538962
+  ],
+  "global_signal_ratio": [
+   0.09721007228391039,
+   0.17964447494633412
+  ],
+  "mean_edge_r": [
+   -0.002908904694380078,
+   0.011327032849958249
+  ]
+ },
+ "corr_T_vs_FD": 0.10899187266687707,
+ "dvars_by_dx": {
+  "ASD": 1.0970094788615672,
+  "TC": 1.095249298338253
+ },
+ "outlier_by_dx": {
+  "ASD": 0.00450860270858209,
+  "TC": 0.0038230139
+ },
+ "fd_by_dx": {
+  "ASD": 0.08916327655447762,
+  "TC": 0.07477995129277108
+ },
+ "T_by_dx": {
+  "ASD": 195.9402985074627,
+  "TC": 196.7710843373494
+ },
+ "site_vs_dx_T_median_by_site": {
+  "CALTECH": 146.0,
+  "CMU": 276.0,
+  "KKI": 152.0,
+  "LEUVEN_1": 246.0,
+  "LEUVEN_2": 246.0,
+  "MAX_MUN": 116.0,
+  "NYU": 176.0,
+  "OLIN": 206.0,
+  "PITT": 196.0,
+  "SBL": 196.0,
+  "SDSU": 176.0,
+  "STANFORD": 236.0,
+  "TRINITY": 146.0,
+  "UCLA_1": 116.0,
+  "UCLA_2": 116.0,
+  "UM_1": 296.0,
+  "UM_2": 296.0,
+  "USM": 236.0,
+  "YALE": 196.0
+ }
+}

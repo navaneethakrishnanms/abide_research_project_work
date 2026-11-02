@@ -1,0 +1,26 @@
+PHASE 3 SUMMARY -- Pipeline & ROI Derivative Availability Audit
+============================================================
+
+Filtered cohort (from Phase 2): 780  (ASD=351, Control=429)
+
+PIPELINE AVAILABILITY
+  CCS      available=NO   covered=0/780
+  CPAC     available=YES  covered=780/780
+  DPARSF   available=NO   covered=0/780
+  NIAK     available=NO   covered=0/780
+
+AAL (116 ROIs) availability: NO
+AAL coverage in 780-subject cohort: 0/780
+
+CC200 coverage in 780-subject cohort (comparison only): 780/780
+
+Strategies present: ['filt_global']
+
+PAPER COMPARISON
+  Paper pipelines: ['CCS', 'CPAC', 'DPARSF', 'NIAK']
+  Our status: {'CCS': 'NOT AVAILABLE', 'CPAC': 'AVAILABLE', 'DPARSF': 'NOT AVAILABLE', 'NIAK': 'NOT AVAILABLE'}
+  Paper atlas: AAL-116  |  Our AAL status: NOT AVAILABLE
+
+RECOMMENDATION
+  STOP -- no AAL-116 ROI derivative data is available for any pipeline.
+  Reason: AAL ROI time-series files ('rois_aal' or equivalent) were not found anywhere in the project (0 matches, project-wide filename search). Only CC200 ROI derivatives exist, and only for the CPAC pipeline / filt_global strategy. None of CCS, DPARSF, or NIAK derivative data is present at all. Proceeding to AAL extraction (Phase 4) would require either downloading AAL-parcellated derivatives (if available from the ABIDE PCP release) or performing AAL extraction from raw/preprocessed volumes ourselves -- both explicitly out of scope for this phase.

@@ -1,0 +1,81 @@
+{
+  "generated_utc": "2026-09-16T06:19:45.920275+00:00",
+  "files": {
+    "phase1_manifest": {
+      "path": "C:\\abide\\results\\phase1\\subject_manifest.csv",
+      "exists": true,
+      "size_bytes": 49829,
+      "mtime": 1789443484.525772,
+      "sha256": "9a1afcbd479cdb40f6d9559c0eea87116009d983bb6504f691f24a3231fd49aa"
+    },
+    "phase2_filtered": {
+      "path": "C:\\abide\\results\\phase2\\fd_filtered_subjects.csv",
+      "exists": true,
+      "size_bytes": 42546,
+      "mtime": 1789444089.5013838,
+      "sha256": "756561a75052f7e7b94ccecf90be00659dc8a34d9c8c189a879e8a3a1f5e2f8c"
+    },
+    "phase3_pipeline_inventory": {
+      "path": "C:\\abide\\results\\phase3\\pipeline_inventory.csv",
+      "exists": true,
+      "size_bytes": 50260,
+      "mtime": 1789444431.8889909,
+      "sha256": "6e62607dda9aa2b2688bb1cb009b70751c0a7a09c0c702d6d8d6a89df7c80c81"
+    },
+    "phase3_5_bold_coverage": {
+      "path": "C:\\abide\\results\\phase3_5\\cpac_bold_subject_coverage.csv",
+      "exists": true,
+      "size_bytes": 98015,
+      "mtime": 1789445133.407118,
+      "sha256": "d11ccd80db94015f967d5cf6efe21611a68eb113c53819b2520d5a2b1e302b35"
+    },
+    "phase3_6_decision": {
+      "path": "C:\\abide\\results\\phase3_6\\phase3_6_decision.json",
+      "exists": true,
+      "size_bytes": 4509,
+      "mtime": 1789445833.4376547,
+      "sha256": "048868fb57fd27f08f53923284c668ba6f3141b97755f6acb47f7005d0962951"
+    },
+    "phase3_6_verification_summary": {
+      "path": "C:\\abide\\results\\phase3_6_verification\\cohort_verification_summary.json",
+      "exists": true,
+      "size_bytes": 2920,
+      "mtime": 1789446246.3650675,
+      "sha256": "8da6ad22122467e3eb28c121e85ebcffab9ac4d95389ce27df25b11f31e52625"
+    },
+    "phase3_6_aal_current_status": {
+      "path": "C:\\abide\\results\\phase3_6_aal_download\\aal_current_verified_status.json",
+      "exists": true,
+      "size_bytes": 1647,
+      "mtime": 1789466042.8884034,
+      "sha256": "ac191c9dc1a16af7a362e02342d3b3ca99dcba06c27b301487bcdf1ac09cce36"
+    },
+    "phase3_6_aal_download_summary_STALE": {
+      "path": "C:\\abide\\results\\phase3_6_aal_download\\aal_download_summary.json",
+      "exists": true,
+      "size_bytes": 1581,
+      "mtime": 1789448357.0054195,
+      "sha256": "c6efaa9ed5c85198265c664366631566586902de56934fef6a0e8f55a4b8da2c"
+    },
+    "phase4_subject_validation": {
+      "path": "C:\\abide\\results\\phase4\\phase4_subject_validation.csv",
+      "exists": true,
+      "size_bytes": 104318,
+      "mtime": 1789534543.4293697,
+      "sha256": "68689094e896471e6f9e0743a0d9136866b8a72e7c0c1eb006b4d01717e58118"
+    },
+    "phase4_summary": {
+      "path": "C:\\abide\\results\\phase4\\phase4_summary.json",
+      "exists": true,
+      "size_bytes": 2215,
+      "mtime": 1789534545.680549,
+      "sha256": "7bd51430e799fcf4001e793f93951a0258c1e1d915d00cb6172738f332b09a76"
+    }
+  },
+  "aal_source_fingerprint": {
+    "n_aal_files": 871,
+    "aal_total_bytes": 193059039,
+    "n_cc200_files": 871,
+    "cc200_total_bytes": 337905485
+  }
+}

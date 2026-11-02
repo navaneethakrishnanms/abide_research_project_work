@@ -1,0 +1,6 @@
+search_term,scope,result,evidence_type,source
+AAL / AAL116 / AAL_116 / aal.nii(.gz) / aal116.nii(.gz),project-wide filenames,0 matches,CONFIRMED,Phase 3 + Phase 3.5 project-wide rglob search
+AAL ROI time series / AAL connectivity,project-wide filenames + directory structure,0 matches,CONFIRMED,"Phase 3 pipeline_inventory.csv (871 files, all atlas=cc200)"
+README / manifest / JSON / config / script mentions of 'AAL',"project-wide file content (docstrings, comments, configs)","No AAL references found in any project script, README, or config",CONFIRMED,"Manual review of fetch_abide.py, converter.py, README.md, config.py during Phase 3/3.5"
+ABIDE PCP / preprocessed connectomes / Nilearn cached metadata,abide_pcp/ directory,phenotypic_qc.csv and CC200 .1D derivatives present (from a prior fetch_abide_pcp(derivatives=['rois_cc200']) call); no AAL derivative was ever fetched,CONFIRMED,"abide_pcp/fetch.log, fetch_abide.py source"
+"Local AAL-116 atlas file (atlas-only, no subject data)",project-wide + derivatives/template/,NOT FOUND. derivatives/template/ contains mni152_t1_2mm.nii.gz + mni152_mask_2mm.nii.gz (a T1 template and brain mask -- NOT an AAL region-label atlas),CONFIRMED,Phase 3.5 aal_atlas_local_availability.csv

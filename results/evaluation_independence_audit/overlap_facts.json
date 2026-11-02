@@ -1,0 +1,116 @@
+{
+ "facts": {
+  "holdout list size / unique": [
+   170,
+   170
+  ],
+  "train list size / unique": [
+   676,
+   676
+  ],
+  "holdout \u2229 train": 0,
+  "pool846 = train \u222a holdout": 846,
+  "pool846 \u2282 871-subject phenotypic table": true,
+  "871-table subjects not in pool846 (<100 timepoints filter in split script)": 25,
+  "FD-removed list size": 91,
+  "871 = 780 cohort \u222a FD-removed, disjoint": true,
+  "Phase 6 cohort_verification IDs == 780 cohort": true,
+  "dev600 \u2282 train": true,
+  "dev600 \u2282 780 cohort": true,
+  "dev600 == train \u2229 780 cohort": true
+ },
+ "phases": [
+  {
+   "phase_or_experiment": "Phase 1 inventory (871)",
+   "subjects_used": "871 phenotypic table",
+   "n_subjects": 871,
+   "n_overlapping_with_phase2_holdout": 170,
+   "share_overlapping": 0.195
+  },
+  {
+   "phase_or_experiment": "Phase 2 FD filter (871 -> 780)",
+   "subjects_used": "871 phenotypic table",
+   "n_subjects": 871,
+   "n_overlapping_with_phase2_holdout": 170,
+   "share_overlapping": 0.195
+  },
+  {
+   "phase_or_experiment": "Phases 3-5 (AAL feasibility, FC diagnostics, missing-FC analysis)",
+   "subjects_used": "780 cohort",
+   "n_subjects": 780,
+   "n_overlapping_with_phase2_holdout": 158,
+   "share_overlapping": 0.203
+  },
+  {
+   "phase_or_experiment": "Phase 6 (Strategy C + EN + SSAE, XAI, ROAR; 61.5%)",
+   "subjects_used": "780 cohort",
+   "n_subjects": 780,
+   "n_overlapping_with_phase2_holdout": 158,
+   "share_overlapping": 0.203
+  },
+  {
+   "phase_or_experiment": "Phases 7-8 (synthesis, audit)",
+   "subjects_used": "780 cohort",
+   "n_subjects": 780,
+   "n_overlapping_with_phase2_holdout": 158,
+   "share_overlapping": 0.203
+  },
+  {
+   "phase_or_experiment": "Phase 9 (accuracy optimization; 64.9%)",
+   "subjects_used": "780 cohort",
+   "n_subjects": 780,
+   "n_overlapping_with_phase2_holdout": 158,
+   "share_overlapping": 0.203
+  },
+  {
+   "phase_or_experiment": "Phase 10 old run and corrected nested CV (63.0%)",
+   "subjects_used": "780 cohort",
+   "n_subjects": 780,
+   "n_overlapping_with_phase2_holdout": 158,
+   "share_overlapping": 0.203
+  },
+  {
+   "phase_or_experiment": "Phase 2c-2h dev-only experiments (CC200, 67.2%)",
+   "subjects_used": "train list (676) via holdout_guard",
+   "n_subjects": 676,
+   "n_overlapping_with_phase2_holdout": 0,
+   "share_overlapping": 0.0
+  },
+  {
+   "phase_or_experiment": "fast / site-centering / motion / diagnostic experiments",
+   "subjects_used": "dev600",
+   "n_subjects": 600,
+   "n_overlapping_with_phase2_holdout": 0,
+   "share_overlapping": 0.0
+  }
+ ],
+ "composition": [
+  {
+   "set_A": "780 minus train list",
+   "set_B": "holdout (170)",
+   "|A|": 180,
+   "|B|": 170,
+   "|A\u2229B|": 158,
+   "group": "composition",
+   "note": "cohort-780 subjects not in the train list: how many are holdout"
+  },
+  {
+   "set_A": "train list minus 780 (FD-removed or other)",
+   "set_B": "FD-removed (91)",
+   "|A|": 76,
+   "|B|": 91,
+   "|A\u2229B|": 76,
+   "group": "composition",
+   "note": ""
+  },
+  {
+   "set_A": "FD-removed (91)",
+   "set_B": "pool846 (train+holdout)",
+   "|A|": 91,
+   "|B|": 846,
+   "|A\u2229B|": 88,
+   "group": "composition",
+   "note": "FD-removed subjects inside the 846-pool"
+  }
+ ]
+}

@@ -1,0 +1,41 @@
+{
+  "generated_utc": "2026-09-15T04:17:13.437562+00:00",
+  "phase2_cohort": {
+    "total": 780,
+    "asd": 351,
+    "control": 429,
+    "duplicates": 0
+  },
+  "verified_sources_found": 1,
+  "aal_roi_timeseries_status": "FOUND (mechanism/documentation CONFIRMED; exact 780-cohort overlap NOT YET EMPIRICALLY VERIFIED)",
+  "aal_fc_status": "NOT FOUND",
+  "aal_atlas_status": "NOT FOUND locally; PCP-internal atlas referenced but not independently downloadable/verified as a standalone file",
+  "same_780_cohort_coverage": "UNCERTAIN (INFERRED likely yes for CPAC, unconfirmed for DPARSF -- requires one small metadata fetch to confirm)",
+  "best_verified_option": "Option A2 (ABIDE PCP rois_aal, DPARSF pipeline) pending verification; Option A (CPAC) as a faster-to-confirm fallback",
+  "same_cohort_compatibility": "UNCERTAIN",
+  "large_download_required": "NO (the identified AAL-116 ROI resource is a small, ~190-200MB estimated download, NOT hundreds of GB; a full raw-data route (Option D) WOULD be large and is not recommended)",
+  "option_c_decision": "PARTIAL",
+  "decision_reason": "A legitimate, well-documented AAL-116 ROI time-series source (ABIDE PCP's rois_aal derivative, accessible through the already-installed nilearn.fetch_abide_pcp) was verified to exist for all four of the paper's pipelines, confirmed directly from the installed package's source code and corroborated by the official PCP GitHub repository. This is a materially better position than Phase 3.5's local-only finding. However, its exact overlap with our specific 780-subject Phase-2 cohort has NOT been empirically verified -- confirming it requires at minimum a small phenotypic-metadata fetch (and, for full confidence, the actual ~190-200MB rois_aal download), neither of which has been performed in this investigation, per the explicit rule to stop and report before any download.",
+  "recommended_next_step": "Approve a SMALL, explicitly-scoped verification step (not yet performed): fetch only the DPARSF (and/or CPAC) phenotypic metadata via fetch_abide_pcp to confirm subject-ID overlap with the 780-subject Phase-2 cohort, before committing to the full ~190-200MB rois_aal ROI data download. This keeps the investigation-only posture of Phase 3.6 while resolving the one remaining unknown blocking a FEASIBLE determination.",
+  "download_disclosure_not_executed": {
+    "WHAT": "AAL-116 ROI time series (.1D files) via nilearn.datasets.fetch_abide_pcp(pipeline='cpac' or 'dparsf', derivatives=['rois_aal'], strategy matching filt_global or the paper's specified strategy)",
+    "WHY": "This is the only verified, documented, legitimate AAL-116 ROI time-series source identified for ABIDE-I; it uses the same mechanism/S3 bucket already used successfully for our existing CC200 data, so it is the most direct path to real AAL-116 features without a full raw-data preprocessing effort.",
+    "SIZE": "Estimated ~190-200MB for the CPAC/full-cohort case, based on scaling from the existing 871-file, 338MB rois_cc200 set (200 regions/file) to 116 regions/file. This is an ESTIMATE, not a measured size -- actual size unconfirmed until fetched.",
+    "COVERAGE": "CPAC: INFERRED ~871 subjects (same as existing phenotypic_qc.csv), pending verification. DPARSF: UNCERTAIN subject count, requires its own phenotypic check.",
+    "PIPELINE": "CPAC (matches our existing Phase 1-3 choice) or DPARSF (matches the paper's reported best-performing pipeline) -- your choice affects which is fetched.",
+    "ATLAS": "AAL (aal_mask_pad.nii.gz per PCP's own pipeline config) -- exact version/region-count NOT independently confirmed against the paper's methodology (see Step 5).",
+    "COHORT_OVERLAP": "INFERRED high overlap with the 780-subject Phase-2 cohort for CPAC (same phenotypic source); UNCONFIRMED for DPARSF.",
+    "REPRODUCTION_IMPACT": "This would be the FIRST genuine AAL-116 ROI data available in this project, directly enabling Phase 4 (Pearson correlation + Fisher-Z + SVM-RFE + SSAE) on real AAL features rather than CC200 -- a substantial improvement in paper fidelity IF the resource actually covers the 780-subject cohort as inferred."
+  },
+  "audit": {
+    "phase1_2_3_35_unchanged": true,
+    "cohort_authoritative": true,
+    "no_duplicate_subject_ids": true,
+    "cc200_substituted": false,
+    "fc_calculated": false,
+    "roi_extraction_performed": false,
+    "model_trained": false,
+    "large_download_performed": false,
+    "original_data_modified": false
+  }
+}

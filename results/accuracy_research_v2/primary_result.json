@@ -1,0 +1,100 @@
+{
+ "criteria": {
+  "1_seed_avg_acc_and_bacc_gain_ge_0.02": false,
+  "2_at_least_2_seeds_meet_gain_and_4of5_folds": false,
+  "3_no_material_degradation_auc_ge_-0.01_sens_spec_ge_-0.03": true
+ },
+ "all_criteria_met": false,
+ "verdict_by_seed": {
+  "42": {
+   "accuracy_diff": 0.0033333333333333214,
+   "balanced_accuracy_diff": 0.0004205672608939226,
+   "sensitivity_diff": -0.0262054507337526,
+   "specificity_diff": 0.02704658525554047,
+   "precision_diff": 0.009798555170222234,
+   "f1_diff": -0.010317458773843092,
+   "roc_auc_diff": 0.009905952734264024,
+   "acc_diff_sd": 0.030390970881350784,
+   "folds_acc_improved": 2,
+   "per_fold_acc_diff": [
+    0.0,
+    0.025,
+    -0.0167,
+    0.0417,
+    -0.0333
+   ],
+   "per_fold_auc_diff": [
+    0.0668,
+    0.016,
+    0.0034,
+    0.0034,
+    -0.04
+   ],
+   "seed_meets_gain": false
+  },
+  "123": {
+   "accuracy_diff": 0.010000000000000031,
+   "balanced_accuracy_diff": 0.00715253539809999,
+   "sensitivity_diff": -0.01893780573025856,
+   "specificity_diff": 0.03324287652645859,
+   "precision_diff": 0.015983633387888708,
+   "f1_diff": -0.003892002734107991,
+   "roc_auc_diff": 0.016876958198651627,
+   "acc_diff_sd": 0.05571504883482258,
+   "folds_acc_improved": 3,
+   "per_fold_acc_diff": [
+    0.0417,
+    0.0,
+    0.0417,
+    0.05,
+    -0.0833
+   ],
+   "per_fold_auc_diff": [
+    0.0819,
+    0.016,
+    0.0059,
+    0.0366,
+    -0.056
+   ],
+   "seed_meets_gain": false
+  },
+  "2026": {
+   "accuracy_diff": 0.001666666666666683,
+   "balanced_accuracy_diff": 0.0005030119082498619,
+   "sensitivity_diff": -0.011250873515024462,
+   "specificity_diff": 0.012256897331524196,
+   "precision_diff": -0.00016363244831649749,
+   "f1_diff": -0.0075257418641137665,
+   "roc_auc_diff": 0.025820471999951987,
+   "acc_diff_sd": 0.048016200969626485,
+   "folds_acc_improved": 2,
+   "per_fold_acc_diff": [
+    0.0667,
+    0.0333,
+    -0.05,
+    -0.0083,
+    -0.0333
+   ],
+   "per_fold_auc_diff": [
+    0.0903,
+    0.0275,
+    0.002,
+    0.0493,
+    -0.04
+   ],
+   "seed_meets_gain": false
+  }
+ },
+ "seed_avg_diff": {
+  "accuracy": 0.005000000000000012,
+  "balanced_accuracy": 0.0026920381890812584,
+  "sensitivity": -0.018798043326345205,
+  "specificity": 0.02418211970450775,
+  "precision": 0.008539518703264816,
+  "f1": -0.007245067790688283,
+  "roc_auc": 0.017534460977622544
+ },
+ "non_converged_references": 0,
+ "peak_rss_mb": 934.72768,
+ "primary_runtime_s": 145.3
+}

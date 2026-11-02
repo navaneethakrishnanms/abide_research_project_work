@@ -1,0 +1,31 @@
+section,metric,value,note
+A dimensions,matrix shape (subjects x features),600 x 6670,expected 600 x 6670 = 116*115/2
+A dimensions,dtype,float64,
+A dimensions,"feature order equals Phase 5A feature index (np.triu_indices(116,1), 1-indexed, i<j)",True,6670 rows compared
+A dimensions,AAL time-series files found for development subjects,600,expected 600
+A dimensions,cached matrix vs recomputation from raw .1D for 42 subjects (40 random + first + last): max abs difference and NaN pattern identical,6.66e-16,ROI counts in files: [116]
+B values,NaN entries,12764,"0.319% of 4,002,000 entries"
+B values,infinite entries,0,
+B values,features with any NaN,2014,undefined correlations from constant (zero) ROIs
+B values,subjects with any NaN,40,
+B values,max NaN entries in one subject,1314,
+B values,features with NaN in more than 5% of subjects,4,
+B values,min / max correlation,-0.8586 / 0.9693,
+B values,entries with |r| >= 0.99,0,would need the 1e-6 clip only if |r| = 1 exactly
+B values,entries with |r| = 1 exactly,0,
+B values,Fisher-Z range,-1.288 / 2.080,
+B values,constant features (SD = 0),0,
+B values,near-constant features (SD of Fisher-Z < 0.02),0,median feature SD 0.193
+B values,near-constant features (SD of Fisher-Z < 0.05),0,median feature SD 0.193
+B values,exactly duplicated feature columns (rounded 1e-8),0,
+B values,"random feature pairs with |r| > 0.95 (2,500 features, 3.1M pairs)",0.0000%,|r|>0.8: 0.0013%
+B values,features with |skewness| > 1,0,median |skew| 0.097
+B values,entries with robust |z| > 6,59,0.001% (Gaussian expectation about 1e-7%)
+B values,features with at least one robust |z| > 6,57,
+B values,subjects with > 1% of features at robust |z| > 6,0,max share 0.61%
+B values,rows in flagged_features.csv (any NaN or SD < 0.05),2014,
+C subjects,"subjects with mean correlation outside [-0.05, 0.05]",0,global-signal-regressed data are expected near 0
+C subjects,class counts,268 ASD / 332 TC,19 sites
+D sites,median ratio of observed site mean-FC shift to the shift expected with no site effect,1.57,range 0.94-2.11; 1.0 = no site effect
+E QC metadata,available QC variables with variation,"func_mean_fd, func_num_fd, func_perc_fd, func_dvars, func_outlier, func_quality, func_efc, func_fber, func_gsr, func_fwhm",ratings with a single value carry no information
+E QC metadata,per-frame FD / TR / scan-level time-series QC files,NOT AVAILABLE,only subject-level summaries exist

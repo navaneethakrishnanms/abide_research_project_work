@@ -1,0 +1,5 @@
+pipeline,available,subjects_available_total,subjects_in_filtered_cohort,asd_in_filtered_cohort,control_in_filtered_cohort,missing_from_filtered_cohort
+CCS,NO,0,0,0,0,780
+CPAC,YES,871,780,351,429,0
+DPARSF,NO,0,0,0,0,780
+NIAK,NO,0,0,0,0,780

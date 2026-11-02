@@ -1,0 +1,54 @@
+{
+  "generated_utc": "2026-09-15T04:24:06.365194+00:00",
+  "phase2_cohort": {
+    "total": 780,
+    "asd": 351,
+    "control": 429,
+    "duplicates": 0
+  },
+  "id_normalization": {
+    "original_format": "plain integer string (Phase-2 cohort); int64 (SUB_ID column, PCP phenotypic)",
+    "normalized_format": "plain integer string, e.g. str(int(float(x)))",
+    "rule": "str(int(float(x))) -- no leading zeros or site prefixes were present in either source, so this normalization is a no-op in practice but is applied for safety and documented per Task 5."
+  },
+  "pipeline_independence_finding": "IMPORTANT FINDING: fetch_abide_pcp's phenotypic CSV fetch is PIPELINE-INDEPENDENT -- verified from source code (Phase 3.6): the phenotypic file and the quality_checked filter are applied identically regardless of the `pipeline` argument; only actual derivative-file fetching (skipped here via derivatives=[]) is pipeline-specific. Consequently the CPAC and DPARSF metadata queries above returned IDENTICAL subject lists (same phenotypic source, same QC columns). This confirms cohort-LEVEL compatibility for both, but does NOT confirm that the actual per-subject rois_aal .1D file exists on the PCP server for DPARSF specifically -- some subjects can pass the phenotypic QC filter yet have no successfully-preprocessed derivative file for a given pipeline. That can only be confirmed by attempting an actual per-subject rois_aal fetch, which is explicitly out of scope for this metadata-only verification.",
+  "cpac": {
+    "source_total": 871,
+    "phase2_total": 780,
+    "overlap_count": 780,
+    "phase2_missing_from_source": 0,
+    "source_not_in_phase2": 91,
+    "overlap_percentage": 100.0,
+    "overlap_ASD": 351,
+    "overlap_Control": 429,
+    "diagnosis_mismatches": 0
+  },
+  "cpac_decision": "FULLY COMPATIBLE",
+  "dparsf": {
+    "source_total": 871,
+    "phase2_total": 780,
+    "overlap_count": 780,
+    "phase2_missing_from_source": 0,
+    "source_not_in_phase2": 91,
+    "overlap_percentage": 100.0,
+    "overlap_ASD": 351,
+    "overlap_Control": 429,
+    "diagnosis_mismatches": 0
+  },
+  "dparsf_decision": "FULLY COMPATIBLE",
+  "outcome": "C",
+  "recommended_source": "BOTH (metadata-identical); recommend DPARSF for paper fidelity (matches the paper's reported best-performing pipeline), with CPAC as a fallback given continuity with our existing Phase 1-3 choice. NOTE: per-subject DPARSF derivative FILE existence is still unconfirmed (see finding above).",
+  "no_download_occurred": true,
+  "new_files_after_fetch": [],
+  "changed_files_after_fetch": [],
+  "audit": {
+    "phase1_2_3_35_36_unchanged": true,
+    "no_aal_roi_downloaded": true,
+    "no_aal_atlas_downloaded": true,
+    "no_functional_nifti_downloaded": true,
+    "fc_computed": false,
+    "model_trained": false,
+    "roi_extraction_performed": false,
+    "overall_pass": true
+  }
+}

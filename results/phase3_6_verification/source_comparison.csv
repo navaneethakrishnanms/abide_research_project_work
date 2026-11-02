@@ -1,0 +1,12 @@
+metric,CPAC,DPARSF
+metadata_available,True,True
+source_subjects,871,871
+phase2_subjects,780,780
+overlap,780,780
+missing_phase2_ids,0,0
+extra_source_ids,91,91
+overlap_pct,100.0,100.0
+asd_overlap,351,351
+control_overlap,429,429
+diagnosis_mismatches,0,0
+cohort_compatible,FULLY COMPATIBLE,FULLY COMPATIBLE

@@ -1,0 +1,39 @@
+PHASE 2 SUMMARY -- FD > 0.2mm Motion-Quality Filtering
+============================================================
+
+INITIAL COHORT
+  Total = 871
+  ASD = 403
+  Controls = 468
+
+AFTER FD FILTERING
+  Total = 780
+  ASD = 351
+  Controls = 429
+
+REMOVED (FD > 0.2mm)
+  Total = 91
+  ASD = 52
+  Controls = 39
+
+UNRESOLVED (missing/invalid/infinite FD)
+  Total = 0
+  ASD = 0
+  Controls = 0
+
+Retention percentage: 89.55%
+Removal percentage: 10.45%
+Unresolved percentage: 0.0%
+
+FD STATISTICS (valid values only)
+  Min = 0.0161
+  Max = 1.4349
+  Mean = 0.1088
+  Median = 0.0783
+  Std = 0.1153
+  <=0.2: 780   >0.2: 91   missing: 0   invalid: 0   infinite: 0
+
+AGE
+  Initial range: 6.47 - 58.0
+  Post-FD range: 6.47 - 58.0
+  (No age filtering applied.)

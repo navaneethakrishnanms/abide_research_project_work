@@ -1,0 +1,6 @@
+term,definition,value_this_phase
+TOTAL FEATURES,"All 6,670 FC features (real ABIDE representation, not computed in this phase)",6670
+NON-ZERO ELASTIC NET FEATURES,"Features whose Elastic Net coefficient is non-zero for a given fold/fit -- DATA-DEPENDENT, unknown until real-data fitting",NOT DETERMINED (real data not fit)
+ZERO-COEFFICIENT FEATURES,Features whose Elastic Net coefficient is exactly zero for a given fold/fit,NOT DETERMINED (real data not fit)
+STABLE FEATURES,"Features selected (non-zero) repeatedly across independent CV folds -- a reproducibility/robustness signal, not a biological claim",NOT DETERMINED (real data not fit)
+"SYNTHETIC demonstration range (400 synthetic features, C/l1_ratio grid)",See elastic_net_hyperparameter_behavior.csv,0-367 of 400 (SYNTHETIC ONLY)

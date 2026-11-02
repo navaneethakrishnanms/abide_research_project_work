@@ -1,0 +1,55 @@
+{
+  "generated_utc": "2026-09-17T04:08:41.645636+00:00",
+  "cohort": {
+    "total": 780,
+    "asd": 351,
+    "control": 429
+  },
+  "all_nonzero_technically_valid": true,
+  "feature_count_can_exceed_1000": true,
+  "feature_count_can_equal_1000": "POSSIBLE, not guaranteed",
+  "feature_count_can_be_below_1000": true,
+  "feature_count_varies_by_fold": true,
+  "variable_input_ssae_valid": true,
+  "leakage_safe_procedure_documented": true,
+  "strategy_A": {
+    "subjects": 733,
+    "asd": 330,
+    "control": 403
+  },
+  "strategy_B": {
+    "subjects": 780,
+    "rois": 97,
+    "features": 4656
+  },
+  "strategy_C": {
+    "subjects": 780,
+    "rois": 116,
+    "features": 6670,
+    "imputed_entries": 14025
+  },
+  "synthetic_experiments_performed": [
+    "alpha/l1_ratio sparsity grid",
+    "5-fold nonzero-count variability (leakage-safe)",
+    "feature selection frequency demo"
+  ],
+  "real_data_used": false,
+  "phase5d_status": "PASS",
+  "human_decision_still_required": true,
+  "phase5_status": "BLOCKED",
+  "phase6_status": "NOT STARTED",
+  "audit": {
+    "previous_phases_unchanged": true,
+    "fc_dataset_written": false,
+    "elastic_net_fit_on_real_data": false,
+    "svm_rfe_run": false,
+    "ssae_trained": false,
+    "softmax_trained": false,
+    "xai_run": false,
+    "roar_run": false,
+    "accuracy_calculated": false,
+    "downloads_performed": false,
+    "cohort_modified": false,
+    "aal_files_modified": false
+  }
+}

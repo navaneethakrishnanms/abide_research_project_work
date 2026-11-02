@@ -1,0 +1,366 @@
+{
+  "phase": "2H",
+  "purpose": "Rigorous RBF-SVM vs Logistic Regression L2 head-to-head, ORIGINAL protocol (10 outer / 5 inner folds, 3 seeds, full 19,900+2 features, no PCA), reusing the exact Phase 2C fold definitions (verified per-fold against phase2c_baseline_perfold.csv).",
+  "gamma_auto_tested": false,
+  "rbf_time_budget_sec": 3600.0,
+  "cv_protocol": {
+    "outer": "StratifiedKFold(n_splits=10, shuffle=True, random_state=seed)",
+    "inner": "StratifiedKFold(n_splits=5, shuffle=True, random_state=seed)",
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "threshold_selection": "Youden's J on seed-level OOF predictions"
+  },
+  "n_dev_subjects": 676,
+  "n_holdout_subjects_locked_untouched": 170,
+  "per_model": {
+    "LogReg_L2": {
+      "cross_seed": {
+        "accuracy_mean": 0.6720907297830375,
+        "accuracy_std": 0.006198128742592005,
+        "balanced_accuracy_mean": 0.6684900119404911,
+        "balanced_accuracy_std": 0.003140962964975688,
+        "roc_auc_mean": 0.7175120358390762,
+        "roc_auc_std": 0.004484064224012003,
+        "f1_mean": 0.6355418105142824,
+        "f1_std": 0.01500333838456216,
+        "sensitivity_mean": 0.6198083067092651,
+        "sensitivity_std": 0.05138376179686824,
+        "specificity_mean": 0.7171717171717171,
+        "specificity_std": 0.0547432821332925
+      },
+      "elapsed_sec": 185.162677526474,
+      "failed_folds": [],
+      "aborted": false,
+      "confusion_matrix_summed": [
+        [
+          781,
+          308
+        ],
+        [
+          357,
+          582
+        ]
+      ],
+      "seed_summaries": [
+        {
+          "seed": 0,
+          "tau_youden": 0.45484920998266015,
+          "oof_accuracy": 0.665680473372781,
+          "oof_balanced_accuracy": 0.6673619729094605,
+          "oof_roc_auc": 0.7111926702400126,
+          "oof_f1": 0.6565349544072948,
+          "oof_precision": 0.6260869565217392,
+          "oof_sensitivity": 0.6900958466453674,
+          "oof_specificity": 0.6446280991735537,
+          "fold_accuracy_mean": 0.6656716417910448,
+          "fold_accuracy_std": 0.03558470220248735,
+          "fold_balanced_accuracy_mean": 0.6674071248668023,
+          "fold_balanced_accuracy_std": 0.033439439768184705,
+          "confusion_matrix": [
+            [
+              234,
+              129
+            ],
+            [
+              97,
+              216
+            ]
+          ],
+          "chosen_params_per_fold": [
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.1
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.001
+            }
+          ]
+        },
+        {
+          "seed": 1,
+          "tau_youden": 0.546588666227181,
+          "oof_accuracy": 0.6701183431952663,
+          "oof_balanced_accuracy": 0.6653332629225746,
+          "oof_roc_auc": 0.7202140487066424,
+          "oof_f1": 0.6277128547579299,
+          "oof_precision": 0.6573426573426573,
+          "oof_sensitivity": 0.6006389776357828,
+          "oof_specificity": 0.7300275482093664,
+          "fold_accuracy_mean": 0.6700395083406497,
+          "fold_accuracy_std": 0.03741375374056819,
+          "fold_balanced_accuracy_mean": 0.6653925094449288,
+          "fold_balanced_accuracy_std": 0.03786185243654106,
+          "confusion_matrix": [
+            [
+              265,
+              98
+            ],
+            [
+              125,
+              188
+            ]
+          ],
+          "chosen_params_per_fold": [
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.01
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.001
+            }
+          ]
+        },
+        {
+          "seed": 2,
+          "tau_youden": 0.5728106609655931,
+          "oof_accuracy": 0.6804733727810651,
+          "oof_balanced_accuracy": 0.6727747999894383,
+          "oof_roc_auc": 0.7211293885705736,
+          "oof_f1": 0.6223776223776224,
+          "oof_precision": 0.6872586872586872,
+          "oof_sensitivity": 0.5686900958466453,
+          "oof_specificity": 0.7768595041322314,
+          "fold_accuracy_mean": 0.680443371378402,
+          "fold_accuracy_std": 0.04564230976222285,
+          "fold_balanced_accuracy_mean": 0.6726622287610191,
+          "fold_balanced_accuracy_std": 0.04588676711207743,
+          "confusion_matrix": [
+            [
+              282,
+              81
+            ],
+            [
+              135,
+              178
+            ]
+          ],
+          "chosen_params_per_fold": [
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.01
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.01
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.001
+            }
+          ]
+        }
+      ]
+    },
+    "RBF_SVM": {
+      "cross_seed": null,
+      "elapsed_sec": 3675.5123789310455,
+      "failed_folds": [],
+      "aborted": true,
+      "confusion_matrix_summed": null,
+      "seed_summaries": [
+        {
+          "seed": 0,
+          "tau_youden": 0.4882494656941402,
+          "oof_accuracy": 0.6745562130177515,
+          "oof_balanced_accuracy": 0.6712257632966317,
+          "oof_roc_auc": 0.721138189915419,
+          "oof_f1": 0.6405228758169934,
+          "oof_precision": 0.6555183946488294,
+          "oof_sensitivity": 0.6261980830670927,
+          "oof_specificity": 0.7162534435261708,
+          "fold_accuracy_mean": 0.6745829675153644,
+          "fold_accuracy_std": 0.04152046260000647,
+          "fold_balanced_accuracy_mean": 0.6714520972585489,
+          "fold_balanced_accuracy_std": 0.03895259017816374,
+          "confusion_matrix": [
+            [
+              260,
+              103
+            ],
+            [
+              117,
+              196
+            ]
+          ],
+          "chosen_params_per_fold": [
+            {
+              "C": 10.0,
+              "gamma": "scale"
+            },
+            {
+              "C": 10.0,
+              "gamma": "scale"
+            },
+            {
+              "C": 10.0,
+              "gamma": "scale"
+            },
+            {
+              "C": 10.0,
+              "gamma": "scale"
+            },
+            {
+              "C": 10.0,
+              "gamma": "scale"
+            },
+            {
+              "C": 10.0,
+              "gamma": "scale"
+            },
+            {
+              "C": 10.0,
+              "gamma": "scale"
+            },
+            {
+              "C": 10.0,
+              "gamma": "scale"
+            },
+            {
+              "C": 10.0,
+              "gamma": "scale"
+            },
+            {
+              "C": 10.0,
+              "gamma": "scale"
+            }
+          ]
+        },
+        {
+          "seed": 1,
+          "tau_youden": 0.4521463433056753,
+          "oof_accuracy": 0.6686390532544378,
+          "oof_balanced_accuracy": 0.6714369955729236,
+          "oof_roc_auc": 0.7197959848264817,
+          "oof_f1": 0.6646706586826348,
+          "oof_precision": 0.6253521126760564,
+          "oof_sensitivity": 0.7092651757188498,
+          "oof_specificity": 0.6336088154269972,
+          "fold_accuracy_mean": 0.6686347673397718,
+          "fold_accuracy_std": 0.04429126552810448,
+          "fold_balanced_accuracy_mean": 0.6716416012786982,
+          "fold_balanced_accuracy_std": 0.04304572995601209,
+          "confusion_matrix": [
+            [
+              230,
+              133
+            ],
+            [
+              91,
+              222
+            ]
+          ],
+          "chosen_params_per_fold": [
+            {
+              "C": 10.0,
+              "gamma": "scale"
+            },
+            {
+              "C": 1.0,
+              "gamma": "scale"
+            },
+            {
+              "C": 10.0,
+              "gamma": "scale"
+            },
+            {
+              "C": 10.0,
+              "gamma": "scale"
+            },
+            {
+              "C": 10.0,
+              "gamma": "scale"
+            },
+            {
+              "C": 10.0,
+              "gamma": "scale"
+            },
+            {
+              "C": 10.0,
+              "gamma": "scale"
+            },
+            {
+              "C": 10.0,
+              "gamma": "scale"
+            },
+            {
+              "C": 10.0,
+              "gamma": "scale"
+            },
+            {
+              "C": 10.0,
+              "gamma": "scale"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "holdout_status": "NEVER accessed. get_locked_holdout_ids() was never called from this script."
+}

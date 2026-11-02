@@ -1,0 +1,7 @@
+metric,matched_estimate,boot_mean,ci95_lo,ci95_hi,n_boot,unit_resampled,note
+roc_auc,0.680359994193642,0.6804295253302366,0.6342131578522927,0.7252213673973,2000,matched pairs,descriptive; ignores model-training uncertainty
+accuracy,0.6265060240963856,0.6266415662650603,0.5843373493975904,0.6686746987951807,2000,matched pairs,descriptive; ignores model-training uncertainty
+balanced_accuracy,0.6265060240963856,0.6266415662650603,0.5843373493975903,0.6686746987951807,2000,matched pairs,descriptive; ignores model-training uncertainty
+sensitivity,0.6104417670682731,0.6112168674698795,0.5502008032128514,0.6746987951807228,2000,matched pairs,descriptive; ignores model-training uncertainty
+specificity,0.642570281124498,0.642066265060241,0.5823293172690763,0.6987951807228916,2000,matched pairs,descriptive; ignores model-training uncertainty
+f1,0.6204081632653061,0.620594564179658,0.575557806627036,0.6652979508024975,2000,matched pairs,descriptive; ignores model-training uncertainty

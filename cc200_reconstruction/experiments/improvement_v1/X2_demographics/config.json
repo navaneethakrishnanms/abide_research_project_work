@@ -1,0 +1,47 @@
+{
+ "created_utc": "2026-10-26T03:20:24.281855+00:00",
+ "definition": "x2_definition.md; improvement_plan_v1.md section 5 arm D2",
+ "reference": "baseline Arm B, fixed 0.5, saved predictions",
+ "seeds": [
+  0,
+  1,
+  2
+ ],
+ "grid_C": [
+  0.001,
+  0.01,
+  0.1,
+  1.0,
+  10.0
+ ],
+ "hashes_verified": {
+  "features_cc200_train676.npz": "df6e7f9a3d15c7d659c00c2ed0d24d497d6be58d039856b5fb4ce795d39fd43c",
+  "subject_manifest.csv": "22cb64022ab5947716993b82f19be2814d469f3776241b3a36b5c10b3e93ea7a",
+  "seed_metrics.csv": "4211d0305ea384cb77075ab2d0a01d1f8b958899c7b5b27b2e36095d2d4c3c46",
+  "fold_metrics.csv": "bab680c18643666d08ced0c2d30557ccba546058fd0d49b456ceb1fd8c872f2e",
+  "oof_predictions.csv": "28dc62c095828f68e76d0d2bbd5496c61b472f742e635207bcce72341e73682e",
+  "stage1_checks.json": "c3f835248dd489221de957994d96f716b3abe06379ae655dd0e5e5a49c94cb55"
+ },
+ "criteria": {
+  "1a mean paired gain >= +1.0 pt accuracy": false,
+  "1b mean paired gain >= +1.0 pt balanced accuracy": false,
+  "1c every seed >= +0.5 pt (accuracy AND balanced accuracy; strictest reading)": false,
+  "2 accuracy higher in >= 20 of 30 paired folds": false,
+  "3a mean AUC not lower by more than 0.005": true,
+  "3b mean sensitivity not lower by more than 3 pts": true,
+  "3c mean specificity not lower by more than 3 pts": true
+ },
+ "provisional_pass_before_replication": false,
+ "details": {
+  "mean_d_acc": -0.5917159763313603,
+  "mean_d_bacc": -0.521626371176187,
+  "wins": 9,
+  "ties": 5,
+  "losses": 16,
+  "sign_p": 0.991937599144876,
+  "fd_mean": -0.005845771144278622,
+  "fd_sd": 0.027309688162426304,
+  "fd_se": 0.004986044081664232
+ },
+ "runtime_s": 271.4
+}

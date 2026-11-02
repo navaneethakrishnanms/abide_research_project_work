@@ -1,0 +1,2 @@
+total_phase2_subjects,ASD_total,control_total,bold_available,bold_unavailable,bold_uncertain,ASD_bold_available,control_bold_available,number_of_sites_with_bold,number_of_sites_without_bold,confirmed_cpac_filt_global,likely_cpac_filt_global,uncertain_pipeline_identity
+780,351,429,54,726,0,28,26,1,19,0,0,54

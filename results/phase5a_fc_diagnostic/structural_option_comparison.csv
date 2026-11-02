@@ -1,0 +1,4 @@
+option,subjects,rois,fc_features,undefined_entries,fully_numeric,requires_further_decision_before_svm_rfe
+"A: 780 subjects, 116 ROIs, NaN preserved",780,116,6670,14025,False,True
+"B: 733 subjects (47 excluded), 116 ROIs",733,116,6670,0,True,False
+"C: 780 subjects, 97 ROIs (19 excluded)",780,97,4656,0,True,False

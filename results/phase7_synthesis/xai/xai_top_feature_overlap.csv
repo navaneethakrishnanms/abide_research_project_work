@@ -1,0 +1,16 @@
+threshold,fold,union_size,intersection_all_7_methods
+top1pct,0,13,0
+top1pct,1,11,1
+top1pct,2,11,1
+top1pct,3,11,0
+top1pct,4,12,1
+top5pct,0,44,9
+top5pct,1,42,10
+top5pct,2,38,10
+top5pct,3,44,9
+top5pct,4,38,11
+top10pct,0,79,25
+top10pct,1,80,20
+top10pct,2,73,19
+top10pct,3,82,21
+top10pct,4,79,20

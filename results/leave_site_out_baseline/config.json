@@ -1,0 +1,8 @@
+{
+ "protocol": "leave-one-site-out, 19 sites, frozen AAL-116 L2 logistic regression (fast experiment pipeline + grid, inner StratifiedKFold(3, seed 42) on training sites only)",
+ "cohort": "600 development subjects",
+ "anonymization": "project_id = DEV{row index of dev_split_manifest}; no original subject IDs written",
+ "threads": "OMP/MKL/OPENBLAS=1",
+ "runtime_s": 0.3,
+ "protected_files_changed": 0
+}

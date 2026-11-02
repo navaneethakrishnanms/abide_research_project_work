@@ -1,0 +1,11 @@
+PARSING INTEGRITY SUMMARY
+========================================
+
+Files cross-checked with an independent parser: 30
+All shapes matched: True
+All values matched (np.allclose): True
+Duplicate file paths detected: False
+Subject IDs mapping to more than one file: 0
+Header (ROI ordering) identical across all 871 files: True
+
+CONCLUSION: No evidence that the constant-ROI finding is caused by our own parsing, orientation, delimiter handling, or subject-file mapping -- an independent manual parser reproduces identical values and shapes for every sampled affected file, and file->subject mapping is unambiguous (one file per subject ID, verified no duplicates).

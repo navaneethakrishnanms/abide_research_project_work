@@ -1,0 +1,188 @@
+{
+ "verdict": {
+  "C_fc_age_sex_fixed": {
+   "criteria": {
+    "1_seed_avg_acc_bacc_ge_0.02": false,
+    "2_two_seeds_meet_gain_and_4of5_folds": false,
+    "3_no_degradation": true
+   },
+   "established": false,
+   "seed_avg": {
+    "accuracy": 0.002777777777777768,
+    "balanced_accuracy": 0.0031200012895310054,
+    "sensitivity": 0.006149545772187278,
+    "specificity": 9.045680687471697e-05,
+    "precision": 0.0014706088814050962,
+    "f1": 0.0037304718948873625,
+    "roc_auc": 0.001014004369866665
+   },
+   "by_seed": {
+    "42": {
+     "accuracy_diff": 0.008333333333333326,
+     "balanced_accuracy_diff": 0.008585858585858586,
+     "sensitivity_diff": 0.011111111111111117,
+     "specificity_diff": 0.006060606060606055,
+     "precision_diff": 0.00796610169491525,
+     "f1_diff": 0.00940847694457383,
+     "roc_auc_diff": 0.00011305520551752046,
+     "folds_acc_improved": 1,
+     "per_fold_acc_diff": [
+      0.0,
+      0.0417,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "meets_gain": false
+    },
+    "123": {
+     "accuracy_diff": 0.0033333333333333214,
+     "balanced_accuracy_diff": 0.0037037037037036978,
+     "sensitivity_diff": 0.0074074074074073955,
+     "specificity_diff": 0.0,
+     "precision_diff": 0.0024137931034482695,
+     "f1_diff": 0.0046992481203007586,
+     "roc_auc_diff": 0.00011305520551749826,
+     "folds_acc_improved": 1,
+     "per_fold_acc_diff": [
+      0.0,
+      0.0167,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "meets_gain": false
+    },
+    "2026": {
+     "accuracy_diff": -0.0033333333333333435,
+     "balanced_accuracy_diff": -0.0029295584209692695,
+     "sensitivity_diff": -6.988120195667857e-05,
+     "specificity_diff": -0.0057892356399819045,
+     "precision_diff": -0.0059680681541482315,
+     "f1_diff": -0.0029163093802125005,
+     "roc_auc_diff": 0.002815902698564976,
+     "folds_acc_improved": 1,
+     "per_fold_acc_diff": [
+      0.0,
+      0.0417,
+      0.0,
+      -0.0583,
+      0.0
+     ],
+     "meets_gain": false
+    }
+   }
+  },
+  "D_fc_age_sex_tuned": {
+   "criteria": {
+    "1_seed_avg_acc_bacc_ge_0.02": false,
+    "2_two_seeds_meet_gain_and_4of5_folds": false,
+    "3_no_degradation": true
+   },
+   "established": false,
+   "seed_avg": {
+    "accuracy": 0.0061111111111111045,
+    "balanced_accuracy": 0.00654579209915734,
+    "sensitivity": 0.011041229909154446,
+    "specificity": 0.0020503542891602646,
+    "precision": 0.005465752232931428,
+    "f1": 0.007469501415138299,
+    "roc_auc": 0.0021397733607127155
+   },
+   "by_seed": {
+    "42": {
+     "accuracy_diff": 0.011666666666666648,
+     "balanced_accuracy_diff": 0.013032844164919611,
+     "sensitivity_diff": 0.026065688329839288,
+     "specificity_diff": 0.0,
+     "precision_diff": 0.010533714637528191,
+     "f1_diff": 0.01757553064115307,
+     "roc_auc_diff": 0.006114052063549891,
+     "folds_acc_improved": 3,
+     "per_fold_acc_diff": [
+      0.025,
+      0.0,
+      0.0167,
+      0.0167,
+      0.0
+     ],
+     "meets_gain": false
+    },
+    "123": {
+     "accuracy_diff": 0.0,
+     "balanced_accuracy_diff": -0.00012947460145433797,
+     "sensitivity_diff": -0.00034940600978337064,
+     "specificity_diff": 9.04568068747169e-05,
+     "precision_diff": -0.002515258046347557,
+     "f1_diff": -0.002348782692538709,
+     "roc_auc_diff": -0.0002485033696898453,
+     "folds_acc_improved": 3,
+     "per_fold_acc_diff": [
+      0.025,
+      0.0167,
+      0.0167,
+      0.0,
+      -0.0583
+     ],
+     "meets_gain": false
+    },
+    "2026": {
+     "accuracy_diff": 0.006666666666666665,
+     "balanced_accuracy_diff": 0.006734006734006748,
+     "sensitivity_diff": 0.007407407407407418,
+     "specificity_diff": 0.006060606060606077,
+     "precision_diff": 0.00837880010761365,
+     "f1_diff": 0.007181756296800535,
+     "roc_auc_diff": 0.0005537713882781015,
+     "folds_acc_improved": 1,
+     "per_fold_acc_diff": [
+      0.0,
+      0.0,
+      0.0333,
+      0.0,
+      0.0
+     ],
+     "meets_gain": false
+    }
+   }
+  }
+ },
+ "arms": [
+  "A_baseline_FC_only",
+  "B_age_sex",
+  "B2_age_sex_site",
+  "C_fc_age_sex_fixed",
+  "D_fc_age_sex_tuned"
+ ],
+ "seeds": [
+  42,
+  123,
+  2026
+ ],
+ "grid_D": {
+  "C": [
+   0.0001,
+   0.001,
+   0.01,
+   0.1
+  ],
+  "k": [
+   "500",
+   "2000",
+   "all"
+  ],
+  "w": [
+   1.0,
+   10.0
+  ]
+ },
+ "fixed_C": {
+  "C": 0.001,
+  "k": 2000,
+  "w": 1.0
+ },
+ "outer_cv": "StratifiedKFold(5, shuffle, seed 42) identical to the baseline",
+ "protected_files_changed": 0,
+ "runtime_s": 70.5,
+ "peak_rss_mb": 304.590848
+}

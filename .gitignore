@@ -1,0 +1,52 @@
+# ---- PROTECTED HOLDOUT: never commit (IDs, membership, labels, predictions) ----
+splits/phase2_holdout_subjects.txt
+**/RESTRICTED_*
+**/*holdout*.csv
+**/*holdout*.npz
+**/*holdout*.npy
+**/*holdout*.json
+
+# ---- raw / derived data (large, and subject to ABIDE data-use terms) ----
+abide_pcp/
+derivatives/
+UCLA_1/
+Phenotypic_V1_0b.csv
+*.nii
+*.nii.gz
+*.1D
+
+# ---- environments, packages, caches ----
+.venv/
+venv/
+wheels/
+anaconda_projects/
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.claude/
+
+# ---- model artifacts and numeric caches (regenerable) ----
+*.pth
+*.pt
+*.joblib
+*.pkl
+*.npy
+*.npz
+**/checkpoints/
+**/cache/
+**/joblib_*/
+
+# ---- logs and scratch ----
+*.log
+**/logs/
+*_tmp.*
+.DS_Store
+Thumbs.db
+
+# converted image output (1.7 GB)
+OUTPUT/
+*.png
+*.jpg
+
+# split definitions (contain holdout-related metadata)
+splits/

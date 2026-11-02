@@ -1,0 +1,66 @@
+{
+ "representation": "per-subject z-score -> Ledoit-Wolf covariance -> tangent space (geometric-mean reference fitted on training subjects only) -> 6,670 off-diagonal features (tangent.py)",
+ "model": "StandardScaler -> SelectKBest -> L2 logistic regression (balanced)",
+ "grid": [
+  [
+   0.0001,
+   "500"
+  ],
+  [
+   0.0001,
+   "2000"
+  ],
+  [
+   0.0001,
+   "all"
+  ],
+  [
+   0.001,
+   "500"
+  ],
+  [
+   0.001,
+   "2000"
+  ],
+  [
+   0.001,
+   "all"
+  ],
+  [
+   0.01,
+   "500"
+  ],
+  [
+   0.01,
+   "2000"
+  ],
+  [
+   0.01,
+   "all"
+  ],
+  [
+   0.1,
+   "500"
+  ],
+  [
+   0.1,
+   "2000"
+  ],
+  [
+   0.1,
+   "all"
+  ]
+ ],
+ "seeds": [
+  42,
+  123,
+  2026
+ ],
+ "outer_cv": "StratifiedKFold(5, shuffle, seed 42) identical to the baseline",
+ "inner_cv": "StratifiedKFold(3, shuffle, seed)",
+ "baseline": "accuracy_improvement_v1 control E0 (reproduces the frozen baseline exactly at seed 42)",
+ "protected_files_changed": 0,
+ "total_runtime_s": 368.6,
+ "peak_rss_mb": 1190.191104,
+ "threads": "OMP/MKL/OPENBLAS=1; 4 loky workers for reference fitting"
+}

@@ -1,0 +1,4 @@
+strategy,ASD_before,ASD_after,ASD_lost,Control_before,Control_after,Control_lost,class_ratio_before,class_ratio_after
+A: Subject exclusion,351,330,21,429,403,26,0.8182,0.8189
+B: ROI exclusion,351,351,0,429,429,0,0.8182,0.8182
+C: Fold-scoped imputation,351,351,0,429,429,0,0.8182,0.8182

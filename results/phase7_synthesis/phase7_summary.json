@@ -1,0 +1,40 @@
+{
+  "generated_utc": "2026-09-17T06:03:32.927171+00:00",
+  "freeze_check": {
+    "fold_N_matches": true,
+    "min_427": true,
+    "max_498": true,
+    "mean_464_2": "True",
+    "median_463": "True",
+    "std_matches_phase6_report_23_9": "True",
+    "unique_selected_1286": true,
+    "selected_every_fold_50": true
+  },
+  "phase7_status": "PASS",
+  "problems": [],
+  "n_selected_at_least_once": 1286,
+  "n_selected_every_fold": 50,
+  "category_distribution": {
+    "0": 5384,
+    "1": 731,
+    "2": 268,
+    "3": 144,
+    "4": 93,
+    "5": 50
+  },
+  "en_xai_category_distribution": {
+    "D: Unstable EN + weak XAI": 6446,
+    "A: Stable EN + strong XAI": 84,
+    "C: Unstable EN + strong XAI": 81,
+    "B: Stable EN + weak XAI": 59
+  },
+  "n_consensus_candidates": 87,
+  "roar_baseline_accuracy": 0.6153846153846154,
+  "roar_baseline_auc": 0.6770808297115113,
+  "audit": {
+    "previous_phases_unchanged": true,
+    "phase6_retrained": false,
+    "new_model_computation": false,
+    "global_feature_selection_performed": false
+  }
+}

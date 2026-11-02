@@ -1,0 +1,23 @@
+{
+ "experiment": "P2_RF",
+ "model": "RF",
+ "representation": "LW",
+ "pipeline": "Pipeline(steps=[('prep', DemoFCPrep()), ('sel', SelectKBest(k=2000)),\n                ('clf',\n                 RandomForestClassifier(class_weight='balanced_subsample',\n                                        n_estimators=300, n_jobs=1,\n                                        random_state=0))])",
+ "grid": {
+  "clf__min_samples_leaf": [
+   "1",
+   "5"
+  ]
+ },
+ "score_kind": "proba",
+ "outer": "StratifiedKFold(10, shuffle, seed)",
+ "inner": "StratifiedKFold(5, shuffle, seed), roc_auc",
+ "threshold_R1": "balanced-accuracy-maximizing threshold on inner 5-fold OOF scores (seed+1000) of the outer-training partition",
+ "seeds": [
+  0,
+  1,
+  2
+ ],
+ "created_utc": "2026-10-26T04:09:18.866966+00:00",
+ "campaign_py_sha256": "f1770d3dc7a2e932ba8bde9446b09513472b681de632dbe5dee4ae9a3d0d33ae"
+}

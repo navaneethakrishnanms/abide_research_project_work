@@ -1,0 +1,34 @@
+{
+  "generated_utc": "2026-09-16T06:30:58.812738+00:00",
+  "cohort": {
+    "total": 780,
+    "asd": 351,
+    "control": 429
+  },
+  "rois": 116,
+  "fc_features": 6670,
+  "undefined_pearson_entries": 14025,
+  "expected_undefined_entries": 14025,
+  "cross_check_pass": true,
+  "feature_indexing_pass": true,
+  "pearson_validation_pass": true,
+  "fisher_z_readiness": "BLOCKED",
+  "fisher_z_exact_plus1": 0,
+  "fisher_z_exact_minus1": 0,
+  "fisher_z_clipping_required": false,
+  "svm_rfe_nan_compatible": false,
+  "final_fc_preprocessing_decision": "REQUIRED",
+  "phase5a_status": "PASS",
+  "phase5_status": "BLOCKED",
+  "audit": {
+    "previous_phases_unchanged": true,
+    "fc_dataset_written": false,
+    "fisher_z_on_real_data": false,
+    "svm_rfe_trained": false,
+    "ssae_trained": false,
+    "classifier_trained": false,
+    "xai_run": false,
+    "roar_run": false,
+    "downloads_performed": false
+  }
+}

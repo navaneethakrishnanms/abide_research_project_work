@@ -1,0 +1,2 @@
+atlas_name,atlas_version,file_found,file_path,dimensions,voxel_size,space,label_count,notes
+AAL-116,,NO,,,,,,"AAL-116 atlas file is not currently available locally. derivatives/template/ contains mni152_t1_2mm.nii.gz and mni152_mask_2mm.nii.gz -- a T1 template and brain mask, NOT an AAL region-label atlas. Not substituted or treated as one."

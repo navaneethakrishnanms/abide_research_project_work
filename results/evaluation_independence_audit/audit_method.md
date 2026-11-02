@@ -1,0 +1,8 @@
+# Audit method
+
+1. Located lists: the two split files and the split-generation script (`phase2a_create_split.py`: pool = `phenotypic_qc.csv` rows with >= 100 CC200 timepoints, joint site x diagnosis stratification, seed 20260), the 871-subject table (SUB_ID column only), the Phase 2 FD-filtered and FD-removed lists (subject_id column only), Phase 6's cohort-verification IDs (subject_id column only) and the fast experiment's development manifest (sid column only).
+2. Normalized all IDs to integers-as-strings and compared them as exact Python sets; checked disjointness, unions and subset relations (results in `overlap_facts.json`).
+3. Mapped each phase/experiment to the cohort recorded in its summary, script or manifest (Phases 3-10: the 780 cohort; Phases 2c-2h: the 676 train list loaded through `holdout_guard.load_dev_subject_ids()`; recent experiments: dev600) and counted the intersection with the holdout.
+4. Read the guard's audit log (`results/experiment_audit_log.csv`) for access events and checked that `FINAL_MODEL_SPEC.json` does not exist.
+5. What was deliberately NOT done: no holdout labels, time series, features, predictions or performance were read; the split metadata JSON (which may contain label counts) and `ts_cc200.npy` (which contains the 846-pool time series) were not opened; the old seed-42 split was not reconstructed because that needs the pool's labels and time-series lengths.
+6. Limits: the audit can show ID overlap and recorded access events. It cannot prove that no script outside the guard ever scored the holdout, and the early-history overlap figure is a probabilistic inference.

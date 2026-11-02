@@ -1,0 +1,29 @@
+{
+ "window_TR": 50,
+ "step_TR": 10,
+ "min_windows_for_variance": 3,
+ "atlas": "AAL116 (116 ROIs, 6670 unique edges)",
+ "fisher_z_clip": 1e-06,
+ "classifier": "LogisticRegression(L2, balanced, max_iter 2000)",
+ "grid": {
+  "clf__C": [
+   "0.0001",
+   "0.001",
+   "0.01",
+   "0.1"
+  ],
+  "sel__k": [
+   "500",
+   "2000",
+   "all"
+  ]
+ },
+ "inner_cv": "StratifiedKFold(3, seed 42)",
+ "scoring": "roc_auc",
+ "outer_cv": "StratifiedKFold(5, shuffle, seed 42) -- identical to fast experiment",
+ "n_subjects": 600,
+ "baseline_source": "C:\\abide\\results\\fast_accuracy_experiment\\fold_results.csv",
+ "conclusion_rule": "see experiment_report.md",
+ "threads": "OMP/MKL/OPENBLAS=1",
+ "runtime_s": 25.7
+}

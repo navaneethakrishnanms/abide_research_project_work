@@ -1,0 +1,136 @@
+{
+  "generated_utc": "2026-09-15T04:05:39.189015+00:00",
+  "phase2_cohort": {
+    "total": 780,
+    "asd": 351,
+    "control": 429,
+    "duplicates": 0
+  },
+  "nifti_files_found_total": 241,
+  "classified": {
+    "functional_candidate_rest": 82,
+    "anat_mprage": 74,
+    "hires": 82,
+    "template": 2,
+    "unclassified": 1
+  },
+  "cpac_path_evidence_file_count": 2,
+  "raw_vs_cpac_determination": "Evidence indicates these are RAW ABIDE-I NIfTI files, not CPAC-preprocessed derivatives (see audit log for full reasoning).",
+  "bold_coverage": {
+    "available": 54,
+    "unavailable": 726,
+    "uncertain": 0,
+    "coverage_fraction": 0.0692,
+    "asd_available": 28,
+    "control_available": 26,
+    "sites_with_bold": [
+      "UCLA_1"
+    ],
+    "sites_without_bold": [
+      "CALTECH",
+      "CMU",
+      "KKI",
+      "LEUVEN_1",
+      "LEUVEN_2",
+      "MAX_MUN",
+      "NYU",
+      "OHSU",
+      "OLIN",
+      "PITT",
+      "SBL",
+      "SDSU",
+      "STANFORD",
+      "TRINITY",
+      "UCLA_2",
+      "UM_1",
+      "UM_2",
+      "USM",
+      "YALE"
+    ]
+  },
+  "pipeline_identity": {
+    "confirmed_cpac_filt_global": 0,
+    "likely_cpac_filt_global": 0,
+    "uncertain": 54
+  },
+  "preprocessing_evidence": [
+    {
+      "characteristic": "motion_correction",
+      "status": "NOT_CONFIRMED",
+      "evidence": "No motion-correction log, config, or sidecar file found.",
+      "source": "Project-wide search near UCLA_1 raw tree",
+      "notes": ""
+    },
+    {
+      "characteristic": "global_signal_regression",
+      "status": "NOT_CONFIRMED",
+      "evidence": "No GSR config/log found for the raw NIfTI volumes. Note: fetch_abide.py sets global_signal_regression=True, but that parameter applies to the SEPARATE already-extracted CC200 .1D pipeline (abide_pcp/), not these raw volumes.",
+      "source": "fetch_abide.py (unrelated CC200 pipeline); no evidence for raw volumes",
+      "notes": ""
+    },
+    {
+      "characteristic": "nuisance_regression",
+      "status": "NOT_CONFIRMED",
+      "evidence": "No nuisance-regression config/log found.",
+      "source": "Project-wide search",
+      "notes": ""
+    },
+    {
+      "characteristic": "bandpass_filtering",
+      "status": "NOT_CONFIRMED",
+      "evidence": "No band-pass filter config/log found for the raw volumes. Note: fetch_abide.py sets band_pass_filtering=True for the separate CC200 pipeline only.",
+      "source": "fetch_abide.py (unrelated CC200 pipeline); no evidence for raw volumes",
+      "notes": ""
+    },
+    {
+      "characteristic": "temporal_filtering",
+      "status": "NOT_CONFIRMED",
+      "evidence": "No temporal-filter config/log found.",
+      "source": "Project-wide search",
+      "notes": ""
+    },
+    {
+      "characteristic": "spatial_normalization",
+      "status": "NOT_CONFIRMED",
+      "evidence": "No normalization config/log found; header geometry (native-looking 64x64x34 @ 3x3x4mm) is consistent with un-normalized data but this is inference from header shape, not direct evidence -- see Step 8.",
+      "source": "nibabel header inspection of representative sample",
+      "notes": "Inference, not proof."
+    },
+    {
+      "characteristic": "smoothing",
+      "status": "NOT_CONFIRMED",
+      "evidence": "No smoothing-kernel config/log found.",
+      "source": "Project-wide search",
+      "notes": ""
+    }
+  ],
+  "aal_atlas_locally_available": false,
+  "aal_extraction_feasibility": "UNCERTAIN",
+  "aal_feasibility_reason": "Representative header inspection (no data loaded, no resampling) shows raw-looking native-space geometry (e.g. 64x64x34 voxels at 3x3x4mm) with no confirmed spatial normalization to a standard template. AAL-116 is defined in standard (e.g. MNI) space; applying it directly to unconfirmed native-space data would be invalid. Because normalization status could not be confirmed EITHER WAY from headers alone (absence of evidence is not evidence of absence), this is recorded as UNCERTAIN rather than a definitive NO -- but it does NOT currently support a YES determination.",
+  "representative_sample": {
+    "asd_n": 5,
+    "control_n": 5,
+    "all_valid_4d": true
+  },
+  "option_b": "PARTIAL",
+  "decision_reason": "54/780 (6.9%) of the Phase-2 cohort has any functional NIfTI file at all, restricted entirely to the single-site UCLA_1 raw download (28 ASD / 26 Control; 1 of 20 sites covered). CPAC/filt_global identity: 0 CONFIRMED, 0 LIKELY, 54 UNCERTAIN -- i.e. zero positive evidence anywhere that these are CPAC-preprocessed rather than raw. AAL-116 atlas locally available: NO. AAL extraction feasibility from image headers: UNCERTAIN. Note: although this falls in the PARTIAL bucket per the decision rule (some subjects have data, mapping is unambiguous), the practical scope here -- 6.9% coverage, single-site only, zero confirmed CPAC identity, no local AAL atlas -- is not sufficient to support a genuine 780-subject paper reproduction. Treat this as functionally NOT FEASIBLE for Phase 4 as currently scoped.",
+  "recommended_next_step": "Do NOT proceed to Phase 4 under Option B as scoped. Three alternatives for your decision: (a) Option C -- check whether a genuine ABIDE PCP release already provides AAL-116 ROI derivatives directly (avoiding raw-volume preprocessing entirely); (b) Option D -- perform full CPAC-equivalent preprocessing + AAL parcellation ourselves on raw multi-site ABIDE-I data, which requires downloading raw data for all 780 subjects (not just the 54 UCLA_1 subjects on disk) plus an AAL-116 atlas file, and building a real preprocessing pipeline -- substantially beyond this audit's scope; or (c) reconsider CC200 as the working atlas with your explicit, documented sign-off that this is a deliberate methodology deviation from the paper's AAL-116 basis, not a silent substitution.",
+  "audit": {
+    "phase1_phase2_phase3_unchanged": true,
+    "cohort_total_correct": true,
+    "asd_control_counts_correct": true,
+    "no_duplicate_subject_ids": true,
+    "cc200_substituted": false,
+    "fc_calculated": false,
+    "pearson_correlation_calculated": false,
+    "fisher_z_calculated": false,
+    "svm_rfe_run": false,
+    "ssae_trained": false,
+    "classifier_trained": false,
+    "xai_run": false,
+    "roar_run": false,
+    "images_resampled": false,
+    "large_downloads": false,
+    "original_data_modified": false
+  }
+}

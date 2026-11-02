@@ -1,0 +1,6 @@
+criterion,n_flagged,asd_flagged,tc_flagged,sites_affected,top_site,top_site_n
+mean_FD>0.2mm,76,45,31,17,UCLA_1,8
+mean_FD>0.5mm,10,7,3,8,UCLA_1,2
+perc_FD>20%,129,74,55,18,PITT,13
+perc_FD>50%,29,18,11,12,PITT,5
+num_valid_vol_proxy,99,57,42,18,UM_1,14

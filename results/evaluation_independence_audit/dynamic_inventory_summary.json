@@ -1,0 +1,56 @@
+{
+ "summary": {
+  "rois_aal": {
+   "files_found": 600,
+   "all_600_present": true,
+   "n_rois_values": [
+    116
+   ],
+   "T_min": 116,
+   "T_median": 176.0,
+   "T_mean": 196.4,
+   "T_max": 316,
+   "n_T_lt_100": 0,
+   "n_T_lt_120": 82,
+   "nan_total": 0,
+   "subjects_with_const_roi": 40,
+   "const_roi_total": 113,
+   "disk_MB": 134.9
+  },
+  "rois_cc200": {
+   "files_found": 600,
+   "all_600_present": true,
+   "n_rois_values": [
+    200
+   ],
+   "T_min": 116,
+   "T_median": 176.0,
+   "T_mean": 196.4,
+   "T_max": 316,
+   "n_T_lt_100": 0,
+   "n_T_lt_120": 82,
+   "nan_total": 0,
+   "subjects_with_const_roi": 12,
+   "const_roi_total": 42,
+   "disk_MB": 236.2
+  }
+ },
+ "alignment": {
+  "subjects": 600,
+  "ids_unique": true,
+  "fd_finite": true,
+  "fd_range": [
+   0.016,
+   0.2
+  ],
+  "ts_length_identical_across_atlases": true,
+  "folds_counts": {
+   "0": 120,
+   "1": 120,
+   "2": 120,
+   "3": 120,
+   "4": 120
+  },
+  "sites": 19
+ }
+}

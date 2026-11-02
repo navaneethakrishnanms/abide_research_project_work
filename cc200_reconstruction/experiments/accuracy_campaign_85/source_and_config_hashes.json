@@ -1,0 +1,33 @@
+{
+ "campaign.py": "f1770d3dc7a2e932ba8bde9446b09513472b681de632dbe5dee4ae9a3d0d33ae",
+ "selection_rule.py": "e4389cbebcae96950fab28bb8f81ae5e81c7967a3d29ed82552e28730c266467",
+ "report_phase.py": "6ee82b3fd55427a32f435f0bf7cae8a48b7df5422dd17cee04fcf169380c173d",
+ "phase5.py": "a4a63093df129e0611e18f378b4b1d0f2354dbf7af038b8da3d4b535b56a2398",
+ "final_report.py": "f2b65a37e0ed6842319f6e2ee1a89636afa979720fc7ec510ee078586b808f83",
+ "campaign_plan.md": "02aca946267d2aeaa706dd31113c98314ab465e0c258e35029265730de38997f",
+ "results/P1_LR_config.json": "83a30704e6a310f2908951f2e02ace5229c913d752f73e3deb7dfaca44d53d74",
+ "results/P2_LSVM_config.json": "edcdd1316159e756e3053d8e947899abeb8dae7c60f9250608e9239fa08e18ba",
+ "results/P2_RBF_config.json": "bd7fb45a0585cad4f6e5a54ad1f2dc58076696c60074347b173561b831b8a1b6",
+ "results/P2_RF_config.json": "e3469c5fca098bd89349d8e2b9a6f6a1061b0990cb64203280d368984c5f4863",
+ "results/P2_ET_config.json": "4d23baa43a289f6447d7c1d5a97ee7c7e0e06c3ba4f1d4a2ac08f6ea612f6f8a",
+ "results/P2_XGB_config.json": "ab4c68d6fbcf4ddcffab1f50614ef08c6bc4ddd765ba5363eab43dcdafb197bd",
+ "results/P3_PC_LR_config.json": "b763015c8b7a0a1306b80e74e55c3a267cc7411309c885628609dd63403b51f8",
+ "results/P3_TS_LR_config.json": "644d45726a9bc04eba7625b6a53d51631d29e1da9a13a9adfd33f298e996ae2b",
+ "results/P4_PCA_LR_config.json": "85da7bc469ca5ab76cbeec78bdfc215b398cded2dbd20a9e2e4076a367270476",
+ "results/P4_KBEST_LR_config.json": "ef9cbbc4de895fcf17f270cffe3f59d2a2c7cb8ecf1e621a4a5c4d8e7d38d1fc",
+ "results/P4_L1_LR_config.json": "9fc209b7e3113861803fd0d89b8b3ae7892947e8754b5b15fc3c58ef81face4b",
+ "results/P5_E1_SOFTVOTE_config.json": "408e7044c11b6a859ef1fd94f0e0eb01e0ccd7014904db69dd9d862755226209",
+ "results/P5_E2_STACK_config.json": "d7b1045f868c922b8267371159f4c97a0d61da8ed175da4a15e08ed58ca17ebf",
+ "cache/provenance.json": "7d57adbf711a4efd827bfc9be54be955d76b086bbb4dd202a1c7749d457e41b8",
+ "plan_time_campaign_py_sha256_recorded_in_plan": "f1770d3dc7a2e932ba8bde9446b09513472b681de632dbe5dee4ae9a3d0d33ae",
+ "campaign_py_unchanged_since_plan": true,
+ "selection_rule_unchanged_since_plan": true,
+ "baseline_and_cache_files": {
+  "features_cc200_train676.npz": "df6e7f9a3d15c7d659c00c2ed0d24d497d6be58d039856b5fb4ce795d39fd43c",
+  "subject_manifest.csv": "22cb64022ab5947716993b82f19be2814d469f3776241b3a36b5c10b3e93ea7a",
+  "seed_metrics.csv": "4211d0305ea384cb77075ab2d0a01d1f8b958899c7b5b27b2e36095d2d4c3c46",
+  "fold_metrics.csv": "bab680c18643666d08ced0c2d30557ccba546058fd0d49b456ceb1fd8c872f2e",
+  "oof_predictions.csv": "28dc62c095828f68e76d0d2bbd5496c61b472f742e635207bcce72341e73682e",
+  "stage1_checks.json": "c3f835248dd489221de957994d96f716b3abe06379ae655dd0e5e5a49c94cb55"
+ }
+}

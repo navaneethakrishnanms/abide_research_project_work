@@ -1,0 +1,1122 @@
+{
+  "phase": "2F",
+  "purpose": "Feature selection / dimensionality reduction comparison, correlation_fisherz representation, identical Phase 2C/2E CV splits, dev-only (N=676).",
+  "configs_tested": [
+    "all_19900",
+    "SelectKBest_k100",
+    "SelectKBest_k500",
+    "SelectKBest_k1000",
+    "SelectKBest_k2000",
+    "SelectKBest_k5000"
+  ],
+  "selection_method": "SelectKBest(f_classif), fit on outer-fold TRAINING partition only",
+  "cv_protocol": {
+    "outer": "StratifiedKFold(n_splits=10, shuffle=True, random_state=seed)",
+    "inner": "StratifiedKFold(n_splits=5, shuffle=True, random_state=seed)",
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "classifier": "LogisticRegression(max_iter=5000, solver='lbfgs', class_weight='balanced')",
+    "hyperparameter_grid": {
+      "C": [
+        0.001,
+        0.01,
+        0.1,
+        1.0,
+        10.0
+      ]
+    },
+    "threshold_selection": "Youden's J on seed-level OOF predictions"
+  },
+  "n_dev_subjects": 676,
+  "n_holdout_subjects_locked_untouched": 170,
+  "ranking_criterion": "CV ROC-AUC primary, balanced accuracy secondary (not raw accuracy)",
+  "winner": "all_19900",
+  "winner_cross_seed": {
+    "accuracy_mean": 0.6720907297830375,
+    "accuracy_std": 0.006198128742592005,
+    "balanced_accuracy_mean": 0.6684900119404911,
+    "balanced_accuracy_std": 0.003140962964975688,
+    "roc_auc_mean": 0.7175120358390762,
+    "roc_auc_std": 0.004484064224012003,
+    "f1_mean": 0.6355418105142824,
+    "f1_std": 0.01500333838456216,
+    "sensitivity_mean": 0.6198083067092651,
+    "sensitivity_std": 0.05138376179686824,
+    "specificity_mean": 0.7171717171717171,
+    "specificity_std": 0.0547432821332925
+  },
+  "per_config": {
+    "all_19900": {
+      "k": null,
+      "cross_seed": {
+        "accuracy_mean": 0.6720907297830375,
+        "accuracy_std": 0.006198128742592005,
+        "balanced_accuracy_mean": 0.6684900119404911,
+        "balanced_accuracy_std": 0.003140962964975688,
+        "roc_auc_mean": 0.7175120358390762,
+        "roc_auc_std": 0.004484064224012003,
+        "f1_mean": 0.6355418105142824,
+        "f1_std": 0.01500333838456216,
+        "sensitivity_mean": 0.6198083067092651,
+        "sensitivity_std": 0.05138376179686824,
+        "specificity_mean": 0.7171717171717171,
+        "specificity_std": 0.0547432821332925
+      },
+      "elapsed_sec": 166.6450698375702,
+      "failed_folds": [],
+      "confusion_matrix_summed": [
+        [
+          781,
+          308
+        ],
+        [
+          357,
+          582
+        ]
+      ],
+      "seed_summaries": [
+        {
+          "seed": 0,
+          "tau_youden": 0.45484920998266026,
+          "oof_accuracy": 0.665680473372781,
+          "oof_balanced_accuracy": 0.6673619729094605,
+          "oof_roc_auc": 0.7111926702400126,
+          "oof_f1": 0.6565349544072948,
+          "oof_precision": 0.6260869565217392,
+          "oof_sensitivity": 0.6900958466453674,
+          "oof_specificity": 0.6446280991735537,
+          "fold_accuracy_mean": 0.6656716417910448,
+          "fold_accuracy_std": 0.03558470220248735,
+          "fold_balanced_accuracy_mean": 0.6674071248668023,
+          "fold_balanced_accuracy_std": 0.033439439768184705,
+          "confusion_matrix": [
+            [
+              234,
+              129
+            ],
+            [
+              97,
+              216
+            ]
+          ],
+          "chosen_C_per_fold": [
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.1,
+            0.001,
+            0.001,
+            0.001,
+            0.001
+          ],
+          "n_selected_features": [
+            19900,
+            19900,
+            19900,
+            19900,
+            19900,
+            19900,
+            19900,
+            19900,
+            19900,
+            19900
+          ]
+        },
+        {
+          "seed": 1,
+          "tau_youden": 0.5465886662271844,
+          "oof_accuracy": 0.6701183431952663,
+          "oof_balanced_accuracy": 0.6653332629225746,
+          "oof_roc_auc": 0.7202140487066424,
+          "oof_f1": 0.6277128547579299,
+          "oof_precision": 0.6573426573426573,
+          "oof_sensitivity": 0.6006389776357828,
+          "oof_specificity": 0.7300275482093664,
+          "fold_accuracy_mean": 0.6700395083406497,
+          "fold_accuracy_std": 0.03741375374056819,
+          "fold_balanced_accuracy_mean": 0.6653925094449288,
+          "fold_balanced_accuracy_std": 0.03786185243654106,
+          "confusion_matrix": [
+            [
+              265,
+              98
+            ],
+            [
+              125,
+              188
+            ]
+          ],
+          "chosen_C_per_fold": [
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.01,
+            0.001,
+            0.001
+          ],
+          "n_selected_features": [
+            19900,
+            19900,
+            19900,
+            19900,
+            19900,
+            19900,
+            19900,
+            19900,
+            19900,
+            19900
+          ]
+        },
+        {
+          "seed": 2,
+          "tau_youden": 0.5728106609658875,
+          "oof_accuracy": 0.6804733727810651,
+          "oof_balanced_accuracy": 0.6727747999894383,
+          "oof_roc_auc": 0.7211293885705736,
+          "oof_f1": 0.6223776223776224,
+          "oof_precision": 0.6872586872586872,
+          "oof_sensitivity": 0.5686900958466453,
+          "oof_specificity": 0.7768595041322314,
+          "fold_accuracy_mean": 0.680443371378402,
+          "fold_accuracy_std": 0.04564230976222285,
+          "fold_balanced_accuracy_mean": 0.6726622287610191,
+          "fold_balanced_accuracy_std": 0.04588676711207743,
+          "confusion_matrix": [
+            [
+              282,
+              81
+            ],
+            [
+              135,
+              178
+            ]
+          ],
+          "chosen_C_per_fold": [
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.01,
+            0.001,
+            0.001,
+            0.01,
+            0.001,
+            0.001
+          ],
+          "n_selected_features": [
+            19900,
+            19900,
+            19900,
+            19900,
+            19900,
+            19900,
+            19900,
+            19900,
+            19900,
+            19900
+          ]
+        }
+      ]
+    },
+    "SelectKBest_k100": {
+      "k": 100,
+      "cross_seed": {
+        "accuracy_mean": 0.6262327416173569,
+        "accuracy_std": 0.006973439656672102,
+        "balanced_accuracy_mean": 0.6285773799569907,
+        "balanced_accuracy_std": 0.006088886871757065,
+        "roc_auc_mean": 0.6478728616399252,
+        "roc_auc_std": 0.0018049171949385714,
+        "f1_mean": 0.6206404844076573,
+        "f1_std": 0.002930695481948876,
+        "sensitivity_mean": 0.6602768903088392,
+        "sensitivity_std": 0.007969451303032903,
+        "specificity_mean": 0.5968778696051423,
+        "specificity_std": 0.018729180949835757
+      },
+      "elapsed_sec": 26.169187545776367,
+      "failed_folds": [],
+      "confusion_matrix_summed": [
+        [
+          650,
+          439
+        ],
+        [
+          319,
+          620
+        ]
+      ],
+      "seed_summaries": [
+        {
+          "seed": 0,
+          "tau_youden": 0.49369374203912486,
+          "oof_accuracy": 0.636094674556213,
+          "oof_balanced_accuracy": 0.6371733600894216,
+          "oof_roc_auc": 0.6503489733231238,
+          "oof_f1": 0.6238532110091743,
+          "oof_precision": 0.5982404692082112,
+          "oof_sensitivity": 0.6517571884984026,
+          "oof_specificity": 0.6225895316804407,
+          "fold_accuracy_mean": 0.6359964881474978,
+          "fold_accuracy_std": 0.0587652863808394,
+          "fold_balanced_accuracy_mean": 0.6370559067131648,
+          "fold_balanced_accuracy_std": 0.05857002549536281,
+          "confusion_matrix": [
+            [
+              226,
+              137
+            ],
+            [
+              109,
+              204
+            ]
+          ],
+          "chosen_C_per_fold": [
+            0.01,
+            0.001,
+            0.001,
+            0.01,
+            0.001,
+            0.001,
+            0.01,
+            0.01,
+            0.001,
+            0.01
+          ],
+          "n_selected_features": [
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100
+          ]
+        },
+        {
+          "seed": 1,
+          "tau_youden": 0.4661049299319839,
+          "oof_accuracy": 0.621301775147929,
+          "oof_balanced_accuracy": 0.6247194571330499,
+          "oof_roc_auc": 0.647171687833901,
+          "oof_f1": 0.621301775147929,
+          "oof_precision": 0.5785123966942148,
+          "oof_sensitivity": 0.670926517571885,
+          "oof_specificity": 0.5785123966942148,
+          "fold_accuracy_mean": 0.6213125548726953,
+          "fold_accuracy_std": 0.05703720825602553,
+          "fold_balanced_accuracy_mean": 0.6248854196938874,
+          "fold_balanced_accuracy_std": 0.05657567499981792,
+          "confusion_matrix": [
+            [
+              210,
+              153
+            ],
+            [
+              103,
+              210
+            ]
+          ],
+          "chosen_C_per_fold": [
+            0.01,
+            0.01,
+            0.01,
+            0.01,
+            0.01,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001
+          ],
+          "n_selected_features": [
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100
+          ]
+        },
+        {
+          "seed": 2,
+          "tau_youden": 0.4639695343665846,
+          "oof_accuracy": 0.621301775147929,
+          "oof_balanced_accuracy": 0.6238393226485006,
+          "oof_roc_auc": 0.646097923762751,
+          "oof_f1": 0.6167664670658682,
+          "oof_precision": 0.5802816901408451,
+          "oof_sensitivity": 0.65814696485623,
+          "oof_specificity": 0.5895316804407713,
+          "fold_accuracy_mean": 0.6214223002633888,
+          "fold_accuracy_std": 0.06249375508856104,
+          "fold_balanced_accuracy_mean": 0.6243046473893249,
+          "fold_balanced_accuracy_std": 0.06408209197126058,
+          "confusion_matrix": [
+            [
+              214,
+              149
+            ],
+            [
+              107,
+              206
+            ]
+          ],
+          "chosen_C_per_fold": [
+            0.01,
+            0.01,
+            0.01,
+            0.01,
+            0.01,
+            0.001,
+            0.01,
+            0.001,
+            0.001,
+            0.01
+          ],
+          "n_selected_features": [
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100
+          ]
+        }
+      ]
+    },
+    "SelectKBest_k500": {
+      "k": 500,
+      "cross_seed": {
+        "accuracy_mean": 0.6469428007889547,
+        "accuracy_std": 0.00785866738190792,
+        "balanced_accuracy_mean": 0.6487412609980139,
+        "balanced_accuracy_std": 0.005154681431494925,
+        "roc_auc_mean": 0.6846595493124683,
+        "roc_auc_std": 0.01195142333592121,
+        "f1_mean": 0.6377616834407395,
+        "f1_std": 0.012710245937654909,
+        "sensitivity_mean": 0.673056443024494,
+        "sensitivity_std": 0.04847627977312478,
+        "specificity_mean": 0.6244260789715335,
+        "specificity_std": 0.05399886291272417
+      },
+      "elapsed_sec": 30.396146774291992,
+      "failed_folds": [],
+      "confusion_matrix_summed": [
+        [
+          680,
+          409
+        ],
+        [
+          307,
+          632
+        ]
+      ],
+      "seed_summaries": [
+        {
+          "seed": 0,
+          "tau_youden": 0.4996539692324547,
+          "oof_accuracy": 0.6464497041420119,
+          "oof_balanced_accuracy": 0.6454950316408348,
+          "oof_roc_auc": 0.6777211557926051,
+          "oof_f1": 0.6236220472440945,
+          "oof_precision": 0.6149068322981367,
+          "oof_sensitivity": 0.6325878594249201,
+          "oof_specificity": 0.6584022038567493,
+          "fold_accuracy_mean": 0.6463784021071115,
+          "fold_accuracy_std": 0.0383732977998547,
+          "fold_balanced_accuracy_mean": 0.6454479681294197,
+          "fold_balanced_accuracy_std": 0.038351439991734716,
+          "confusion_matrix": [
+            [
+              239,
+              124
+            ],
+            [
+              115,
+              198
+            ]
+          ],
+          "chosen_C_per_fold": [
+            0.001,
+            0.001,
+            0.01,
+            0.001,
+            0.001,
+            0.01,
+            0.001,
+            0.01,
+            0.01,
+            0.001
+          ],
+          "n_selected_features": [
+            500,
+            500,
+            500,
+            500,
+            500,
+            500,
+            500,
+            500,
+            500,
+            500
+          ]
+        },
+        {
+          "seed": 1,
+          "tau_youden": 0.4331641259453297,
+          "oof_accuracy": 0.6375739644970414,
+          "oof_balanced_accuracy": 0.6447117119495859,
+          "oof_roc_auc": 0.6747815066142107,
+          "oof_f1": 0.6544428772919605,
+          "oof_precision": 0.5858585858585859,
+          "oof_sensitivity": 0.7412140575079872,
+          "oof_specificity": 0.5482093663911846,
+          "fold_accuracy_mean": 0.6375987708516242,
+          "fold_accuracy_std": 0.06779362486227708,
+          "fold_balanced_accuracy_mean": 0.6446743618618618,
+          "fold_balanced_accuracy_std": 0.06579503801713366,
+          "confusion_matrix": [
+            [
+              199,
+              164
+            ],
+            [
+              81,
+              232
+            ]
+          ],
+          "chosen_C_per_fold": [
+            0.001,
+            0.001,
+            0.001,
+            0.01,
+            0.001,
+            0.01,
+            0.01,
+            0.001,
+            0.001,
+            0.001
+          ],
+          "n_selected_features": [
+            500,
+            500,
+            500,
+            500,
+            500,
+            500,
+            500,
+            500,
+            500,
+            500
+          ]
+        },
+        {
+          "seed": 2,
+          "tau_youden": 0.5076833771846779,
+          "oof_accuracy": 0.6568047337278107,
+          "oof_balanced_accuracy": 0.6560170394036209,
+          "oof_roc_auc": 0.7014759855305891,
+          "oof_f1": 0.6352201257861635,
+          "oof_precision": 0.6253869969040248,
+          "oof_sensitivity": 0.645367412140575,
+          "oof_specificity": 0.6666666666666666,
+          "fold_accuracy_mean": 0.6567383669885866,
+          "fold_accuracy_std": 0.04771786630388723,
+          "fold_balanced_accuracy_mean": 0.6559011128063548,
+          "fold_balanced_accuracy_std": 0.049191846626670706,
+          "confusion_matrix": [
+            [
+              242,
+              121
+            ],
+            [
+              111,
+              202
+            ]
+          ],
+          "chosen_C_per_fold": [
+            0.001,
+            0.001,
+            0.01,
+            0.001,
+            0.01,
+            0.01,
+            0.001,
+            0.01,
+            0.001,
+            0.001
+          ],
+          "n_selected_features": [
+            500,
+            500,
+            500,
+            500,
+            500,
+            500,
+            500,
+            500,
+            500,
+            500
+          ]
+        }
+      ]
+    },
+    "SelectKBest_k1000": {
+      "k": 1000,
+      "cross_seed": {
+        "accuracy_mean": 0.6563116370808678,
+        "accuracy_std": 0.006198128742592006,
+        "balanced_accuracy_mean": 0.6567314152269134,
+        "balanced_accuracy_std": 0.002482645846647074,
+        "roc_auc_mean": 0.6875727944563262,
+        "roc_auc_std": 0.0027130073113175415,
+        "f1_mean": 0.6402316497284168,
+        "f1_std": 0.012691252451338468,
+        "sensitivity_mean": 0.6624068157614483,
+        "sensitivity_std": 0.04854641669879224,
+        "specificity_mean": 0.6510560146923784,
+        "specificity_std": 0.05333897422022995
+      },
+      "elapsed_sec": 31.841320514678955,
+      "failed_folds": [],
+      "confusion_matrix_summed": [
+        [
+          709,
+          380
+        ],
+        [
+          317,
+          622
+        ]
+      ],
+      "seed_summaries": [
+        {
+          "seed": 0,
+          "tau_youden": 0.530119221674711,
+          "oof_accuracy": 0.6627218934911243,
+          "oof_balanced_accuracy": 0.6588862778232514,
+          "oof_roc_auc": 0.6838380904602224,
+          "oof_f1": 0.625,
+          "oof_precision": 0.6440677966101694,
+          "oof_sensitivity": 0.6070287539936102,
+          "oof_specificity": 0.7107438016528925,
+          "fold_accuracy_mean": 0.6627524143985952,
+          "fold_accuracy_std": 0.0521861431378239,
+          "fold_balanced_accuracy_mean": 0.6587845405889761,
+          "fold_balanced_accuracy_std": 0.05089523095572223,
+          "confusion_matrix": [
+            [
+              258,
+              105
+            ],
+            [
+              123,
+              190
+            ]
+          ],
+          "chosen_C_per_fold": [
+            0.001,
+            0.01,
+            0.01,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.01,
+            0.001
+          ],
+          "n_selected_features": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ]
+        },
+        {
+          "seed": 1,
+          "tau_youden": 0.4495280831752316,
+          "oof_accuracy": 0.6479289940828402,
+          "oof_balanced_accuracy": 0.6532534171221362,
+          "oof_roc_auc": 0.6902014627835134,
+          "oof_f1": 0.6560693641618497,
+          "oof_precision": 0.5989445910290238,
+          "oof_sensitivity": 0.7252396166134185,
+          "oof_specificity": 0.581267217630854,
+          "fold_accuracy_mean": 0.647980684811238,
+          "fold_accuracy_std": 0.06134072704394614,
+          "fold_balanced_accuracy_mean": 0.6532143030126901,
+          "fold_balanced_accuracy_std": 0.05969308041019539,
+          "confusion_matrix": [
+            [
+              211,
+              152
+            ],
+            [
+              86,
+              227
+            ]
+          ],
+          "chosen_C_per_fold": [
+            0.001,
+            0.001,
+            0.001,
+            0.01,
+            0.001,
+            0.001,
+            0.01,
+            0.001,
+            0.001,
+            0.001
+          ],
+          "n_selected_features": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ]
+        },
+        {
+          "seed": 2,
+          "tau_youden": 0.5032744041992596,
+          "oof_accuracy": 0.658284023668639,
+          "oof_balanced_accuracy": 0.6580545507353524,
+          "oof_roc_auc": 0.6886788301252431,
+          "oof_f1": 0.6396255850234009,
+          "oof_precision": 0.625,
+          "oof_sensitivity": 0.6549520766773163,
+          "oof_specificity": 0.6611570247933884,
+          "fold_accuracy_mean": 0.6583845478489904,
+          "fold_accuracy_std": 0.06975265086298854,
+          "fold_balanced_accuracy_mean": 0.6581754637702217,
+          "fold_balanced_accuracy_std": 0.06957272157322159,
+          "confusion_matrix": [
+            [
+              240,
+              123
+            ],
+            [
+              108,
+              205
+            ]
+          ],
+          "chosen_C_per_fold": [
+            0.001,
+            0.001,
+            0.01,
+            0.01,
+            0.001,
+            0.01,
+            0.001,
+            0.001,
+            0.001,
+            0.001
+          ],
+          "n_selected_features": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ]
+        }
+      ]
+    },
+    "SelectKBest_k2000": {
+      "k": 2000,
+      "cross_seed": {
+        "accuracy_mean": 0.6686390532544378,
+        "accuracy_std": 0.0024156703577743496,
+        "balanced_accuracy_mean": 0.6698234156845833,
+        "balanced_accuracy_std": 0.0024644010047966732,
+        "roc_auc_mean": 0.7110841203202516,
+        "roc_auc_std": 0.005353023631464747,
+        "f1_mean": 0.6565428454956466,
+        "f1_std": 0.01369295048024748,
+        "sensitivity_mean": 0.6858359957401491,
+        "sensitivity_std": 0.044753783577104765,
+        "specificity_mean": 0.6538108356290174,
+        "specificity_std": 0.04149540322385675
+      },
+      "elapsed_sec": 34.730144739151,
+      "failed_folds": [],
+      "confusion_matrix_summed": [
+        [
+          712,
+          377
+        ],
+        [
+          295,
+          644
+        ]
+      ],
+      "seed_summaries": [
+        {
+          "seed": 0,
+          "tau_youden": 0.4926742092332831,
+          "oof_accuracy": 0.6715976331360947,
+          "oof_balanced_accuracy": 0.6719914802981896,
+          "oof_roc_auc": 0.7150828646617202,
+          "oof_f1": 0.6563467492260062,
+          "oof_precision": 0.6366366366366366,
+          "oof_sensitivity": 0.6773162939297125,
+          "oof_specificity": 0.6666666666666666,
+          "fold_accuracy_mean": 0.671488147497805,
+          "fold_accuracy_std": 0.037001491359361614,
+          "fold_balanced_accuracy_mean": 0.6719432638283445,
+          "fold_balanced_accuracy_std": 0.0363572297820728,
+          "confusion_matrix": [
+            [
+              242,
+              121
+            ],
+            [
+              101,
+              212
+            ]
+          ],
+          "chosen_C_per_fold": [
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001
+          ],
+          "n_selected_features": [
+            2000,
+            2000,
+            2000,
+            2000,
+            2000,
+            2000,
+            2000,
+            2000,
+            2000,
+            2000
+          ]
+        },
+        {
+          "seed": 1,
+          "tau_youden": 0.43626385165111475,
+          "oof_accuracy": 0.665680473372781,
+          "oof_balanced_accuracy": 0.6711025444687948,
+          "oof_roc_auc": 0.7146515987642912,
+          "oof_f1": 0.6734104046242775,
+          "oof_precision": 0.6147757255936676,
+          "oof_sensitivity": 0.744408945686901,
+          "oof_specificity": 0.5977961432506887,
+          "fold_accuracy_mean": 0.6656277436347674,
+          "fold_accuracy_std": 0.04416721757477815,
+          "fold_balanced_accuracy_mean": 0.6712261152281315,
+          "fold_balanced_accuracy_std": 0.043266229691569354,
+          "confusion_matrix": [
+            [
+              217,
+              146
+            ],
+            [
+              80,
+              233
+            ]
+          ],
+          "chosen_C_per_fold": [
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001
+          ],
+          "n_selected_features": [
+            2000,
+            2000,
+            2000,
+            2000,
+            2000,
+            2000,
+            2000,
+            2000,
+            2000,
+            2000
+          ]
+        },
+        {
+          "seed": 2,
+          "tau_youden": 0.5088459214778233,
+          "oof_accuracy": 0.6686390532544378,
+          "oof_balanced_accuracy": 0.6663762222867655,
+          "oof_roc_auc": 0.7035178975347433,
+          "oof_f1": 0.639871382636656,
+          "oof_precision": 0.6440129449838188,
+          "oof_sensitivity": 0.6357827476038339,
+          "oof_specificity": 0.696969696969697,
+          "fold_accuracy_mean": 0.6687884108867428,
+          "fold_accuracy_std": 0.06567331435992477,
+          "fold_balanced_accuracy_mean": 0.6665803908747459,
+          "fold_balanced_accuracy_std": 0.06564618581022563,
+          "confusion_matrix": [
+            [
+              253,
+              110
+            ],
+            [
+              114,
+              199
+            ]
+          ],
+          "chosen_C_per_fold": [
+            0.001,
+            0.001,
+            0.01,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001
+          ],
+          "n_selected_features": [
+            2000,
+            2000,
+            2000,
+            2000,
+            2000,
+            2000,
+            2000,
+            2000,
+            2000,
+            2000
+          ]
+        }
+      ]
+    },
+    "SelectKBest_k5000": {
+      "k": 5000,
+      "cross_seed": {
+        "accuracy_mean": 0.6711045364891518,
+        "accuracy_std": 0.008042162934073,
+        "balanced_accuracy_mean": 0.6649313348412971,
+        "balanced_accuracy_std": 0.007099820306755083,
+        "roc_auc_mean": 0.7004873011262788,
+        "roc_auc_std": 0.0052304447304282065,
+        "f1_mean": 0.6207854397647184,
+        "f1_std": 0.006215354313558053,
+        "sensitivity_mean": 0.5814696485623002,
+        "sensitivity_std": 0.014524155161859282,
+        "specificity_mean": 0.7483930211202937,
+        "specificity_std": 0.02341147618729469
+      },
+      "elapsed_sec": 47.264394998550415,
+      "failed_folds": [],
+      "confusion_matrix_summed": [
+        [
+          815,
+          274
+        ],
+        [
+          393,
+          546
+        ]
+      ],
+      "seed_summaries": [
+        {
+          "seed": 0,
+          "tau_youden": 0.5375008447058603,
+          "oof_accuracy": 0.6627218934911243,
+          "oof_balanced_accuracy": 0.6584462105809767,
+          "oof_roc_auc": 0.6933523442381996,
+          "oof_f1": 0.6225165562913907,
+          "oof_precision": 0.6460481099656358,
+          "oof_sensitivity": 0.6006389776357828,
+          "oof_specificity": 0.7162534435261708,
+          "fold_accuracy_mean": 0.6627963125548727,
+          "fold_accuracy_std": 0.023376757451029264,
+          "fold_balanced_accuracy_mean": 0.658574602828635,
+          "fold_balanced_accuracy_std": 0.022919773374233884,
+          "confusion_matrix": [
+            [
+              260,
+              103
+            ],
+            [
+              125,
+              188
+            ]
+          ],
+          "chosen_C_per_fold": [
+            0.001,
+            0.001,
+            0.01,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.01,
+            0.001
+          ],
+          "n_selected_features": [
+            5000,
+            5000,
+            5000,
+            5000,
+            5000,
+            5000,
+            5000,
+            5000,
+            5000,
+            5000
+          ]
+        },
+        {
+          "seed": 1,
+          "tau_youden": 0.5747768561714495,
+          "oof_accuracy": 0.6686390532544378,
+          "oof_balanced_accuracy": 0.6615354826217446,
+          "oof_roc_auc": 0.7023649213599837,
+          "oof_f1": 0.6124567474048442,
+          "oof_precision": 0.6679245283018868,
+          "oof_sensitivity": 0.5654952076677316,
+          "oof_specificity": 0.7575757575757576,
+          "fold_accuracy_mean": 0.6684591747146621,
+          "fold_accuracy_std": 0.04807622281218166,
+          "fold_balanced_accuracy_mean": 0.6612509687106461,
+          "fold_balanced_accuracy_std": 0.04819185014315181,
+          "confusion_matrix": [
+            [
+              275,
+              88
+            ],
+            [
+              136,
+              177
+            ]
+          ],
+          "chosen_C_per_fold": [
+            0.01,
+            0.001,
+            0.01,
+            0.001,
+            0.001,
+            0.001,
+            0.01,
+            0.01,
+            0.001,
+            0.001
+          ],
+          "n_selected_features": [
+            5000,
+            5000,
+            5000,
+            5000,
+            5000,
+            5000,
+            5000,
+            5000,
+            5000,
+            5000
+          ]
+        },
+        {
+          "seed": 2,
+          "tau_youden": 0.5756037235077225,
+          "oof_accuracy": 0.6819526627218935,
+          "oof_balanced_accuracy": 0.6748123113211699,
+          "oof_roc_auc": 0.7057446377806529,
+          "oof_f1": 0.6273830155979203,
+          "oof_precision": 0.6856060606060606,
+          "oof_sensitivity": 0.5782747603833865,
+          "oof_specificity": 0.7713498622589532,
+          "fold_accuracy_mean": 0.6820237050043898,
+          "fold_accuracy_std": 0.05869735478622783,
+          "fold_balanced_accuracy_mean": 0.6747982357357358,
+          "fold_balanced_accuracy_std": 0.058227353075397364,
+          "confusion_matrix": [
+            [
+              280,
+              83
+            ],
+            [
+              132,
+              181
+            ]
+          ],
+          "chosen_C_per_fold": [
+            0.01,
+            0.001,
+            0.01,
+            0.001,
+            0.001,
+            0.01,
+            0.001,
+            0.01,
+            0.001,
+            0.001
+          ],
+          "n_selected_features": [
+            5000,
+            5000,
+            5000,
+            5000,
+            5000,
+            5000,
+            5000,
+            5000,
+            5000,
+            5000
+          ]
+        }
+      ]
+    }
+  },
+  "holdout_status": "NEVER accessed. get_locked_holdout_ids() was never called from this script."
+}

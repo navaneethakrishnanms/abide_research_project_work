@@ -1,0 +1,7 @@
+window_TR,step_TR,atlas,windows_min,windows_mean,windows_max,subjects_with_lt_3_windows,total_windows,edges_per_window,float32_storage_GB_all_windows,per_subject_summary_features(var/mean-abs-change per edge)
+50,10,rois_aal,7,15.1,27,0,9033,6670,0.24,13340
+50,10,rois_cc200,7,15.1,27,0,9033,19900,0.72,39800
+60,20,rois_aal,3,7.1,13,0,4270,6670,0.11,13340
+60,20,rois_cc200,3,7.1,13,0,4270,19900,0.34,39800
+40,10,rois_aal,8,16.1,28,0,9633,6670,0.26,13340
+40,10,rois_cc200,8,16.1,28,0,9633,19900,0.77,39800

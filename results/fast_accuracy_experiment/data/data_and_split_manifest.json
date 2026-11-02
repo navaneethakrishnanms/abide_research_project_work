@@ -1,0 +1,21 @@
+{
+  "generated_utc": "2026-10-16T04:43:52.455090+00:00",
+  "n_dev": 600,
+  "n_asd": 268,
+  "n_tc": 332,
+  "n_sites": 19,
+  "outer_cv": "StratifiedKFold(5, shuffle, seed 42) on dev subjects",
+  "inner_cv": "StratifiedKFold(3, shuffle, seed 42)",
+  "split_source": "C:\\abide\\splits\\phase2_train_subjects.txt",
+  "holdout_file_opened": false,
+  "train_list_sha256": "7ff90fc7e4657dc273d0dcc1b8fac8855d58c5176fada67f6340c46e81740b2a",
+  "dev_set_definition": "phase2_train_subjects.txt INTERSECT results/phase2/fd_filtered_subjects.csv",
+  "total_runtime_s": 136.3,
+  "checks": {
+    "unique_subjects": true,
+    "outer_test_folds_partition_dev_set": true,
+    "train_test_disjoint_each_fold": true,
+    "pipeline_fits_inside_folds_only": true,
+    "perturbation_check": "PASS (see log)"
+  }
+}

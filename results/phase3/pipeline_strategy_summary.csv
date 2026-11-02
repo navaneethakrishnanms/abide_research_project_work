@@ -1,0 +1,5 @@
+strategy,present
+filt_global,True
+filt_noglobal,False
+nofilt_global,False
+nofilt_noglobal,False

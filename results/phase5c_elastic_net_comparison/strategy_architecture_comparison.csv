@@ -1,0 +1,8 @@
+aspect,A,B,C
+Subjects available for training,733,780,780
+Candidate FC features before selection,6670,4656,6670
+Elastic Net Option 2 (top-1000) achievable,Yes,Yes (4656>1000),Yes
+SSAE input dimension achievable,1000,1000,1000
+SSAE architecture,1000->500->100->2->Softmax,1000->500->100->2->Softmax,1000->500->100->2->Softmax
+Requires imputation before Elastic Net,No,No,Yes (fold-scoped)
+"Computational cost (relative, qualitative only)",Lower (fewer subjects),Lower (fewer features),Higher (extra fold-scoped step)

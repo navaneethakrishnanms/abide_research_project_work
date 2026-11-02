@@ -1,0 +1,2 @@
+defined_entries_total,undefined_entries_total,exact_plus1_count,exact_minus1_count,clipping_required_before_arctanh,fisher_z_applied_to_real_data,fisher_z_status
+5188575,14025,0,0,False,False,"MATHEMATICALLY READY FOR DEFINED ENTRIES ONLY -- undefined entries remain undefined under arctanh (NaN in, NaN out); NOT executed this phase"

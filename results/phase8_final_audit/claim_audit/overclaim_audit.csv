@@ -1,0 +1,7 @@
+file,line,keyword,statement,claim_type,supported,reason,recommended_wording
+results\phase7_synthesis\reports\PHASE7_FINDINGS.md,22,causal,features are causally necessary for the underlying phenomenon.,hedged/negated,N/A (properly hedged),Statement explicitly negates or disclaims the keyword term.,
+results\phase7_synthesis\reports\PHASE7_FINDINGS.md,49,biomarker,**Q12. What CANNOT yet be called a biological biomarker?** Every single finding in this phase.,hedged/negated,N/A (properly hedged),Statement explicitly negates or disclaims the keyword term.,
+results\phase7_synthesis\reports\PHASE7_LIMITATIONS.md,20,causal,12. XAI cross-method agreement does not establish biological causality.,hedged/negated,N/A (properly hedged),Statement explicitly negates or disclaims the keyword term.,
+results\phase7_synthesis\reports\PHASE7_LIMITATIONS.md,21,causal,13. ROAR-driven performance change does not establish biological causality.,hedged/negated,N/A (properly hedged),Statement explicitly negates or disclaims the keyword term.,
+results\phase7_synthesis\reports\PHASE7_LIMITATIONS.md,22,mechanism,"14. AAL ROI interpretation used here is anatomical name-mapping only, not disease-mechanism proof.",hedged/negated,N/A (properly hedged),Statement explicitly negates or disclaims the keyword term.,
+results\phase7_synthesis\reports\PHASE7_LIMITATIONS.md,24,biomarker,automatically biomarkers.,hedged/negated,N/A (properly hedged),Statement explicitly negates or disclaims the keyword term.,

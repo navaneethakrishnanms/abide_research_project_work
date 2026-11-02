@@ -1,0 +1,2 @@
+penalty,solver,C,l1_ratio,max_iter,tol,class_weight,random_state,tuned_against_test_data,hyperparameter_selection
+elasticnet,saga,0.1,0.5,3000,0.0001,balanced,42,False,"fixed a priori, documented, not tuned"

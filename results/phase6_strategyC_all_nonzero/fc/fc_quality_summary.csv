@@ -1,0 +1,2 @@
+shape_check,symmetry_check,n_features_per_subject,total_undefined,expected_undefined,cross_check_pass,unexpected_inf_count,unexpected_out_of_range_count
+780x6670 confirmed,"guaranteed by upper-triangle extraction (single value per unordered pair, no separate lower-triangle computed to compare)",6670,14025,14025,True,0,0

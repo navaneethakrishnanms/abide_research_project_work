@@ -1,0 +1,46 @@
+{
+  "generated_utc": "2026-09-16T06:34:41.198690+00:00",
+  "cohort": {
+    "total": 780,
+    "asd": 351,
+    "control": 429
+  },
+  "undefined_fc_total": 14025,
+  "affected_features": 2014,
+  "strategies_evaluated": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+  ],
+  "finite_matrix_possible_780x6670_without_modification": "NO",
+  "finite_matrix_possible_conditionally": "YES -- via Strategy A (fewer subjects), Strategy B (fewer ROIs/features), or Strategy C (with a leakage-safe, explicitly-documented imputation procedure, not yet adopted)",
+  "paper_specified_handling": "NO",
+  "leakage_safe_implementation_identified": "YES, IF Strategy C is eventually selected (documented fold-scoped procedure above) -- CONDITIONAL on that selection",
+  "imputation_diagnostic": {
+    "n_features_with_missing": 2014,
+    "n_missing_entries_total": 14025,
+    "mean_abs_diff_mean_vs_median": 0.004884110201211317,
+    "max_abs_diff_mean_vs_median": 0.0348425668956342,
+    "candidate_pooled_mean_range": [
+      -0.28802907198260086,
+      0.6617900737742235
+    ]
+  },
+  "phase5b_status": "PASS",
+  "human_decision_required": true,
+  "phase5_status": "BLOCKED",
+  "audit": {
+    "previous_phases_unchanged": true,
+    "fc_dataset_written": false,
+    "fisher_z_on_real_data": false,
+    "svm_rfe_trained": false,
+    "ssae_trained": false,
+    "classifier_trained": false,
+    "downloads_performed": false,
+    "cohort_modified": false,
+    "aal_files_modified": false
+  }
+}

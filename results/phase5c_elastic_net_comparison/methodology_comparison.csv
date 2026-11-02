@@ -1,0 +1,19 @@
+metric,A,B,C
+1. Subjects,733,780,780
+2. ASD count,330,351,351
+3. Control count,403,429,429
+4. ROIs,116,97,116
+5. FC features,6670,4656,6670
+6. Undefined FC after handling,0,0,0
+7. Whether values are invented,No,No,"Yes -- 14,025 entries (0.27% cohort-wide) replaced with a training-fold statistic"
+8. Information discarded,"47 subjects entirely (all 6,670 of their features)","19 ROIs' signal for all 780 subjects (2,014 features)",None discarded; some values (0.27%) are not directly measured
+9. Site impact,"Severe for SBL (-74%), PITT (-32%)",None directly,None directly; imputed-value concentration mirrors A's site pattern
+10. Diagnosis impact,"-21 ASD, -26 Control (negligible ratio shift)",None,None
+11. Elastic Net compatibility,Direct (fully finite matrix),Direct (fully finite matrix),Requires fold-scoped imputation completed first
+12. Leakage requirements,None beyond standard fold-scoped CV,None beyond standard fold-scoped CV,Strict -- imputation statistic must be training-fold-only (see leakage_control_protocol.md)
+13. SSAE compatibility,Yes (1000 selectable from 6670),Yes (1000 selectable from 4656),Yes (1000 selectable from 6670)
+14. XAI implications,733-subject results; SBL/PITT underrepresented,19 ROIs can never appear in any attribution,Imputed-feature attributions need disclosure
+15. ROAR implications,Retraining loop over 733 subjects,Retraining loop restricted to 97-ROI feature space,Retraining loop must reapply fold-scoped imputation each iteration
+16. Computational implications,Slightly cheaper (fewer subjects),Cheaper (30% fewer features),Most expensive (full data + imputation step per fold)
+17. Reproducibility implications,Deterministic exclusion list,Deterministic ROI list,Deterministic IF imputation statistic/procedure is fixed and documented
+18. Difference from original paper,Fewer subjects than paper's FD-only exclusion,Fewer ROIs/features than paper's fixed AAL-116/6670 design,Additional preprocessing step (imputation) paper does not describe

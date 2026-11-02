@@ -1,0 +1,1074 @@
+{
+  "phase": "2G_fast_v2",
+  "purpose": "FAST DEVELOPMENT VERSION of Phase 2G classifier comparison, v2 (threading fixed). 5 outer / 3 inner folds, PCA(200) for all classifiers, n_jobs=1 everywhere, OMP/MKL/OPENBLAS/NUMEXPR capped to 1 thread each.",
+  "v1_failure_reason": "v1 (n_jobs=-1) stalled on LogReg_L2 for >16 minutes with no fold completed, consistent with BLAS/joblib thread oversubscription. Process was killed (PID confirmed via CommandLine before termination) and rewritten with capped threading; Phase 2F results and the old phase2g_LogReg_L2/L1 audit entries were verified untouched afterward.",
+  "feature_config": "correlation_fisherz (precomputed once, subject-independent) + age + sex, then per-fold: StandardScaler(fit train) -> PCA(200, fit train)",
+  "classifiers_tested": [
+    "LogReg_L2",
+    "LogReg_L1",
+    "ElasticNet",
+    "LinearSVM",
+    "RBF_SVM",
+    "XGBoost"
+  ],
+  "xgboost_available": true,
+  "cv_protocol": {
+    "outer": "StratifiedKFold(n_splits=5, shuffle=True, random_state=seed)",
+    "inner": "StratifiedKFold(n_splits=3, shuffle=True, random_state=seed)",
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "pca_components": 200,
+    "n_jobs": 1,
+    "threshold_selection": "Youden's J on seed-level OOF predictions"
+  },
+  "n_dev_subjects": 676,
+  "n_holdout_subjects_locked_untouched": 170,
+  "ranking_criterion": "CV ROC-AUC primary, balanced accuracy secondary",
+  "winner": "RBF_SVM",
+  "winner_cross_seed": {
+    "accuracy_mean": 0.6592702169625246,
+    "accuracy_std": 0.005028618849697052,
+    "balanced_accuracy_mean": 0.662713395940233,
+    "balanced_accuracy_std": 0.004455818399740054,
+    "roc_auc_mean": 0.7049730532158648,
+    "roc_auc_std": 0.0008490244371385866,
+    "f1_mean": 0.6571754032093432,
+    "f1_std": 0.020152828861086963,
+    "sensitivity_mean": 0.7092651757188498,
+    "sensitivity_std": 0.0658384729119222,
+    "specificity_mean": 0.6161616161616162,
+    "specificity_std": 0.062266808110797774
+  },
+  "per_classifier": {
+    "LogReg_L2": {
+      "cross_seed": {
+        "accuracy_mean": 0.6553254437869822,
+        "accuracy_std": 0.007542928274545571,
+        "balanced_accuracy_mean": 0.6569133096870535,
+        "balanced_accuracy_std": 0.007972608352348386,
+        "roc_auc_mean": 0.7001880554015321,
+        "roc_auc_std": 0.010079371266732338,
+        "f1_mean": 0.6453447077489262,
+        "f1_std": 0.013736928307609718,
+        "sensitivity_mean": 0.6783812566560171,
+        "sensitivity_std": 0.0354170162903427,
+        "specificity_mean": 0.63544536271809,
+        "specificity_std": 0.03037251682009407
+      },
+      "elapsed_sec": 27.428085327148438,
+      "failed_folds": [],
+      "confusion_matrix_summed": [
+        [
+          692,
+          397
+        ],
+        [
+          302,
+          637
+        ]
+      ],
+      "seed_summaries": [
+        {
+          "seed": 0,
+          "tau_youden": 0.470902903620583,
+          "oof_accuracy": 0.6449704142011834,
+          "oof_balanced_accuracy": 0.6456578565204762,
+          "oof_roc_auc": 0.6874730458814107,
+          "oof_f1": 0.6307692307692307,
+          "oof_precision": 0.6083086053412463,
+          "oof_sensitivity": 0.6549520766773163,
+          "oof_specificity": 0.6363636363636364,
+          "fold_accuracy_mean": 0.6449564270152506,
+          "fold_accuracy_std": 0.02265909373694879,
+          "fold_balanced_accuracy_mean": 0.6455707411849702,
+          "fold_balanced_accuracy_std": 0.022794702475350002,
+          "confusion_matrix": [
+            [
+              231,
+              132
+            ],
+            [
+              108,
+              205
+            ]
+          ],
+          "chosen_params_per_fold": [
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.001
+            }
+          ]
+        },
+        {
+          "seed": 1,
+          "tau_youden": 0.4850416491483086,
+          "oof_accuracy": 0.6627218934911243,
+          "oof_balanced_accuracy": 0.6619667485191738,
+          "oof_roc_auc": 0.7009655075295504,
+          "oof_f1": 0.6415094339622641,
+          "oof_precision": 0.631578947368421,
+          "oof_sensitivity": 0.6517571884984026,
+          "oof_specificity": 0.6721763085399449,
+          "fold_accuracy_mean": 0.6627015250544661,
+          "fold_accuracy_std": 0.016336324960549223,
+          "fold_balanced_accuracy_mean": 0.6618860867369485,
+          "fold_balanced_accuracy_std": 0.015123035158422794,
+          "confusion_matrix": [
+            [
+              244,
+              119
+            ],
+            [
+              109,
+              204
+            ]
+          ],
+          "chosen_params_per_fold": [
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.001
+            }
+          ]
+        },
+        {
+          "seed": 2,
+          "tau_youden": 0.41625973586903653,
+          "oof_accuracy": 0.658284023668639,
+          "oof_balanced_accuracy": 0.6631153240215105,
+          "oof_roc_auc": 0.712125612793635,
+          "oof_f1": 0.6637554585152838,
+          "oof_precision": 0.6096256684491979,
+          "oof_sensitivity": 0.7284345047923323,
+          "oof_specificity": 0.5977961432506887,
+          "fold_accuracy_mean": 0.6582897603485839,
+          "fold_accuracy_std": 0.036037262198105685,
+          "fold_balanced_accuracy_mean": 0.6629393486662598,
+          "fold_balanced_accuracy_std": 0.03586188042383122,
+          "confusion_matrix": [
+            [
+              217,
+              146
+            ],
+            [
+              85,
+              228
+            ]
+          ],
+          "chosen_params_per_fold": [
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.001
+            }
+          ]
+        }
+      ]
+    },
+    "LogReg_L1": {
+      "cross_seed": {
+        "accuracy_mean": 0.6484220907297831,
+        "accuracy_std": 0.0013946879313344203,
+        "balanced_accuracy_mean": 0.6512188395720199,
+        "balanced_accuracy_std": 0.004054076460996762,
+        "roc_auc_mean": 0.686977236788448,
+        "roc_auc_std": 0.016426471456377514,
+        "f1_mean": 0.6434582307534318,
+        "f1_std": 0.021568553737545113,
+        "sensitivity_mean": 0.6890308839190628,
+        "sensitivity_std": 0.06316584718354384,
+        "specificity_mean": 0.613406795224977,
+        "specificity_std": 0.05547771337738555
+      },
+      "elapsed_sec": 28.21652054786682,
+      "failed_folds": [],
+      "confusion_matrix_summed": [
+        [
+          668,
+          421
+        ],
+        [
+          292,
+          647
+        ]
+      ],
+      "seed_summaries": [
+        {
+          "seed": 0,
+          "tau_youden": 0.5395438023889028,
+          "oof_accuracy": 0.6494082840236687,
+          "oof_balanced_accuracy": 0.6460495163661008,
+          "oof_roc_auc": 0.664580747938285,
+          "oof_f1": 0.6133768352365416,
+          "oof_precision": 0.6266666666666667,
+          "oof_sensitivity": 0.6006389776357828,
+          "oof_specificity": 0.6914600550964187,
+          "fold_accuracy_mean": 0.6494117647058824,
+          "fold_accuracy_std": 0.0319251739307284,
+          "fold_balanced_accuracy_mean": 0.6459956231719378,
+          "fold_balanced_accuracy_std": 0.03238836523575749,
+          "confusion_matrix": [
+            [
+              251,
+              112
+            ],
+            [
+              125,
+              188
+            ]
+          ],
+          "chosen_params_per_fold": [
+            {
+              "C": 0.01
+            },
+            {
+              "C": 0.1
+            },
+            {
+              "C": 0.1
+            },
+            {
+              "C": 0.01
+            },
+            {
+              "C": 0.01
+            }
+          ]
+        },
+        {
+          "seed": 1,
+          "tau_youden": 0.47286128584431236,
+          "oof_accuracy": 0.6494082840236687,
+          "oof_balanced_accuracy": 0.6559510293172797,
+          "oof_roc_auc": 0.7035178975347434,
+          "oof_f1": 0.662873399715505,
+          "oof_precision": 0.5974358974358974,
+          "oof_sensitivity": 0.744408945686901,
+          "oof_specificity": 0.5674931129476584,
+          "fold_accuracy_mean": 0.6493464052287582,
+          "fold_accuracy_std": 0.028228266426846668,
+          "fold_balanced_accuracy_mean": 0.6558526923805315,
+          "fold_balanced_accuracy_std": 0.02886115040274411,
+          "confusion_matrix": [
+            [
+              206,
+              157
+            ],
+            [
+              80,
+              233
+            ]
+          ],
+          "chosen_params_per_fold": [
+            {
+              "C": 0.01
+            },
+            {
+              "C": 0.01
+            },
+            {
+              "C": 0.01
+            },
+            {
+              "C": 0.01
+            },
+            {
+              "C": 0.01
+            }
+          ]
+        },
+        {
+          "seed": 2,
+          "tau_youden": 0.4575133249881704,
+          "oof_accuracy": 0.6464497041420119,
+          "oof_balanced_accuracy": 0.6516559730326794,
+          "oof_roc_auc": 0.6928330648923156,
+          "oof_f1": 0.6541244573082489,
+          "oof_precision": 0.5978835978835979,
+          "oof_sensitivity": 0.7220447284345048,
+          "oof_specificity": 0.581267217630854,
+          "fold_accuracy_mean": 0.6464270152505447,
+          "fold_accuracy_std": 0.034443913902751686,
+          "fold_balanced_accuracy_mean": 0.651367758769438,
+          "fold_balanced_accuracy_std": 0.031157333741692283,
+          "confusion_matrix": [
+            [
+              211,
+              152
+            ],
+            [
+              87,
+              226
+            ]
+          ],
+          "chosen_params_per_fold": [
+            {
+              "C": 10.0
+            },
+            {
+              "C": 0.01
+            },
+            {
+              "C": 0.01
+            },
+            {
+              "C": 0.1
+            },
+            {
+              "C": 0.01
+            }
+          ]
+        }
+      ]
+    },
+    "ElasticNet": {
+      "cross_seed": {
+        "accuracy_mean": 0.6494082840236687,
+        "accuracy_std": 0.011895796924866676,
+        "balanced_accuracy_mean": 0.648323197117853,
+        "balanced_accuracy_std": 0.010775943813171988,
+        "roc_auc_mean": 0.6915451347632585,
+        "roc_auc_std": 0.012721712669445091,
+        "f1_mean": 0.626076759497812,
+        "f1_std": 0.006700784234012175,
+        "sensitivity_mean": 0.6336528221512246,
+        "sensitivity_std": 0.007969451303032903,
+        "specificity_mean": 0.6629935720844812,
+        "specificity_std": 0.026645763321481934
+      },
+      "elapsed_sec": 181.4496476650238,
+      "failed_folds": [],
+      "confusion_matrix_summed": [
+        [
+          722,
+          367
+        ],
+        [
+          344,
+          595
+        ]
+      ],
+      "seed_summaries": [
+        {
+          "seed": 0,
+          "tau_youden": 0.461885279595869,
+          "oof_accuracy": 0.6331360946745562,
+          "oof_balanced_accuracy": 0.6337584382893706,
+          "oof_roc_auc": 0.6763833513760902,
+          "oof_f1": 0.6184615384615385,
+          "oof_precision": 0.5964391691394659,
+          "oof_sensitivity": 0.6421725239616614,
+          "oof_specificity": 0.6253443526170799,
+          "fold_accuracy_mean": 0.6331263616557734,
+          "fold_accuracy_std": 0.01395119945466401,
+          "fold_balanced_accuracy_mean": 0.6337611086561594,
+          "fold_balanced_accuracy_std": 0.014017410744126062,
+          "confusion_matrix": [
+            [
+              227,
+              136
+            ],
+            [
+              112,
+              201
+            ]
+          ],
+          "chosen_params_per_fold": [
+            {
+              "C": 0.1,
+              "l1_ratio": 0.8
+            },
+            {
+              "C": 0.1,
+              "l1_ratio": 0.8
+            },
+            {
+              "C": 0.1,
+              "l1_ratio": 0.8
+            },
+            {
+              "C": 0.1,
+              "l1_ratio": 0.8
+            },
+            {
+              "C": 0.1,
+              "l1_ratio": 0.8
+            }
+          ]
+        },
+        {
+          "seed": 1,
+          "tau_youden": 0.5464269316261484,
+          "oof_accuracy": 0.6538461538461539,
+          "oof_balanced_accuracy": 0.6517219831190206,
+          "oof_roc_auc": 0.6907383448190885,
+          "oof_f1": 0.625,
+          "oof_precision": 0.6270096463022508,
+          "oof_sensitivity": 0.6230031948881789,
+          "oof_specificity": 0.6804407713498623,
+          "fold_accuracy_mean": 0.6538235294117647,
+          "fold_accuracy_std": 0.026517848734719397,
+          "fold_balanced_accuracy_mean": 0.6516265808135009,
+          "fold_balanced_accuracy_std": 0.025154360717639008,
+          "confusion_matrix": [
+            [
+              247,
+              116
+            ],
+            [
+              118,
+              195
+            ]
+          ],
+          "chosen_params_per_fold": [
+            {
+              "C": 0.1,
+              "l1_ratio": 0.8
+            },
+            {
+              "C": 0.1,
+              "l1_ratio": 0.8
+            },
+            {
+              "C": 0.1,
+              "l1_ratio": 0.8
+            },
+            {
+              "C": 0.1,
+              "l1_ratio": 0.8
+            },
+            {
+              "C": 0.1,
+              "l1_ratio": 0.8
+            }
+          ]
+        },
+        {
+          "seed": 2,
+          "tau_youden": 0.5176655261837909,
+          "oof_accuracy": 0.6612426035502958,
+          "oof_balanced_accuracy": 0.6594891699451677,
+          "oof_roc_auc": 0.7075137080945969,
+          "oof_f1": 0.6347687400318979,
+          "oof_precision": 0.6337579617834395,
+          "oof_sensitivity": 0.6357827476038339,
+          "oof_specificity": 0.6831955922865014,
+          "fold_accuracy_mean": 0.6612418300653595,
+          "fold_accuracy_std": 0.02825636670283388,
+          "fold_balanced_accuracy_mean": 0.6592242177471961,
+          "fold_balanced_accuracy_std": 0.026815391181418246,
+          "confusion_matrix": [
+            [
+              248,
+              115
+            ],
+            [
+              114,
+              199
+            ]
+          ],
+          "chosen_params_per_fold": [
+            {
+              "C": 1.0,
+              "l1_ratio": 0.5
+            },
+            {
+              "C": 0.1,
+              "l1_ratio": 0.8
+            },
+            {
+              "C": 0.1,
+              "l1_ratio": 0.5
+            },
+            {
+              "C": 0.1,
+              "l1_ratio": 0.8
+            },
+            {
+              "C": 0.1,
+              "l1_ratio": 0.8
+            }
+          ]
+        }
+      ]
+    },
+    "LinearSVM": {
+      "cross_seed": {
+        "accuracy_mean": 0.6454635108481263,
+        "accuracy_std": 0.006652237457215004,
+        "balanced_accuracy_mean": 0.6429631781069481,
+        "balanced_accuracy_std": 0.006692376111030142,
+        "roc_auc_mean": 0.6824445441930194,
+        "roc_auc_std": 0.01186075042614734,
+        "f1_mean": 0.6136048514332904,
+        "f1_std": 0.01431919443493514,
+        "sensitivity_mean": 0.6091586794462193,
+        "sensitivity_std": 0.03541701629034269,
+        "specificity_mean": 0.6767676767676768,
+        "specificity_std": 0.03277606666221256
+      },
+      "elapsed_sec": 78.72388172149658,
+      "failed_folds": [],
+      "confusion_matrix_summed": [
+        [
+          737,
+          352
+        ],
+        [
+          367,
+          572
+        ]
+      ],
+      "seed_summaries": [
+        {
+          "seed": 0,
+          "tau_youden": 0.46050835271847806,
+          "oof_accuracy": 0.636094674556213,
+          "oof_balanced_accuracy": 0.6338728557723621,
+          "oof_roc_auc": 0.6656809160439715,
+          "oof_f1": 0.6057692307692307,
+          "oof_precision": 0.6077170418006431,
+          "oof_sensitivity": 0.6038338658146964,
+          "oof_specificity": 0.6639118457300276,
+          "fold_accuracy_mean": 0.6360566448801743,
+          "fold_accuracy_std": 0.03878203710361538,
+          "fold_balanced_accuracy_mean": 0.6338974461488822,
+          "fold_balanced_accuracy_std": 0.03888541858691938,
+          "confusion_matrix": [
+            [
+              241,
+              122
+            ],
+            [
+              124,
+              189
+            ]
+          ],
+          "chosen_params_per_fold": [
+            {
+              "estimator__C": 0.1
+            },
+            {
+              "estimator__C": 0.001
+            },
+            {
+              "estimator__C": 0.001
+            },
+            {
+              "estimator__C": 0.001
+            },
+            {
+              "estimator__C": 0.001
+            }
+          ]
+        },
+        {
+          "seed": 1,
+          "tau_youden": 0.45565921046664154,
+          "oof_accuracy": 0.6494082840236687,
+          "oof_balanced_accuracy": 0.649790087925435,
+          "oof_roc_auc": 0.6903246816113502,
+          "oof_f1": 0.633693972179289,
+          "oof_precision": 0.6137724550898204,
+          "oof_sensitivity": 0.6549520766773163,
+          "oof_specificity": 0.6446280991735537,
+          "fold_accuracy_mean": 0.6493899782135075,
+          "fold_accuracy_std": 0.029301625458057232,
+          "fold_balanced_accuracy_mean": 0.6498003598257686,
+          "fold_balanced_accuracy_std": 0.029972296610691302,
+          "confusion_matrix": [
+            [
+              234,
+              129
+            ],
+            [
+              108,
+              205
+            ]
+          ],
+          "chosen_params_per_fold": [
+            {
+              "estimator__C": 0.001
+            },
+            {
+              "estimator__C": 0.001
+            },
+            {
+              "estimator__C": 0.001
+            },
+            {
+              "estimator__C": 0.001
+            },
+            {
+              "estimator__C": 0.001
+            }
+          ]
+        },
+        {
+          "seed": 2,
+          "tau_youden": 0.46678539843194694,
+          "oof_accuracy": 0.650887573964497,
+          "oof_balanced_accuracy": 0.6452265906230472,
+          "oof_roc_auc": 0.6913280349237364,
+          "oof_f1": 0.6013513513513513,
+          "oof_precision": 0.6379928315412187,
+          "oof_sensitivity": 0.5686900958466453,
+          "oof_specificity": 0.721763085399449,
+          "fold_accuracy_mean": 0.6508496732026144,
+          "fold_accuracy_std": 0.04254642589874467,
+          "fold_balanced_accuracy_mean": 0.6449841830973073,
+          "fold_balanced_accuracy_std": 0.04455500624941321,
+          "confusion_matrix": [
+            [
+              262,
+              101
+            ],
+            [
+              135,
+              178
+            ]
+          ],
+          "chosen_params_per_fold": [
+            {
+              "estimator__C": 0.001
+            },
+            {
+              "estimator__C": 0.001
+            },
+            {
+              "estimator__C": 0.001
+            },
+            {
+              "estimator__C": 0.001
+            },
+            {
+              "estimator__C": 0.001
+            }
+          ]
+        }
+      ]
+    },
+    "RBF_SVM": {
+      "cross_seed": {
+        "accuracy_mean": 0.6592702169625246,
+        "accuracy_std": 0.005028618849697052,
+        "balanced_accuracy_mean": 0.662713395940233,
+        "balanced_accuracy_std": 0.004455818399740054,
+        "roc_auc_mean": 0.7049730532158648,
+        "roc_auc_std": 0.0008490244371385866,
+        "f1_mean": 0.6571754032093432,
+        "f1_std": 0.020152828861086963,
+        "sensitivity_mean": 0.7092651757188498,
+        "sensitivity_std": 0.0658384729119222,
+        "specificity_mean": 0.6161616161616162,
+        "specificity_std": 0.062266808110797774
+      },
+      "elapsed_sec": 52.68698978424072,
+      "failed_folds": [],
+      "confusion_matrix_summed": [
+        [
+          671,
+          418
+        ],
+        [
+          273,
+          666
+        ]
+      ],
+      "seed_summaries": [
+        {
+          "seed": 0,
+          "tau_youden": 0.44049596405019603,
+          "oof_accuracy": 0.6612426035502958,
+          "oof_balanced_accuracy": 0.6583890018394811,
+          "oof_roc_auc": 0.7053397759177602,
+          "oof_f1": 0.6288492706645057,
+          "oof_precision": 0.6381578947368421,
+          "oof_sensitivity": 0.6198083067092651,
+          "oof_specificity": 0.696969696969697,
+          "fold_accuracy_mean": 0.6612745098039217,
+          "fold_accuracy_std": 0.027034087536332994,
+          "fold_balanced_accuracy_mean": 0.6585386725024375,
+          "fold_balanced_accuracy_std": 0.026951747649230078,
+          "confusion_matrix": [
+            [
+              253,
+              110
+            ],
+            [
+              119,
+              194
+            ]
+          ],
+          "chosen_params_per_fold": [
+            {
+              "C": 1.0,
+              "gamma": "scale"
+            },
+            {
+              "C": 1.0,
+              "gamma": "scale"
+            },
+            {
+              "C": 1.0,
+              "gamma": "scale"
+            },
+            {
+              "C": 1.0,
+              "gamma": "scale"
+            },
+            {
+              "C": 1.0,
+              "gamma": "scale"
+            }
+          ]
+        },
+        {
+          "seed": 1,
+          "tau_youden": 0.3687000227511307,
+          "oof_accuracy": 0.6642011834319527,
+          "oof_balanced_accuracy": 0.668844999515926,
+          "oof_roc_auc": 0.7057798431600348,
+          "oof_f1": 0.6686131386861314,
+          "oof_precision": 0.6155913978494624,
+          "oof_sensitivity": 0.731629392971246,
+          "oof_specificity": 0.6060606060606061,
+          "fold_accuracy_mean": 0.6641285403050109,
+          "fold_accuracy_std": 0.027504607506775906,
+          "fold_balanced_accuracy_mean": 0.6687510959605524,
+          "fold_balanced_accuracy_std": 0.029465510126451856,
+          "confusion_matrix": [
+            [
+              220,
+              143
+            ],
+            [
+              84,
+              229
+            ]
+          ],
+          "chosen_params_per_fold": [
+            {
+              "C": 1.0,
+              "gamma": "scale"
+            },
+            {
+              "C": 1.0,
+              "gamma": "scale"
+            },
+            {
+              "C": 1.0,
+              "gamma": "scale"
+            },
+            {
+              "C": 1.0,
+              "gamma": "scale"
+            },
+            {
+              "C": 1.0,
+              "gamma": "scale"
+            }
+          ]
+        },
+        {
+          "seed": 2,
+          "tau_youden": 0.33071690758546013,
+          "oof_accuracy": 0.6523668639053254,
+          "oof_balanced_accuracy": 0.6609061864652919,
+          "oof_roc_auc": 0.7037995405697991,
+          "oof_f1": 0.6740638002773925,
+          "oof_precision": 0.5955882352941176,
+          "oof_sensitivity": 0.7763578274760383,
+          "oof_specificity": 0.5454545454545454,
+          "fold_accuracy_mean": 0.6523420479302832,
+          "fold_accuracy_std": 0.027993947203305468,
+          "fold_balanced_accuracy_mean": 0.6607038521698265,
+          "fold_balanced_accuracy_std": 0.028842493373174658,
+          "confusion_matrix": [
+            [
+              198,
+              165
+            ],
+            [
+              70,
+              243
+            ]
+          ],
+          "chosen_params_per_fold": [
+            {
+              "C": 1.0,
+              "gamma": "scale"
+            },
+            {
+              "C": 1.0,
+              "gamma": "scale"
+            },
+            {
+              "C": 1.0,
+              "gamma": "scale"
+            },
+            {
+              "C": 100.0,
+              "gamma": "scale"
+            },
+            {
+              "C": 1.0,
+              "gamma": "scale"
+            }
+          ]
+        }
+      ]
+    },
+    "XGBoost": {
+      "cross_seed": {
+        "accuracy_mean": 0.6198224852071006,
+        "accuracy_std": 0.019883476482895398,
+        "balanced_accuracy_mean": 0.6182812733785722,
+        "balanced_accuracy_std": 0.010302054033939642,
+        "roc_auc_mean": 0.6460509832569082,
+        "roc_auc_std": 0.014817963164194928,
+        "f1_mean": 0.5846730037987079,
+        "f1_std": 0.05023225853908444,
+        "sensitivity_mean": 0.597444089456869,
+        "sensitivity_std": 0.14823271237311933,
+        "specificity_mean": 0.6391184573002754,
+        "specificity_std": 0.16199658873817252
+      },
+      "elapsed_sec": 223.00692677497864,
+      "failed_folds": [],
+      "confusion_matrix_summed": [
+        [
+          696,
+          393
+        ],
+        [
+          378,
+          561
+        ]
+      ],
+      "seed_summaries": [
+        {
+          "seed": 0,
+          "tau_youden": 0.24207915365695953,
+          "oof_accuracy": 0.591715976331361,
+          "oof_balanced_accuracy": 0.6053124917487392,
+          "oof_roc_auc": 0.6340664853589628,
+          "oof_f1": 0.6415584415584416,
+          "oof_precision": 0.5404814004376368,
+          "oof_sensitivity": 0.7891373801916933,
+          "oof_specificity": 0.4214876033057851,
+          "fold_accuracy_mean": 0.591797385620915,
+          "fold_accuracy_std": 0.05256078317768598,
+          "fold_balanced_accuracy_mean": 0.6056403390638919,
+          "fold_balanced_accuracy_std": 0.04921521204089866,
+          "confusion_matrix": [
+            [
+              153,
+              210
+            ],
+            [
+              66,
+              247
+            ]
+          ],
+          "chosen_params_per_fold": [
+            {
+              "colsample_bytree": 0.8,
+              "learning_rate": 0.05,
+              "max_depth": 4,
+              "n_estimators": 200,
+              "subsample": 0.8
+            },
+            {
+              "colsample_bytree": 0.8,
+              "learning_rate": 0.1,
+              "max_depth": 3,
+              "n_estimators": 200,
+              "subsample": 0.8
+            },
+            {
+              "colsample_bytree": 0.8,
+              "learning_rate": 0.1,
+              "max_depth": 3,
+              "n_estimators": 200,
+              "subsample": 0.8
+            },
+            {
+              "colsample_bytree": 0.8,
+              "learning_rate": 0.05,
+              "max_depth": 3,
+              "n_estimators": 200,
+              "subsample": 0.8
+            },
+            {
+              "colsample_bytree": 0.8,
+              "learning_rate": 0.1,
+              "max_depth": 3,
+              "n_estimators": 200,
+              "subsample": 0.8
+            }
+          ]
+        },
+        {
+          "seed": 1,
+          "tau_youden": 0.5392382144927979,
+          "oof_accuracy": 0.6331360946745562,
+          "oof_balanced_accuracy": 0.6190161856731708,
+          "oof_roc_auc": 0.6371557573997306,
+          "oof_f1": 0.5193798449612403,
+          "oof_precision": 0.6600985221674877,
+          "oof_sensitivity": 0.4281150159744409,
+          "oof_specificity": 0.8099173553719008,
+          "fold_accuracy_mean": 0.6330501089324618,
+          "fold_accuracy_std": 0.03598054881083413,
+          "fold_balanced_accuracy_mean": 0.6188549930209233,
+          "fold_balanced_accuracy_std": 0.03981295506672736,
+          "confusion_matrix": [
+            [
+              294,
+              69
+            ],
+            [
+              179,
+              134
+            ]
+          ],
+          "chosen_params_per_fold": [
+            {
+              "colsample_bytree": 0.8,
+              "learning_rate": 0.05,
+              "max_depth": 4,
+              "n_estimators": 200,
+              "subsample": 0.8
+            },
+            {
+              "colsample_bytree": 0.8,
+              "learning_rate": 0.05,
+              "max_depth": 4,
+              "n_estimators": 200,
+              "subsample": 0.8
+            },
+            {
+              "colsample_bytree": 0.8,
+              "learning_rate": 0.1,
+              "max_depth": 4,
+              "n_estimators": 200,
+              "subsample": 0.8
+            },
+            {
+              "colsample_bytree": 0.8,
+              "learning_rate": 0.05,
+              "max_depth": 4,
+              "n_estimators": 100,
+              "subsample": 0.8
+            },
+            {
+              "colsample_bytree": 0.8,
+              "learning_rate": 0.1,
+              "max_depth": 4,
+              "n_estimators": 200,
+              "subsample": 0.8
+            }
+          ]
+        },
+        {
+          "seed": 2,
+          "tau_youden": 0.45269647240638733,
+          "oof_accuracy": 0.6346153846153846,
+          "oof_balanced_accuracy": 0.6305151427138067,
+          "oof_roc_auc": 0.6669307070120314,
+          "oof_f1": 0.5930807248764415,
+          "oof_precision": 0.6122448979591837,
+          "oof_sensitivity": 0.5750798722044729,
+          "oof_specificity": 0.6859504132231405,
+          "fold_accuracy_mean": 0.6345642701525054,
+          "fold_accuracy_std": 0.03111099668604577,
+          "fold_balanced_accuracy_mean": 0.6301931871584987,
+          "fold_balanced_accuracy_std": 0.027164898684929707,
+          "confusion_matrix": [
+            [
+              249,
+              114
+            ],
+            [
+              133,
+              180
+            ]
+          ],
+          "chosen_params_per_fold": [
+            {
+              "colsample_bytree": 0.8,
+              "learning_rate": 0.05,
+              "max_depth": 4,
+              "n_estimators": 100,
+              "subsample": 0.8
+            },
+            {
+              "colsample_bytree": 0.8,
+              "learning_rate": 0.1,
+              "max_depth": 3,
+              "n_estimators": 100,
+              "subsample": 0.8
+            },
+            {
+              "colsample_bytree": 0.8,
+              "learning_rate": 0.1,
+              "max_depth": 3,
+              "n_estimators": 200,
+              "subsample": 0.8
+            },
+            {
+              "colsample_bytree": 0.8,
+              "learning_rate": 0.1,
+              "max_depth": 3,
+              "n_estimators": 100,
+              "subsample": 0.8
+            },
+            {
+              "colsample_bytree": 0.8,
+              "learning_rate": 0.05,
+              "max_depth": 3,
+              "n_estimators": 200,
+              "subsample": 0.8
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "holdout_status": "NEVER accessed. get_locked_holdout_ids() was never called from this script."
+}

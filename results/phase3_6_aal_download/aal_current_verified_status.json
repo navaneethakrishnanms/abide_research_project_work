@@ -1,0 +1,41 @@
+{
+  "generated_utc": "2026-09-15T09:54:02.890602+00:00",
+  "purpose": "Authoritative, freshly re-derived AAL-116/CPAC status. Supersedes aal_download_summary.json for decision-making purposes -- that file is PRESERVED, UNMODIFIED, and known to undercount coverage because it only measured files fetched during one resumed run, not the full set on disk.",
+  "authoritative_cohort_source": "C:\\abide\\results\\phase2\\fd_filtered_subjects.csv",
+  "authoritative_data_source": "C:\\abide\\abide_pcp\\ABIDE_pcp\\cpac\\filt_global (all currently-present *_rois_aal.1D files)",
+  "phase2_cohort": {
+    "total": 780,
+    "asd": 351,
+    "control": 429,
+    "duplicates": 0
+  },
+  "aal_files_on_disk": 871,
+  "unique_subject_ids_on_disk": 871,
+  "coverage": {
+    "phase2_total": 780,
+    "downloaded_total": 871,
+    "overlap": 780,
+    "missing": 0,
+    "extra": 91,
+    "overlap_percentage": 100.0,
+    "overlap_ASD": 351,
+    "overlap_Control": 429
+  },
+  "integrity": {
+    "files_inspected": 871,
+    "corrupt_files": [],
+    "observed_roi_counts": [
+      116
+    ],
+    "roi_check_pass": true,
+    "stale_part_files_remaining": []
+  },
+  "timepoints": {
+    "min": 78,
+    "max": 316,
+    "median": 176.0
+  },
+  "overall_pass": true,
+  "decision": "AAL-116 CPAC data successfully acquired and verified.\nPhase 4 may begin.",
+  "supersedes": "C:\\abide\\results\\phase3_6_aal_download\\aal_download_summary.json (preserved as historical record, not deleted or modified; that file's coverage numbers are an artifact of measuring only one resumed run's incremental download, not the true cumulative state)"
+}

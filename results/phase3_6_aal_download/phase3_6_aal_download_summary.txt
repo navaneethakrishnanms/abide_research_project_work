@@ -1,0 +1,21 @@
+PHASE 3.6 -- AAL-116 CPAC Download & Integrity Verification
+======================================================================
+
+Pipeline: CPAC  Derivative: rois_aal  Strategy: filt_global
+
+Phase-2 cohort: 780 (351 ASD, 429 Control)
+Downloaded subjects: 596
+Overlap: 536  Missing: 244  Extra: 60  Overlap%: 68.72
+Overlap ASD: 239  Overlap Control: 297
+
+Observed ROI counts: [116]  ROI check pass: True
+Timepoints: min=116 max=316 median=176.0
+Corrupt files: 0  Duplicate subject files: 0
+
+Downloaded volume: 123.6 MB
+
+Audit: phase1_2_3_35_36 unchanged=True, only-approved-derivative=True
+
+FINAL DECISION:
+STOP -- AAL-116 data integrity/coverage issue detected.
+Do not begin Phase 4. Issues: 244 Phase-2 subjects missing from download; diagnosis counts do not match 351 ASD / 429 Control

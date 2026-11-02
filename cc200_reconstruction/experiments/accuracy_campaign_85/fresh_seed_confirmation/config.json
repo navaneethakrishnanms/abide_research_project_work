@@ -1,0 +1,92 @@
+{
+ "created_utc": "2026-10-28T04:08:34.422588+00:00",
+ "preregistered_criteria": {
+  "mean_accuracy_gain_pts>=": 0.5,
+  "seeds_with_positive_gain>=": 2,
+  "mean_auc_gain>=": 0.01,
+  "reading": "R1"
+ },
+ "results": {
+  "R1": {
+   "d_acc_by_seed": [
+    2.071005917159763,
+    1.0355029585798814,
+    0.4437869822485174
+   ],
+   "d_bacc_by_seed": [
+    2.5444687948318556,
+    1.1622175868472806,
+    0.6112533995194513
+   ],
+   "d_auc_by_seed": [
+    0.034008396482982484,
+    0.01853563224460686,
+    0.013844515441959526
+   ],
+   "mean_d_acc": 1.1834319526627206,
+   "sd_d_acc_seeds": 0.8236337814837322,
+   "mean_d_bacc": 1.4393132603995291,
+   "mean_d_auc": 0.022129514723182957,
+   "n_seeds_positive": 3,
+   "fold_wins": 20,
+   "fold_ties": 2,
+   "fold_losses": 8,
+   "fold_diff_mean": 1.1830553116769085,
+   "fold_diff_sd": 4.201547545071413,
+   "fold_diff_se": 0.7670941222886888,
+   "sign_test_p": 0.049368573352694525
+  },
+  "R0": {
+   "d_acc_by_seed": [
+    0.8875739644970349,
+    1.47928994082841,
+    1.0355029585798925
+   ],
+   "d_bacc_by_seed": [
+    0.6504193840818795,
+    1.311400381978367,
+    0.8101637930275629
+   ],
+   "d_auc_by_seed": [
+    0.034008396482982484,
+    0.01853563224460686,
+    0.013844515441959526
+   ],
+   "mean_d_acc": 1.1341222879684458,
+   "sd_d_acc_seeds": 0.3079387573174804,
+   "mean_d_bacc": 0.9239945196959365,
+   "mean_d_auc": 0.022129514723182957,
+   "n_seeds_positive": 3,
+   "fold_wins": 16,
+   "fold_ties": 5,
+   "fold_losses": 9,
+   "fold_diff_mean": 1.1333040678958164,
+   "fold_diff_sd": 3.729399341421889,
+   "fold_diff_se": 0.6808920484138931,
+   "sign_test_p": 0.42776777595281607
+  }
+ },
+ "criteria_met": {
+  "1_mean_acc_gain": true,
+  "2_positive_in_2_of_3_seeds": true,
+  "3_mean_auc_gain": true
+ },
+ "PASS": true,
+ "members": [
+  "P3_TS_LR",
+  "P2_LSVM",
+  "P1_LR"
+ ],
+ "seeds": [
+  3,
+  4,
+  5
+ ],
+ "runtime_s": 2133.2,
+ "member_runtime_s": {
+  "P3_TS_LR": 1570.3494312763214,
+  "P2_LSVM": 282.87892842292786,
+  "P1_LR": 278.7503230571747
+ },
+ "protected_holdout_accessed": false
+}

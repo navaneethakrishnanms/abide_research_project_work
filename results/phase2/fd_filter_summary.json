@@ -1,0 +1,199 @@
+{
+  "generated_utc": "2026-09-15T03:48:09.508129+00:00",
+  "fd_threshold_mm": 0.2,
+  "source_phase1_manifest": "C:\\abide\\results\\phase1\\subject_manifest.csv",
+  "source_fd_column": "C:\\abide\\abide_pcp\\phenotypic_qc.csv::func_mean_fd",
+  "initial": {
+    "total": 871,
+    "asd": 403,
+    "control": 468
+  },
+  "retained": {
+    "total": 780,
+    "asd": 351,
+    "control": 429
+  },
+  "removed": {
+    "total": 91,
+    "asd": 52,
+    "control": 39
+  },
+  "unresolved": {
+    "total": 0,
+    "asd": 0,
+    "control": 0
+  },
+  "retention_percent": 89.55,
+  "removal_percent": 10.45,
+  "unresolved_percent": 0.0,
+  "fd_statistics": {
+    "min": 0.0161171065,
+    "max": 1.434911749,
+    "mean": 0.10876871542342137,
+    "median": 0.0783014327,
+    "std": 0.11526975049661403,
+    "n_le_0.2": 780,
+    "n_gt_0.2": 91,
+    "n_missing": 0,
+    "n_invalid_non_numeric": 0,
+    "n_infinite": 0
+  },
+  "age_summary": {
+    "initial_age_min": 6.47,
+    "initial_age_max": 58.0,
+    "post_fd_age_min": 6.47,
+    "post_fd_age_max": 58.0
+  },
+  "site_summary": [
+    {
+      "site": "CALTECH",
+      "initial_n": 15,
+      "retained_n": 15,
+      "removed_n": 0,
+      "unresolved_n": 0
+    },
+    {
+      "site": "CMU",
+      "initial_n": 11,
+      "retained_n": 2,
+      "removed_n": 9,
+      "unresolved_n": 0
+    },
+    {
+      "site": "KKI",
+      "initial_n": 33,
+      "retained_n": 29,
+      "removed_n": 4,
+      "unresolved_n": 0
+    },
+    {
+      "site": "LEUVEN_1",
+      "initial_n": 28,
+      "retained_n": 28,
+      "removed_n": 0,
+      "unresolved_n": 0
+    },
+    {
+      "site": "LEUVEN_2",
+      "initial_n": 28,
+      "retained_n": 26,
+      "removed_n": 2,
+      "unresolved_n": 0
+    },
+    {
+      "site": "MAX_MUN",
+      "initial_n": 46,
+      "retained_n": 40,
+      "removed_n": 6,
+      "unresolved_n": 0
+    },
+    {
+      "site": "NYU",
+      "initial_n": 172,
+      "retained_n": 168,
+      "removed_n": 4,
+      "unresolved_n": 0
+    },
+    {
+      "site": "OHSU",
+      "initial_n": 25,
+      "retained_n": 22,
+      "removed_n": 3,
+      "unresolved_n": 0
+    },
+    {
+      "site": "OLIN",
+      "initial_n": 28,
+      "retained_n": 22,
+      "removed_n": 6,
+      "unresolved_n": 0
+    },
+    {
+      "site": "PITT",
+      "initial_n": 50,
+      "retained_n": 41,
+      "removed_n": 9,
+      "unresolved_n": 0
+    },
+    {
+      "site": "SBL",
+      "initial_n": 26,
+      "retained_n": 23,
+      "removed_n": 3,
+      "unresolved_n": 0
+    },
+    {
+      "site": "SDSU",
+      "initial_n": 27,
+      "retained_n": 26,
+      "removed_n": 1,
+      "unresolved_n": 0
+    },
+    {
+      "site": "STANFORD",
+      "initial_n": 25,
+      "retained_n": 24,
+      "removed_n": 1,
+      "unresolved_n": 0
+    },
+    {
+      "site": "TRINITY",
+      "initial_n": 44,
+      "retained_n": 42,
+      "removed_n": 2,
+      "unresolved_n": 0
+    },
+    {
+      "site": "UCLA_1",
+      "initial_n": 64,
+      "retained_n": 54,
+      "removed_n": 10,
+      "unresolved_n": 0
+    },
+    {
+      "site": "UCLA_2",
+      "initial_n": 21,
+      "retained_n": 16,
+      "removed_n": 5,
+      "unresolved_n": 0
+    },
+    {
+      "site": "UM_1",
+      "initial_n": 86,
+      "retained_n": 77,
+      "removed_n": 9,
+      "unresolved_n": 0
+    },
+    {
+      "site": "UM_2",
+      "initial_n": 34,
+      "retained_n": 31,
+      "removed_n": 3,
+      "unresolved_n": 0
+    },
+    {
+      "site": "USM",
+      "initial_n": 67,
+      "retained_n": 59,
+      "removed_n": 8,
+      "unresolved_n": 0
+    },
+    {
+      "site": "YALE",
+      "initial_n": 41,
+      "retained_n": 35,
+      "removed_n": 6,
+      "unresolved_n": 0
+    }
+  ],
+  "audit": {
+    "retained_removed_overlap": 0,
+    "retained_unresolved_overlap": 0,
+    "removed_unresolved_overlap": 0,
+    "sum_matches_initial": true,
+    "duplicate_subject_ids": 0,
+    "diagnosis_labels_altered": false,
+    "phase1_files_modified": false,
+    "previous_project_results_modified": false
+  }
+}

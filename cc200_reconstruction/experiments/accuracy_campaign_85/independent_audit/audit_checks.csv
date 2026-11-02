@@ -1,0 +1,36 @@
+id,item,result,detail
+1a,all seed-level metrics and confusion counts (13 experiments x 3 seeds x 2 readings) recomputed from the saved predictions equal seed_metrics.csv,PASS,max |difference| 5.55e-17
+1b,"all_experiments_comparison.csv means (R1 accuracy, R0 accuracy, AUC) equal the recomputed means",PASS,max |difference| 0.00e+00
+1c,every accuracy cell (mean +/- seed SD) in the final report's ranking table matches the recomputed value,PASS,13/13 rows match
+1d,ROC-AUC is the same under R0 and R1 for every run (threshold independent),PASS,
+2a,"every experiment and seed has exactly the 676 authorized training subjects, each once",PASS,
+2b,y_true in every prediction file equals the verified cache labels (same subject order),PASS,
+2c,fold assignment is identical across all 13 experiments for each seed,PASS,
+2d,"fold assignment equals an independent regeneration StratifiedKFold(10, shuffle, seed).split(y) for each seed",PASS,
+2e,site labels agree across files with the cache,PASS,
+2f,"hashes in source_and_config_hashes.json equal the current files (campaign code, plan, configs, provenance, baseline and cache)",PASS,all match
+2g,frozen selection rule file and campaign.py unchanged since the plan (hashes recorded in the plan),PASS,
+2h,no experiment failure was logged (case-sensitive 'EXPERIMENT FAILED'),PASS,occurrences: 0; invocations: 6; hash verifications: 8
+3a,inner out-of-fold scores exist exactly for the outer-TRAINING rows of each fold and are NaN for every outer-test row (so thresholds cannot see test rows),PASS,
+3b,R1 threshold of every fold recomputed independently from the stored training-only inner-OOF scores and training labels equals the stored threshold,PASS,max |difference| 2.98e-08
+3c,R1 predictions equal (test score >= that fold's training-derived threshold) for all 11 single-model experiments,PASS,
+3d,static check of run_fold: every .fit(...) and cross_val_predict(...) uses only Xtr / y[tr]; the test matrix Xte appears only in scoring,PASS,"gs = GridSearchCV(est, grid, cv=StratifiedKFold(N_INNER, shuffle=True, random_state=seed), scoring=""roc_auc"", n_jobs=4, refit=True, error_score=np.nan).fit(Xtr, y[tr]); io = cross_val_predict(clone(best), Xtr, y[tr], cv=Stratified"
+3e,tangent-space reference is fitted on the outer-training covariances only (static check),PASS,
+3f,stored P1_LR scores equal the pre-campaign Arm B scores (reproduction),PASS,
+3g,"KNOWN LIMITATION (documented in the plan): in P3_TS_LR the tangent reference is built from all outer-training rows, so the inner CV that selects C sees a reference computed with the inner-validation rows (label-free); outer-test rows never enter",INFO,strict rule 6 would refit the reference per inner fold; affects only hyperparameter selection
+4a,the saved P5_E1 soft-vote predictions are reproduced exactly from the stored training-only inner-OOF scores (independent re-implementation),PASS,
+4b,selection bias: gain of the chosen soft vote vs the average of all 35 possible 3-model eligible soft votes and its rank among them,INFO,"chosen gain +0.74 pts (rank 15 of 35); mean gain of all 35 subsets +0.57 (min -0.94, max +1.97); vote of all 7 eligible +1.04; vote of all 11 single models +0.99"
+4c,"leave-one-seed-out selection (members chosen from the other two seeds, scored on the held-out seed)",INFO,"gains by held-out seed [1.63, 0.89, 0.44] pts; mean +0.99"
+4d,ensembling benefit over the members themselves for the chosen vote (vote accuracy minus the mean of its three members' accuracies),INFO,+0.41 pts; across all 35 subsets mean +0.73
+4e,chosen vote's paired-fold result vs reference,INFO,"wins 17, ties 3, losses 10 of 30; mean +0.74 pts, SE 0.53"
+5a,"subjects misclassified in >= 90% of the 39 runs (>= 36 of 39 errors), recomputed from the predictions",PASS,68 subjects (report says 68)
+5b,"same count using only the 11 non-ensemble experiments (33 runs, >= 30 errors)",INFO,70 subjects (equal to the 70 computed on the non-ensemble columns)
+5c,"the 39 'runs' are not independent: they share features/folds, and the two ensembles are functions of three other runs; mean error rate per run",INFO,"35.2%; under independent errors at this rate P(>=36/39 errors) = 1.2e-13, so the persistence is real but expected when models share the same features"
+5d,class split of the consistently misclassified subjects,INFO,"ASD 35, TC 33"
+6a,"frozen screening re-implemented independently and compared with selection_rule.py: no candidate passes, and the two implementations agree for all 12 candidates",PASS,"passers: []; best gain +0.74 pts (needs +1.5), most fold wins 17 (needs 20)"
+6b,"rule consistency: reference for every comparison is P1_LR under R1; same 30 paired folds ordered by (seed, fold); no candidate-specific changes to the rule",PASS,"paired arrays share ordering (folds identical, check 2c)"
+6c,"multiple comparisons: z = mean paired fold difference / its SE for the 12 candidates (folds treated as independent, which overstates precision); the maximum of 12 standard-normal draws is about 1.6 by chance alone",INFO,"max z 1.39 (P5_E1_SOFTVOTE); z values P2_LSVM:+0.71, P2_RBF:-0.64, P2_RF:-1.90, P2_ET:-0.90, P2_XGB:-0.62, P3_PC_LR:-4.71, P3_TS_LR:+0.80, P4_PCA_LR:-1.66, P4_KBEST_LR:-0.12, P4_L1_LR:-2.03, P5_E1_SOFTVOTE:+1.39, P5_E2_STACK:+0.28"
+7a,"66.07% = reading R0: default threshold 0.5, no threshold selection (identical to the saved Arm B 'fixed 0.5' predictions)",PASS,"per seed ['65.83%', '66.27%', '66.12%'], mean 66.07%"
+7b,65.68% = reading R1: per-fold threshold maximizing balanced accuracy on training-only inner out-of-fold scores,PASS,"per seed ['64.94%', '65.24%', '66.86%'], mean 65.68%"
+7c,"campaign reading R1 for the reference is identical, subject by subject, to the Stage-2 'nested Youden' reading of Arm B (Youden's J maximization = balanced-accuracy maximization)",PASS,"Stage-2 nested per seed ['64.94%', '65.24%', '66.86%'] vs campaign R1 per seed ['64.94%', '65.24%', '66.86%']; predictions identical for all 2028 subject-seed pairs"
+7d,wording in the campaign request: '66.07% nested cross-validated accuracy' conflates the two: 66.07% is the fixed-0.5 reading; the nested-threshold reading is 65.68%,INFO,outer CV is nested in both (inner CV selects C); only the threshold procedure differs

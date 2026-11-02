@@ -1,0 +1,12 @@
+metric,Approach_A_all_nonzero,Approach_B_fixed_1000
+Information retained,"All features Elastic Net finds informative under its regularization, however many that is","Exactly 1000, even if Elastic Net's natural sparsity would suggest fewer or more"
+Arbitrary feature-count restriction,None -- count is data-determined,"Yes -- 1000 is a fixed target not derived from the data, chosen to match the paper's post-SVM-RFE dimensionality"
+Interpretability,Every retained feature has a nonzero coefficient by construction; but variable N across folds complicates a single unified feature list,"Fixed count is easier to compare fold-to-fold at a glance, but the top-1000 cutoff itself is an arbitrary boundary through a continuous coefficient-magnitude ranking"
+Reproducibility,"Reproducible given fixed hyperparameters/training data (deterministic), but the resulting architecture differs fold-to-fold",Reproducible and structurally identical (N=1000) across folds
+Computational cost,Variable -- could be smaller or much larger than 1000 depending on regularization strength (see computational analysis),Fixed and predictable (1000 input units every fold)
+Input dimensionality,"N_k, data-dependent per fold","1000, fixed"
+Fold-to-fold stability,Directly exposes fold-to-fold instability in both count and identity (arguably more honest about Elastic Net's actual behavior),Masks count instability (always reports 1000) but identity can still vary fold-to-fold within that fixed count
+XAI,"Attributions computed over a differently-sized input per fold; cross-fold aggregation must map back through feature_index, not position","Fixed-size attributions are simpler to stack/average across folds directly, though the underlying 1000 features can still differ in identity per fold"
+ROAR,Percentage-based removal scales naturally with N_k per fold (see roar_implications.md),Percentage-based removal always operates on the same base count (1000)
+Relationship to original paper,Further from the paper's explicit 1000-feature SSAE input -- the paper's own dimensionality choice is not reproduced,"Preserves the paper's stated 1000-feature SSAE input dimension structurally, even though the SELECTION mechanism (Elastic Net ranking vs SVM-RFE) differs"
+Methodological modification classification,"Two combined modifications: (1) SVM-RFE -> Elastic Net, (2) fixed-1000 -> data-dependent N","One modification: SVM-RFE -> Elastic Net (ranking mechanism changes, but the 1000-feature target is preserved)"

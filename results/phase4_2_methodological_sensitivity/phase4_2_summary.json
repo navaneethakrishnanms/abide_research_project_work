@@ -1,0 +1,118 @@
+{
+  "generated_utc": "2026-09-16T06:24:56.785705+00:00",
+  "cohort": {
+    "total": 780,
+    "asd": 351,
+    "control": 429
+  },
+  "affected_subjects": 47,
+  "affected_rois": 19,
+  "undefined_fc_total": 14025,
+  "option1": {
+    "total_subjects": 780,
+    "total_possible_fc_entries": 5202600,
+    "total_nan_fc_entries": 14025,
+    "overall_nan_percentage": 0.269577,
+    "affected_subjects": 47,
+    "unaffected_subjects": 733,
+    "distinct_roi_pairs_ever_nan_cohort_wide": 2014,
+    "distinct_roi_pairs_never_nan_cohort_wide": 4656,
+    "max_nan_pairs_single_subject": 1314,
+    "max_nan_percentage_single_subject": 19.7001,
+    "mean_nan_pairs_affected_subjects_only": 298.40425531914894,
+    "verification_actual_vs_predicted_nan_positions_match": true,
+    "nan_positions_are_deterministic": true
+  },
+  "option2": {
+    "original_total": 780,
+    "original_asd": 351,
+    "original_control": 429,
+    "remaining_total": 733,
+    "remaining_asd": 330,
+    "remaining_control": 403,
+    "subjects_lost": 47,
+    "asd_lost": 21,
+    "control_lost": 26,
+    "percentage_lost_total": 6.03,
+    "percentage_lost_asd": 5.98,
+    "percentage_lost_control": 6.06
+  },
+  "option3": {
+    "original_roi_count": 116,
+    "removed_roi_count": 19,
+    "remaining_roi_count": 97,
+    "original_fc_features": 6670,
+    "remaining_fc_features": 4656,
+    "features_removed": 2014,
+    "percentage_features_removed": 30.19,
+    "any_zero_variance_issue_remains_among_97": false,
+    "n_remaining_rois_with_any_issue": 0
+  },
+  "option4": "No paper-specified numerical convention was established.",
+  "site_concentration_top": [
+    {
+      "site": "SBL",
+      "total_subjects": 23,
+      "affected_subjects": 17,
+      "affected_percentage": 73.91
+    },
+    {
+      "site": "CMU",
+      "total_subjects": 2,
+      "affected_subjects": 1,
+      "affected_percentage": 50.0
+    },
+    {
+      "site": "PITT",
+      "total_subjects": 41,
+      "affected_subjects": 13,
+      "affected_percentage": 31.71
+    },
+    {
+      "site": "CALTECH",
+      "total_subjects": 15,
+      "affected_subjects": 3,
+      "affected_percentage": 20.0
+    },
+    {
+      "site": "SDSU",
+      "total_subjects": 26,
+      "affected_subjects": 4,
+      "affected_percentage": 15.38
+    },
+    {
+      "site": "MAX_MUN",
+      "total_subjects": 40,
+      "affected_subjects": 2,
+      "affected_percentage": 5.0
+    },
+    {
+      "site": "KKI",
+      "total_subjects": 29,
+      "affected_subjects": 1,
+      "affected_percentage": 3.45
+    },
+    {
+      "site": "NYU",
+      "total_subjects": 168,
+      "affected_subjects": 5,
+      "affected_percentage": 2.98
+    },
+    {
+      "site": "TRINITY",
+      "total_subjects": 42,
+      "affected_subjects": 1,
+      "affected_percentage": 2.38
+    }
+  ],
+  "paper_specification": "NOT SPECIFIED",
+  "phase4_2_status": "PASS -- SENSITIVITY ANALYSIS COMPLETE",
+  "phase5_status": "BLOCKED PENDING HUMAN METHODOLOGICAL DECISION",
+  "audit": {
+    "previous_phases_unchanged": true,
+    "cohort_file_modified": false,
+    "fc_matrices_saved": false,
+    "fisher_z_applied": false,
+    "model_trained": false
+  }
+}

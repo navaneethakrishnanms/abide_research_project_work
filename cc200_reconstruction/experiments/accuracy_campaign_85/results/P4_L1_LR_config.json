@@ -1,0 +1,28 @@
+{
+ "experiment": "P4_L1_LR",
+ "model": "L1_LR",
+ "representation": "LW",
+ "pipeline": "Pipeline(steps=[('prep', DemoFCPrep()),\n                ('sel',\n                 SelectFromModel(estimator=LogisticRegression(class_weight='balanced',\n                                                              max_iter=1000,\n                                                              penalty='l1',\n                                                              solver='liblinear'))),\n                ('clf',\n                 LogisticRegression(class_weight='balanced', max_iter=5000))])",
+ "grid": {
+  "sel__estimator__C": [
+   "0.05",
+   "0.2"
+  ],
+  "clf__C": [
+   "0.01",
+   "0.1",
+   "1.0"
+  ]
+ },
+ "score_kind": "proba",
+ "outer": "StratifiedKFold(10, shuffle, seed)",
+ "inner": "StratifiedKFold(5, shuffle, seed), roc_auc",
+ "threshold_R1": "balanced-accuracy-maximizing threshold on inner 5-fold OOF scores (seed+1000) of the outer-training partition",
+ "seeds": [
+  0,
+  1,
+  2
+ ],
+ "created_utc": "2026-10-26T05:14:50.684293+00:00",
+ "campaign_py_sha256": "f1770d3dc7a2e932ba8bde9446b09513472b681de632dbe5dee4ae9a3d0d33ae"
+}

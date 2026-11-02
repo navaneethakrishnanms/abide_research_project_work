@@ -1,0 +1,2 @@
+final_experiment_id,elastic_net_C,elastic_net_l1_ratio,ssae_h1,ssae_h2,dropout,weight_decay,learning_rate,batch_size,early_stopping_patience,class_weight,pretrain_epochs,finetune_epochs_max,sparsity_weight,primary_random_seed,selection_criterion
+EXP_9_FINAL_LOCKED,0.05,0.5,128,32,0.2,0.01,0.001,32,,balanced,40,80,0.0001,42,Primary: mean validation ROC-AUC across 5 outer folds. Secondary: mean validation balanced accuracy. Tie-break (within 0.005 ROC-AUC): prefer the simpler/more-regularized configuration.

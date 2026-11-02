@@ -1,0 +1,66 @@
+{
+ "cohort": "600 development subjects (train list INTERSECT 780 FD-filtered cohort)",
+ "atlas": "AAL116",
+ "features": 6670,
+ "outer_cv": "StratifiedKFold(5, shuffle, seed 42), identical to fast experiment",
+ "inner_cv": "StratifiedKFold(3, shuffle, seed 42)",
+ "elastic_net": {
+  "penalty": "elasticnet",
+  "solver": "saga",
+  "l1_ratio": 0.5,
+  "C_grid": [
+   0.03,
+   0.1,
+   0.3
+  ],
+  "class_weight": "balanced",
+  "max_iter": 3000,
+  "tol": 0.0001
+ },
+ "ssae": {
+  "h1": 500,
+  "h2": 100,
+  "batch_size": 32,
+  "pretrain_epochs": 40,
+  "finetune_epochs": 80,
+  "early_stopping_patience": 10,
+  "class_weight": "balanced",
+  "configs": {
+   "S1": {
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "dropout": 0.0,
+    "sparsity_weight": 0.0001
+   },
+   "S2": {
+    "lr": 0.0001,
+    "weight_decay": 0.05,
+    "dropout": 0.5,
+    "sparsity_weight": 0.0001
+   },
+   "S3": {
+    "lr": 0.0001,
+    "weight_decay": 0.05,
+    "dropout": 0.5,
+    "sparsity_weight": 0.001
+   }
+  },
+  "es_holdout_fraction": 0.15,
+  "tie_tolerance_auc": 0.005,
+  "preference_order": [
+   "S2",
+   "S3",
+   "S1"
+  ]
+ },
+ "seeds": [
+  42,
+  123,
+  2026
+ ],
+ "headline_seed": 42,
+ "baseline": "results/fast_accuracy_experiment (AAL116/LR_L2, read-only)",
+ "threads": "OMP/MKL/OPENBLAS=1",
+ "device": "cuda if available",
+ "runtime_s": 644.9
+}

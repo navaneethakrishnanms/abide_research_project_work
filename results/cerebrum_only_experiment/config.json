@@ -1,0 +1,109 @@
+{
+ "representations": {
+  "ROI116_baseline": "6,670 edges (AAL ROIs 1-116)",
+  "ROI90_cerebrum": "4,005 edges (AAL ROIs 1-90; cerebellum and vermis, ROIs 91-116, removed)"
+ },
+ "pipeline": "frozen baseline (fx.pipe + grid)",
+ "grid": {
+  "clf__C": [
+   "0.0001",
+   "0.001",
+   "0.01",
+   "0.1"
+  ],
+  "sel__k": [
+   "500",
+   "2000",
+   "all"
+  ]
+ },
+ "seeds": [
+  42,
+  123,
+  2026
+ ],
+ "outer_cv": "StratifiedKFold(5, shuffle, seed 42), identical to fast experiment",
+ "rule": "acc & bacc >= +0.02, acc improved in >=4/5 folds, in >=2/3 seeds",
+ "verdict_by_seed": {
+  "42": {
+   "acc_diff": -0.0016666666666666607,
+   "bacc_diff": -0.002480024121815183,
+   "auc_diff": 0.008143909763171942,
+   "acc_diff_sd": 0.024579802006254356,
+   "folds_acc_improved": 2,
+   "per_fold_acc_diff": [
+    0.0,
+    -0.025,
+    0.0333,
+    0.0083,
+    -0.025
+   ],
+   "per_fold_auc_diff": [
+    0.0351,
+    -0.0359,
+    0.032,
+    -0.0082,
+    0.0177
+   ],
+   "sens_diff": -0.011111111111111094,
+   "spec_diff": 0.006151062867480772,
+   "f1_diff": -0.005477927830195917,
+   "meets_rule": false
+  },
+  "123": {
+   "acc_diff": -0.03499999999999999,
+   "bacc_diff": -0.03407268024277319,
+   "auc_diff": -0.017804993835220072,
+   "acc_diff_sd": 0.043461349368017634,
+   "folds_acc_improved": 2,
+   "per_fold_acc_diff": [
+    -0.0583,
+    -0.0417,
+    0.0083,
+    0.0083,
+    -0.0917
+   ],
+   "per_fold_auc_diff": [
+    0.0028,
+    -0.0272,
+    0.0342,
+    -0.0082,
+    -0.0907
+   ],
+   "sens_diff": -0.022781271837875615,
+   "spec_diff": -0.04536408864767073,
+   "f1_diff": -0.035197802197802185,
+   "meets_rule": false
+  },
+  "2026": {
+   "acc_diff": -0.021666666666666657,
+   "bacc_diff": -0.019664067692791987,
+   "auc_diff": -0.0038876673111160496,
+   "acc_diff_sd": 0.029814239699997146,
+   "folds_acc_improved": 2,
+   "per_fold_acc_diff": [
+    -0.0583,
+    -0.025,
+    0.0083,
+    0.0083,
+    -0.0417
+   ],
+   "per_fold_auc_diff": [
+    0.0028,
+    -0.0359,
+    0.0351,
+    0.0332,
+    -0.0546
+   ],
+   "sens_diff": -6.988120195667857e-05,
+   "spec_diff": -0.03925825418362731,
+   "f1_diff": -0.014139698508610165,
+   "meets_rule": false
+  }
+ },
+ "improvement_rule_passed": false,
+ "baseline_reproduced_exactly": true,
+ "recomputed_matrix_equals_cached_subset": true,
+ "protected_files_changed": 0,
+ "runtime_s": 81.8
+}

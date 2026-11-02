@@ -1,0 +1,93 @@
+{
+  "generated_utc": "2026-09-15T03:53:51.903157+00:00",
+  "source_phase2_filtered_cohort": "C:\\abide\\results\\phase2\\fd_filtered_subjects.csv",
+  "filtered_cohort": {
+    "total": 780,
+    "unique": 780,
+    "asd": 351,
+    "control": 429
+  },
+  "abide_pcp_root_inspected": "C:\\abide\\abide_pcp\\ABIDE_pcp",
+  "top_level_pipeline_dirs_found": [
+    "cpac"
+  ],
+  "project_wide_filename_search_hits": {
+    "ccs": 0,
+    "cpac": 1,
+    "dparsf": 0,
+    "niak": 0,
+    "aal": 0
+  },
+  "roi_derivative_files_total": 871,
+  "pipelines_found_on_disk": [
+    "cpac"
+  ],
+  "strategies_found_on_disk": [
+    "filt_global"
+  ],
+  "atlases_found_on_disk": [
+    "cc200"
+  ],
+  "pipeline_coverage": [
+    {
+      "pipeline": "CCS",
+      "available": "NO",
+      "subjects_available_total": 0,
+      "subjects_in_filtered_cohort": 0,
+      "asd_in_filtered_cohort": 0,
+      "control_in_filtered_cohort": 0,
+      "missing_from_filtered_cohort": 780
+    },
+    {
+      "pipeline": "CPAC",
+      "available": "YES",
+      "subjects_available_total": 871,
+      "subjects_in_filtered_cohort": 780,
+      "asd_in_filtered_cohort": 351,
+      "control_in_filtered_cohort": 429,
+      "missing_from_filtered_cohort": 0
+    },
+    {
+      "pipeline": "DPARSF",
+      "available": "NO",
+      "subjects_available_total": 0,
+      "subjects_in_filtered_cohort": 0,
+      "asd_in_filtered_cohort": 0,
+      "control_in_filtered_cohort": 0,
+      "missing_from_filtered_cohort": 780
+    },
+    {
+      "pipeline": "NIAK",
+      "available": "NO",
+      "subjects_available_total": 0,
+      "subjects_in_filtered_cohort": 0,
+      "asd_in_filtered_cohort": 0,
+      "control_in_filtered_cohort": 0,
+      "missing_from_filtered_cohort": 780
+    }
+  ],
+  "aal_available": false,
+  "aal_files_found": 0,
+  "aal_coverage_in_780_cohort": 0,
+  "cc200_files_found": 871,
+  "cc200_coverage_in_780_cohort": 780,
+  "cc200_note": "CC200 comparison only -- NOT used for the paper (AAL-based) pipeline.",
+  "paper_comparison": {
+    "paper_pipelines": [
+      "CCS",
+      "CPAC",
+      "DPARSF",
+      "NIAK"
+    ],
+    "paper_atlas": "AAL (116 ROIs)",
+    "our_availability_status": {
+      "CCS": "NOT AVAILABLE",
+      "CPAC": "AVAILABLE",
+      "DPARSF": "NOT AVAILABLE",
+      "NIAK": "NOT AVAILABLE"
+    },
+    "our_aal_status": "NOT AVAILABLE"
+  },
+  "recommendation": "STOP -- no AAL-116 ROI derivative data is available for any pipeline.",
+  "recommendation_reason": "AAL ROI time-series files ('rois_aal' or equivalent) were not found anywhere in the project (0 matches, project-wide filename search). Only CC200 ROI derivatives exist, and only for the CPAC pipeline / filt_global strategy. None of CCS, DPARSF, or NIAK derivative data is present at all. Proceeding to AAL extraction (Phase 4) would require either downloading AAL-parcellated derivatives (if available from the ABIDE PCP release) or performing AAL extraction from raw/preprocessed volumes ourselves -- both explicitly out of scope for this phase."
+}

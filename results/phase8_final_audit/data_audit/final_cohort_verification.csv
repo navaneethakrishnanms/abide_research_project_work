@@ -1,0 +1,2 @@
+n_subjects,n_asd,n_control,n_sites,n_duplicates,n_rois,n_fc_features,subject_file_mapping_complete,all_checks_pass
+780,351,429,20,0,116,6670,True,True

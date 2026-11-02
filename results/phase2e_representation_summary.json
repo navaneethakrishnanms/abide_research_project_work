@@ -1,0 +1,605 @@
+{
+  "phase": "2E",
+  "purpose": "FC representation comparison on identical Phase 2C CV splits, dev-only (N=676).",
+  "fold_reuse_verification": "Every fold's n_train/n_test/train_asd/test_asd was asserted equal to phase2c_baseline_perfold.csv before running -- confirms identical splits, not just identical seeds.",
+  "representations": {
+    "correlation_fisherz": "TangentEmbedding(kind='correlation'): normalize covariance by sqrt(d_i*d_j), then arctanh (Fisher-z). Subject-independent (no cross-subject fitting).",
+    "partial_correlation": "TangentEmbedding(kind='partial'): invert each subject's Ledoit-Wolf-shrunk (SPD) covariance via eigendecomposition, normalize the precision matrix, negate, arctanh. Subject-independent.",
+    "tangent_space": "TangentEmbedding(kind='tangent'): Riemannian geometric mean of TRAINING-FOLD covariances as reference, matrix-log of whitened covariances. The only representation requiring per-fold fitting.",
+    "raw_covariance": "tangent.vectorize(covs) directly -- no normalization, no Fisher-z. Subject-independent."
+  },
+  "fairness_note": "Input ROI time series are z-scored per region before Ledoit-Wolf covariance estimation (tangent.py:covariances()), so raw_covariance is already close to a (non-Fisher-z'd, non-diagonal-renormalized) correlation matrix -- raw_covariance and correlation_fisherz are expected to be highly correlated, not independent signals. This was checked empirically (see console output) and is reported, not hidden, per the audit instructions.",
+  "cv_protocol": {
+    "outer": "StratifiedKFold(n_splits=10, shuffle=True, random_state=seed)",
+    "inner": "StratifiedKFold(n_splits=5, shuffle=True, random_state=seed)",
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "classifier": "LogisticRegression(max_iter=5000, solver='lbfgs', class_weight='balanced')",
+    "hyperparameter_grid": {
+      "C": [
+        0.001,
+        0.01,
+        0.1,
+        1.0,
+        10.0
+      ]
+    },
+    "threshold_selection": "Youden's J on seed-level OOF predictions"
+  },
+  "n_dev_subjects": 676,
+  "n_holdout_subjects_locked_untouched": 170,
+  "per_representation": {
+    "correlation_fisherz": {
+      "cross_seed": {
+        "accuracy_mean": 0.6720907297830375,
+        "accuracy_std": 0.006198128742592005,
+        "balanced_accuracy_mean": 0.6684900119404911,
+        "balanced_accuracy_std": 0.003140962964975688,
+        "roc_auc_mean": 0.7175120358390762,
+        "roc_auc_std": 0.004484064224012003,
+        "f1_mean": 0.6355418105142824,
+        "f1_std": 0.01500333838456216,
+        "sensitivity_mean": 0.6198083067092651,
+        "sensitivity_std": 0.05138376179686824,
+        "specificity_mean": 0.7171717171717171,
+        "specificity_std": 0.0547432821332925
+      },
+      "elapsed_sec": 168.794424533844,
+      "nan_inf_events": [],
+      "failed_folds": [],
+      "confusion_matrix_summed": [
+        [
+          781,
+          308
+        ],
+        [
+          357,
+          582
+        ]
+      ],
+      "seed_summaries": [
+        {
+          "seed": 0,
+          "tau_youden": 0.45484920998266026,
+          "oof_accuracy": 0.665680473372781,
+          "oof_balanced_accuracy": 0.6673619729094605,
+          "oof_roc_auc": 0.7111926702400126,
+          "oof_f1": 0.6565349544072948,
+          "oof_precision": 0.6260869565217392,
+          "oof_sensitivity": 0.6900958466453674,
+          "oof_specificity": 0.6446280991735537,
+          "fold_accuracy_mean": 0.6656716417910448,
+          "fold_accuracy_std": 0.03558470220248735,
+          "fold_balanced_accuracy_mean": 0.6674071248668023,
+          "fold_balanced_accuracy_std": 0.033439439768184705,
+          "confusion_matrix": [
+            [
+              234,
+              129
+            ],
+            [
+              97,
+              216
+            ]
+          ],
+          "chosen_C_per_fold": [
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.1,
+            0.001,
+            0.001,
+            0.001,
+            0.001
+          ]
+        },
+        {
+          "seed": 1,
+          "tau_youden": 0.5465886662271844,
+          "oof_accuracy": 0.6701183431952663,
+          "oof_balanced_accuracy": 0.6653332629225746,
+          "oof_roc_auc": 0.7202140487066424,
+          "oof_f1": 0.6277128547579299,
+          "oof_precision": 0.6573426573426573,
+          "oof_sensitivity": 0.6006389776357828,
+          "oof_specificity": 0.7300275482093664,
+          "fold_accuracy_mean": 0.6700395083406497,
+          "fold_accuracy_std": 0.03741375374056819,
+          "fold_balanced_accuracy_mean": 0.6653925094449288,
+          "fold_balanced_accuracy_std": 0.03786185243654106,
+          "confusion_matrix": [
+            [
+              265,
+              98
+            ],
+            [
+              125,
+              188
+            ]
+          ],
+          "chosen_C_per_fold": [
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.01,
+            0.001,
+            0.001
+          ]
+        },
+        {
+          "seed": 2,
+          "tau_youden": 0.5728106609658875,
+          "oof_accuracy": 0.6804733727810651,
+          "oof_balanced_accuracy": 0.6727747999894383,
+          "oof_roc_auc": 0.7211293885705736,
+          "oof_f1": 0.6223776223776224,
+          "oof_precision": 0.6872586872586872,
+          "oof_sensitivity": 0.5686900958466453,
+          "oof_specificity": 0.7768595041322314,
+          "fold_accuracy_mean": 0.680443371378402,
+          "fold_accuracy_std": 0.04564230976222285,
+          "fold_balanced_accuracy_mean": 0.6726622287610191,
+          "fold_balanced_accuracy_std": 0.04588676711207743,
+          "confusion_matrix": [
+            [
+              282,
+              81
+            ],
+            [
+              135,
+              178
+            ]
+          ],
+          "chosen_C_per_fold": [
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.01,
+            0.001,
+            0.001,
+            0.01,
+            0.001,
+            0.001
+          ]
+        }
+      ]
+    },
+    "partial_correlation": {
+      "cross_seed": {
+        "accuracy_mean": 0.6346153846153847,
+        "accuracy_std": 0.010529662970445082,
+        "balanced_accuracy_mean": 0.6277280501794007,
+        "balanced_accuracy_std": 0.005808862408936325,
+        "roc_auc_mean": 0.6655400945264436,
+        "roc_auc_std": 0.007455554748564794,
+        "f1_mean": 0.5712168418402389,
+        "f1_std": 0.038335082407610584,
+        "sensitivity_mean": 0.5346112886048988,
+        "sensitivity_std": 0.09395844515490002,
+        "specificity_mean": 0.7208448117539028,
+        "specificity_std": 0.0977691948885669
+      },
+      "elapsed_sec": 152.10765171051025,
+      "nan_inf_events": [],
+      "failed_folds": [],
+      "confusion_matrix_summed": [
+        [
+          785,
+          304
+        ],
+        [
+          437,
+          502
+        ]
+      ],
+      "seed_summaries": [
+        {
+          "seed": 0,
+          "tau_youden": 0.4466093078111962,
+          "oof_accuracy": 0.6198224852071006,
+          "oof_balanced_accuracy": 0.6220218449379065,
+          "oof_roc_auc": 0.6693070701203143,
+          "oof_f1": 0.6135338345864662,
+          "oof_precision": 0.5795454545454546,
+          "oof_sensitivity": 0.6517571884984026,
+          "oof_specificity": 0.5922865013774105,
+          "fold_accuracy_mean": 0.619776119402985,
+          "fold_accuracy_std": 0.04907835958272969,
+          "fold_balanced_accuracy_mean": 0.6221535043107623,
+          "fold_balanced_accuracy_std": 0.049899734841027464,
+          "confusion_matrix": [
+            [
+              215,
+              148
+            ],
+            [
+              109,
+              204
+            ]
+          ],
+          "chosen_C_per_fold": [
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001
+          ]
+        },
+        {
+          "seed": 1,
+          "tau_youden": 0.49553936595946674,
+          "oof_accuracy": 0.643491124260355,
+          "oof_balanced_accuracy": 0.6356991348278017,
+          "oof_roc_auc": 0.6721851098847904,
+          "oof_f1": 0.5794066317626527,
+          "oof_precision": 0.6384615384615384,
+          "oof_sensitivity": 0.5303514376996805,
+          "oof_specificity": 0.7410468319559229,
+          "fold_accuracy_mean": 0.6433713784021072,
+          "fold_accuracy_std": 0.038159442901494645,
+          "fold_balanced_accuracy_mean": 0.6355413881623561,
+          "fold_balanced_accuracy_std": 0.03773224515300674,
+          "confusion_matrix": [
+            [
+              269,
+              94
+            ],
+            [
+              147,
+              166
+            ]
+          ],
+          "chosen_C_per_fold": [
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001
+          ]
+        },
+        {
+          "seed": 2,
+          "tau_youden": 0.5377452778697589,
+          "oof_accuracy": 0.6405325443786982,
+          "oof_balanced_accuracy": 0.625463170772494,
+          "oof_roc_auc": 0.6551281035742261,
+          "oof_f1": 0.5207100591715976,
+          "oof_precision": 0.6804123711340206,
+          "oof_sensitivity": 0.4217252396166134,
+          "oof_specificity": 0.8292011019283747,
+          "fold_accuracy_mean": 0.6405399473222124,
+          "fold_accuracy_std": 0.04509443845932085,
+          "fold_balanced_accuracy_mean": 0.6259010522619393,
+          "fold_balanced_accuracy_std": 0.0426395674672278,
+          "confusion_matrix": [
+            [
+              301,
+              62
+            ],
+            [
+              181,
+              132
+            ]
+          ],
+          "chosen_C_per_fold": [
+            0.001,
+            0.001,
+            0.001,
+            1.0,
+            1.0,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001
+          ]
+        }
+      ]
+    },
+    "tangent_space": {
+      "cross_seed": {
+        "accuracy_mean": 0.6770216962524654,
+        "accuracy_std": 0.0025143094248485333,
+        "balanced_accuracy_mean": 0.6753550609199753,
+        "balanced_accuracy_std": 0.0013242652801095786,
+        "roc_auc_mean": 0.7127622434041254,
+        "roc_auc_std": 0.007694329882161517,
+        "f1_mean": 0.6511149994186969,
+        "f1_std": 0.01425641280944064,
+        "sensitivity_mean": 0.6528221512247071,
+        "sensitivity_std": 0.0443720269563358,
+        "specificity_mean": 0.6978879706152433,
+        "specificity_std": 0.04257859731632553
+      },
+      "elapsed_sec": 1156.7276237010956,
+      "nan_inf_events": [],
+      "failed_folds": [],
+      "confusion_matrix_summed": [
+        [
+          760,
+          329
+        ],
+        [
+          326,
+          613
+        ]
+      ],
+      "seed_summaries": [
+        {
+          "seed": 0,
+          "tau_youden": 0.46196623380979723,
+          "oof_accuracy": 0.6745562130177515,
+          "oof_balanced_accuracy": 0.6745262676136914,
+          "oof_roc_auc": 0.7131553701405575,
+          "oof_f1": 0.6573208722741433,
+          "oof_precision": 0.6413373860182371,
+          "oof_sensitivity": 0.6741214057507987,
+          "oof_specificity": 0.6749311294765841,
+          "fold_accuracy_mean": 0.674539069359087,
+          "fold_accuracy_std": 0.0581065354048038,
+          "fold_balanced_accuracy_mean": 0.6746718492686234,
+          "fold_balanced_accuracy_std": 0.0582389050582571,
+          "confusion_matrix": [
+            [
+              245,
+              118
+            ],
+            [
+              102,
+              211
+            ]
+          ],
+          "chosen_C_per_fold": [
+            10.0,
+            0.01,
+            0.001,
+            0.01,
+            0.001,
+            0.001,
+            10.0,
+            0.001,
+            0.001,
+            0.001
+          ]
+        },
+        {
+          "seed": 1,
+          "tau_youden": 0.519458993488292,
+          "oof_accuracy": 0.6804733727810651,
+          "oof_balanced_accuracy": 0.6743150353373996,
+          "oof_roc_auc": 0.7219831190205863,
+          "oof_f1": 0.6313993174061433,
+          "oof_precision": 0.6776556776556777,
+          "oof_sensitivity": 0.5910543130990416,
+          "oof_specificity": 0.7575757575757576,
+          "fold_accuracy_mean": 0.6804214223002634,
+          "fold_accuracy_std": 0.027859770429221758,
+          "fold_balanced_accuracy_mean": 0.6743311355710548,
+          "fold_balanced_accuracy_std": 0.02625154982642153,
+          "confusion_matrix": [
+            [
+              275,
+              88
+            ],
+            [
+              128,
+              185
+            ]
+          ],
+          "chosen_C_per_fold": [
+            0.001,
+            0.01,
+            0.001,
+            10.0,
+            0.001,
+            1.0,
+            10.0,
+            0.01,
+            0.001,
+            10.0
+          ]
+        },
+        {
+          "seed": 2,
+          "tau_youden": 0.4577560273670868,
+          "oof_accuracy": 0.6760355029585798,
+          "oof_balanced_accuracy": 0.6772238798088348,
+          "oof_roc_auc": 0.7031482410512325,
+          "oof_f1": 0.664624808575804,
+          "oof_precision": 0.638235294117647,
+          "oof_sensitivity": 0.6932907348242812,
+          "oof_specificity": 0.6611570247933884,
+          "fold_accuracy_mean": 0.6762730465320457,
+          "fold_accuracy_std": 0.06582890072542577,
+          "fold_balanced_accuracy_mean": 0.6777169306403177,
+          "fold_balanced_accuracy_std": 0.06297037832805087,
+          "confusion_matrix": [
+            [
+              240,
+              123
+            ],
+            [
+              96,
+              217
+            ]
+          ],
+          "chosen_C_per_fold": [
+            0.001,
+            0.001,
+            0.1,
+            10.0,
+            1.0,
+            10.0,
+            0.001,
+            0.001,
+            0.001,
+            0.001
+          ]
+        }
+      ]
+    },
+    "raw_covariance": {
+      "cross_seed": {
+        "accuracy_mean": 0.6735700197238659,
+        "accuracy_std": 0.009762815519340853,
+        "balanced_accuracy_mean": 0.6697940778684316,
+        "balanced_accuracy_std": 0.005973515101237577,
+        "roc_auc_mean": 0.7172832008730934,
+        "roc_auc_std": 0.004072452417809047,
+        "f1_mean": 0.6363699854612389,
+        "f1_std": 0.01160558524205763,
+        "sensitivity_mean": 0.6187433439829606,
+        "sensitivity_std": 0.048965128573259416,
+        "specificity_mean": 0.7208448117539027,
+        "specificity_std": 0.05977954379709752
+      },
+      "elapsed_sec": 147.23125195503235,
+      "nan_inf_events": [],
+      "failed_folds": [],
+      "confusion_matrix_summed": [
+        [
+          785,
+          304
+        ],
+        [
+          358,
+          581
+        ]
+      ],
+      "seed_summaries": [
+        {
+          "seed": 0,
+          "tau_youden": 0.447635660155646,
+          "oof_accuracy": 0.6627218934911243,
+          "oof_balanced_accuracy": 0.6641670847305468,
+          "oof_roc_auc": 0.7115271213441414,
+          "oof_f1": 0.6524390243902439,
+          "oof_precision": 0.6239067055393586,
+          "oof_sensitivity": 0.6837060702875399,
+          "oof_specificity": 0.6446280991735537,
+          "fold_accuracy_mean": 0.6627304653204565,
+          "fold_accuracy_std": 0.03578550667158491,
+          "fold_balanced_accuracy_mean": 0.6641813184151892,
+          "fold_balanced_accuracy_std": 0.03395406186005285,
+          "confusion_matrix": [
+            [
+              234,
+              129
+            ],
+            [
+              99,
+              214
+            ]
+          ],
+          "chosen_C_per_fold": [
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.1,
+            0.001,
+            0.001,
+            0.001,
+            0.001
+          ]
+        },
+        {
+          "seed": 1,
+          "tau_youden": 0.541706078718188,
+          "oof_accuracy": 0.6715976331360947,
+          "oof_balanced_accuracy": 0.6671507406331687,
+          "oof_roc_auc": 0.719994015085505,
+          "oof_f1": 0.6312292358803987,
+          "oof_precision": 0.657439446366782,
+          "oof_sensitivity": 0.6070287539936102,
+          "oof_specificity": 0.7272727272727273,
+          "fold_accuracy_mean": 0.6715320456540825,
+          "fold_accuracy_std": 0.038822980680933365,
+          "fold_balanced_accuracy_mean": 0.6671790237818465,
+          "fold_balanced_accuracy_std": 0.038916016323101446,
+          "confusion_matrix": [
+            [
+              264,
+              99
+            ],
+            [
+              123,
+              190
+            ]
+          ],
+          "chosen_C_per_fold": [
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.01,
+            0.001,
+            0.001
+          ]
+        },
+        {
+          "seed": 2,
+          "tau_youden": 0.5848616639852087,
+          "oof_accuracy": 0.6863905325443787,
+          "oof_balanced_accuracy": 0.6780644082415793,
+          "oof_roc_auc": 0.7203284661896338,
+          "oof_f1": 0.6254416961130742,
+          "oof_precision": 0.6996047430830039,
+          "oof_sensitivity": 0.5654952076677316,
+          "oof_specificity": 0.790633608815427,
+          "fold_accuracy_mean": 0.6863476733977173,
+          "fold_accuracy_std": 0.03931986062859095,
+          "fold_balanced_accuracy_mean": 0.677905829216313,
+          "fold_balanced_accuracy_std": 0.03970749417186946,
+          "confusion_matrix": [
+            [
+              287,
+              76
+            ],
+            [
+              136,
+              177
+            ]
+          ],
+          "chosen_C_per_fold": [
+            0.001,
+            0.001,
+            0.01,
+            0.001,
+            0.01,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001
+          ]
+        }
+      ]
+    }
+  },
+  "holdout_status": "NEVER accessed. get_locked_holdout_ids() was never called from this script."
+}

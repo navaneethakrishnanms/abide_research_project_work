@@ -1,0 +1,2 @@
+original_roi_count,removed_roi_count,remaining_roi_count,original_fc_features,remaining_fc_features,features_removed,percentage_features_removed,any_zero_variance_issue_remains_among_97,n_remaining_rois_with_any_issue
+116,19,97,6670,4656,2014,30.19,False,0

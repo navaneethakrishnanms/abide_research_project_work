@@ -1,0 +1,108 @@
+{
+ "all_pass": true,
+ "n_checks": 20,
+ "n_fail": 0,
+ "created_utc": "2026-10-22T06:38:46.995516+00:00",
+ "checks": [
+  {
+   "check": "training list has 676 unique IDs",
+   "result": "PASS",
+   "detail": "676 lines, 676 unique"
+  },
+  {
+   "check": "every training ID has a raw CC200 file",
+   "result": "PASS",
+   "detail": "missing 0"
+  },
+  {
+   "check": "no training ID has more than one raw file",
+   "result": "PASS",
+   "detail": "0 duplicated"
+  },
+  {
+   "check": "one unique phenotype row per training ID",
+   "result": "PASS",
+   "detail": "676 rows, unique=True"
+  },
+  {
+   "check": "phenotype FILE_ID equals the raw file name for every subject",
+   "result": "PASS",
+   "detail": "676/676"
+  },
+  {
+   "check": "site in FILE_ID prefix agrees with SITE_ID",
+   "result": "PASS",
+   "detail": "19 sites"
+  },
+  {
+   "check": "labels are DX_GROUP in {1,2}",
+   "result": "PASS",
+   "detail": "[1, 2]"
+  },
+  {
+   "check": "class counts match the earlier independent audit (313 ASD / 363 TC)",
+   "result": "PASS",
+   "detail": "313 / 363"
+  },
+  {
+   "check": "age and sex complete and valid",
+   "result": "PASS",
+   "detail": "age 6.5-58.0, sex values [np.int64(1), np.int64(2)], missing 0"
+  },
+  {
+   "check": "every series is (T x 200)",
+   "result": "PASS",
+   "detail": "ROI counts [np.int64(200)]"
+  },
+  {
+   "check": "every series has >= 100 timepoints",
+   "result": "PASS",
+   "detail": "T range 116-316"
+  },
+  {
+   "check": "all time-series values are finite",
+   "result": "PASS",
+   "detail": "no NaN/Inf"
+  },
+  {
+   "check": "no two subjects share an identical series",
+   "result": "PASS",
+   "detail": "676 distinct"
+  },
+  {
+   "check": "covariance array is (676, 200, 200)",
+   "result": "PASS",
+   "detail": "(676, 200, 200)"
+  },
+  {
+   "check": "covariances symmetric (max asymmetry < 1e-10)",
+   "result": "PASS",
+   "detail": "0.00e+00"
+  },
+  {
+   "check": "covariances positive definite",
+   "result": "PASS",
+   "detail": "min eigenvalue 4.515e-02"
+  },
+  {
+   "check": "correlations in [-1, 1] with unit diagonal",
+   "result": "PASS",
+   "detail": "max|r| 1.000000"
+  },
+  {
+   "check": "feature matrix is (676, 19900) and finite",
+   "result": "PASS",
+   "detail": "(676, 19900)"
+  },
+  {
+   "check": "independent recomputation (own Ledoit-Wolf/arctanh/triu code) equals tangent.py on 20 subjects",
+   "result": "PASS",
+   "detail": "max abs diff 0.00e+00"
+  },
+  {
+   "check": "feature generation is deterministic (recomputed for 5 subjects)",
+   "result": "PASS",
+   "detail": "identical"
+  }
+ ]
+}

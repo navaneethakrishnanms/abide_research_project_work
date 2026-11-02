@@ -1,0 +1,24 @@
+category,item,status,explanation
+DATA,Dataset source,COMPLETE,"ABIDE-I via nilearn fetch_abide_pcp, CPAC pipeline, documented in Phase 1/3."
+DATA,Cohort definition,COMPLETE,"780 subjects after FD>0.2mm filtering, documented in Phase 2, verified in Phase 6 data_checks."
+DATA,Subject filtering (FD),COMPLETE,FD threshold and per-subject FD values recorded in Phase 2 fd_filtered_subjects.csv.
+DATA,AAL source,COMPLETE,"CPAC rois_aal derivative, provenance documented Phase 3.6."
+DATA,Pipeline (CPAC) documented,COMPLETE,Explicitly recorded as the approved derivative in Phase 3.6.
+DATA,ROI count verification,COMPLETE,116 ROIs verified per subject file in Phase 4.
+FEATURE ENGINEERING,Pearson correlation method,COMPLETE,"Standard Pearson correlation on ROI time series, documented Phase 5A."
+FEATURE ENGINEERING,Feature ordering / lower triangle convention,COMPLETE,"Fixed feature_index convention (roi_i<roi_j, 1-indexed) in Phase 5A fc_feature_index.csv, reused unchanged through Phase 6-7."
+FEATURE ENGINEERING,Fisher-Z transform,COMPLETE,"arctanh with epsilon clipping 1e-6, documented in phase6_pipeline_core.py."
+FEATURE ENGINEERING,Missing/undefined-FC imputation (Strategy C),COMPLETE,"Fold-scoped training-fold mean imputation, rationale documented Phase 5B/5C/5D, implementation in phase6_pipeline_core.py."
+MODEL,Elastic Net hyperparameters,COMPLETE,"C=0.1, l1_ratio=0.5, solver=saga, max_iter=3000, tol=1e-4, class_weight=balanced, random_state=42 -- fixed a priori, recorded in elastic_net_parameters.csv."
+MODEL,SSAE architecture,COMPLETE,"N(variable)->500->100->2, ReLU hidden / Softmax output, recorded per-fold in fold_architecture.csv."
+MODEL,Training parameters,COMPLETE,"Adam lr=1e-3, weight_decay=1e-4, batch_size=32, pretrain 40 epochs/layer, finetune 80 epochs, sparsity_weight=1e-4 -- all recorded."
+MODEL,Random seed,COMPLETE,"random_seed=42 recorded for both Elastic Net and SSAE (fold_architecture.csv, elastic_net_parameters.csv)."
+MODEL,Cross-validation fold structure,COMPLETE,"5-fold StratifiedKFold, subject-level, fold assignment fixed and reused unchanged across Phase 6/7."
+XAI,Methods used,COMPLETE,"7 named methods (IntegratedGradients, GuidedBackprop, DeepLift, DeepLiftShap, GradientShap, SHAP, LIME) recorded."
+XAI,Software/library versions,PARTIAL,"captum, shap, lime libraries used (per phase6_pipeline_core.py imports) but exact installed version numbers were not captured into a Phase 6 output file."
+XAI,Baseline/reference choices,PARTIAL,Captum methods' internal baseline defaults were used; not all were explicitly logged as a named baseline value per fold in the output CSVs.
+XAI,Sampling choices (e.g. LIME subject subsampling),COMPLETE,LIME explicitly documented as limited to 5 representative test subjects per fold (reflected in its row count vs other methods).
+ROAR,Removal percentages,COMPLETE,"13 fixed thresholds (1,5,10,20,30,40,50,60,70,80,90,95,99%) recorded."
+ROAR,Ranking methodology,COMPLETE,Documented as training-fold mean |IntegratedGradients| ranking in phase6_pipeline_core.py source.
+ROAR,Retraining settings,COMPLETE,ROAR_FINETUNE_EPOCHS=40 (reduced from the primary 80) explicitly documented as a compute-scoping decision.
+ROAR,Per-feature removal provenance (exact list per run),MISSING,"Phase 6 persisted only aggregate per-(fold,percentage) performance metrics, not the literal per-feature removal list; Phase 7 uses a documented test-fold IG proxy, explicitly labeled as an approximation, not the exact record."

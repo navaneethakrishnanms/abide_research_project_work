@@ -1,0 +1,82 @@
+{
+  "generated_utc": "2026-09-16T06:16:39.763379+00:00",
+  "phase2_cohort": {
+    "total": 780,
+    "asd": 351,
+    "control": 429
+  },
+  "roi_ordering_header_consistency": {
+    "unique_headers_across_all_files": 1,
+    "codes_match_verified_table": true
+  },
+  "constant_roi": {
+    "affected_subjects": 47,
+    "affected_roi_indices": [
+      6,
+      9,
+      10,
+      16,
+      25,
+      27,
+      28,
+      87,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      114,
+      115,
+      116
+    ],
+    "affected_roi_names": [
+      "Frontal_Sup_Orb_R",
+      "Frontal_Mid_Orb_L",
+      "Frontal_Mid_Orb_R",
+      "Frontal_Inf_Orb_R",
+      "Frontal_Med_Orb_L",
+      "Rectus_L",
+      "Rectus_R",
+      "Temporal_Pole_Mid_L",
+      "Cerebelum_7b_L",
+      "Cerebelum_7b_R",
+      "Cerebelum_8_L",
+      "Cerebelum_8_R",
+      "Cerebelum_9_L",
+      "Cerebelum_9_R",
+      "Cerebelum_10_L",
+      "Cerebelum_10_R",
+      "Vermis_8",
+      "Vermis_9",
+      "Vermis_10"
+    ],
+    "subjects_with_multiple_constant_rois": 27
+  },
+  "constant_value_facts": {
+    "all_constant_values_are_zero": true,
+    "n_distinct_constant_values_observed": 1
+  },
+  "parsing_integrity": {
+    "files_cross_checked": 30,
+    "all_values_matched": true
+  },
+  "fc_impact": {
+    "total_subjects": 780,
+    "affected_subjects": 47,
+    "total_undefined_pairs": 14025,
+    "max_undefined_pairs_per_subject": 1314,
+    "mean_undefined_pairs_per_subject": 17.98076923076923,
+    "median_undefined_pairs_per_subject": 0.0,
+    "percentage_subjects_affected": 6.03,
+    "total_fc_pairs_per_subject": 6670
+  },
+  "audit": {
+    "previous_phases_unchanged": true,
+    "no_fc_matrices_saved": true,
+    "no_fisher_z": true,
+    "no_ml_performed": true
+  }
+}

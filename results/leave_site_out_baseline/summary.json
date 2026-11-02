@@ -1,0 +1,50 @@
+{
+ "pooled": {
+  "accuracy": 0.6216666666666667,
+  "balanced_accuracy": 0.6182116525804711,
+  "sensitivity": 0.585820895522388,
+  "specificity": 0.6506024096385542,
+  "precision": 0.575091575091575,
+  "f1": 0.5804066543438078,
+  "roc_auc": 0.6837124617874483,
+  "tn": 216,
+  "fp": 116,
+  "fn": 111,
+  "tp": 157
+ },
+ "five_fold_pooled": {
+  "accuracy": 0.6416666666666667,
+  "balanced_accuracy": 0.6380821794641252,
+  "sensitivity": 0.6044776119402985,
+  "specificity": 0.6716867469879518,
+  "precision": 0.5977859778597786,
+  "f1": 0.601113172541744,
+  "roc_auc": 0.6924451537493257,
+  "tn": 223,
+  "fp": 109,
+  "fn": 106,
+  "tp": 162
+ },
+ "acc_diff": -0.020000000000000018,
+ "auc_diff_pooled": -0.008732691961877426,
+ "mcnemar_b_c_p": [
+  49,
+  37,
+  0.2353798622110552
+ ],
+ "sites_lso_lower_than_5fold": 9,
+ "sites_total": 19,
+ "sites_n_ge_20_lower": 6,
+ "sites_n_ge_20": 13,
+ "acc_ci95": [
+  0.5822027338323527,
+  0.6595825290577829
+ ],
+ "macro_acc_all": 0.6119194088284643,
+ "macro_auc_ge20": 0.698579424182561,
+ "runtime_s": 0.3,
+ "sites_below_chance_ge20": [
+  "MAX_MUN"
+ ],
+ "n_aucs_defined": 19
+}

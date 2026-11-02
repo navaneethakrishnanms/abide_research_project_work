@@ -1,0 +1,29 @@
+cohort,atlas,n_subjects,representation_or_method,classifier,accuracy,auc,source,comparability_note
+780 FD-filtered (includes 158 holdout-designated subjects),AAL-116,780,static correlation + Elastic Net variable-input SSAE (Phase 6),SSAE,0.615,0.677,results/phase6_strategyC_all_nonzero,CV estimate on a cohort overlapping the designated holdout
+780 FD-filtered,AAL-116,780,accuracy-optimized EN + SSAE (Phase 9),SSAE,0.649,0.688,results/phase9_accuracy_optimization,CV estimate; overlapping cohort; validation-leaky selection
+780 FD-filtered,AAL-116,780,nested-CV EN + SSAE (Phase 10 corrected),SSAE,0.630,0.681,results/phase10_corrected_nested_cv,CV estimate; overlapping cohort; strict nested
+780 FD-filtered,AAL-116,780,same as Phase 10 but site-grouped outer folds,SSAE,0.663,0.713,results/phase10_corrected_nested_cv/site_aware_results.csv,different folds; not comparable with ordinary CV
+676 train list (includes high-motion scans),CC200,676,Fisher-Z correlation (19900 features),L2 logistic regression,0.672,0.7175,phase2e_run.log / phase2h_run.log,development-only; different cohort and protocol
+676 train list,CC200,676,partial correlation,L2 logistic regression,0.635,0.6655,phase2e_run.log,development-only
+676 train list,CC200,676,tangent-space (Riemannian) features,L2 logistic regression,0.677,0.7128,phase2e_run.log,development-only; tangent matched correlation (no gain)
+676 train list,CC200,676,raw covariance,L2 logistic regression,0.674,0.7173,phase2e_run.log,development-only
+676 train list,CC200,676,SelectKBest k=100..5000 / all features,logistic regression,0.626-0.672,0.648-0.718,phase2f_run.log,development-only; all features best
+600 development,AAL-116,600,static correlation + SelectKBest,L2 logistic regression (frozen baseline),0.642,0.694,results/fast_accuracy_experiment,reference baseline
+600 development,AAL-116,600,static correlation + SelectKBest,linear SVM,0.642,0.694,results/fast_accuracy_experiment,
+600 development,AAL-116,600,static correlation + SelectKBest,RBF SVM,0.637,0.698,results/fast_accuracy_experiment,
+600 development,AAL-116,600,static correlation + SelectKBest,L1 logistic regression,0.635,0.653,results/fast_accuracy_experiment,
+600 development,CC200,600,static correlation + SelectKBest,RBF SVM / L2 LR / linear SVM / L1 LR,0.613-0.648,0.647-0.700,results/fast_accuracy_experiment,separate exploratory atlas
+600 development,AAL-116,600,training-fold site centering,L2 LR / linear SVM,0.647 / 0.643,0.710 / 0.709,results/site_centering_experiment,no consistent accuracy gain; small AUC rise inside fold variation
+600 development,CC200,600,training-fold site centering,RBF SVM,0.638,0.711,results/site_centering_experiment,no gain
+600 development,AAL-116,600,training-fold mean-FD residualization,L2 LR / linear SVM,0.628 / 0.607,0.675 / 0.674,results/motion_confound_experiment,modest drop (unresolved)
+600 development,CC200,600,training-fold mean-FD residualization,RBF SVM,0.628,0.677,results/motion_confound_experiment,modest drop (unresolved)
+600 development,-,600,mean FD alone (one feature),logistic regression,0.575,0.597,results/motion_confound_experiment,control
+600 development,AAL-116,600,dynamic: sliding-window edge variance (50/10 TRs),L2 logistic regression,0.498,0.500,results/aal116_dynamic_fast,chance level
+600 development,AAL-116,600,dynamic: mean absolute window-to-window change,L2 logistic regression,0.525,0.516,results/aal116_dynamic_fast,chance level
+600 development,AAL-116,600,CPM (positive/negative network strength),logistic regression on 2 features,0.632,0.668,results/advanced_model_search,no reliable difference from baseline
+600 development,AAL-116,600,FD-matched re-evaluation of saved OOF predictions,(saved LR_L2),0.627,0.680,results/fd_matched_sensitivity,descriptive; 498 matched subjects
+NOT TESTED,AAL-116,600,Ledoit-Wolf covariance + tangent space,-,,,-,tangent tested only on CC200 676 subjects (no gain)
+NOT TESTED,AAL-116,600,anatomically grouped (lobe/region-level) block-averaged FC,-,,,-,no learned parameters; untested
+NOT TESTED,AAL-116,600,graph-theoretic node metrics (degree/strength/clustering),-,,,-,untested
+NOT TESTED,AAL-116,600,scan-length-matched truncation (first 116 TRs for all),-,,,-,untested; discards data at 80% of sites
+NOT TESTED,AAL-116,600,ROI-level amplitude features (ALFF/fALFF),-,,,-,needs TR which is not stored locally

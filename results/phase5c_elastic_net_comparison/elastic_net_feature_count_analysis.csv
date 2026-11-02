@@ -1,0 +1,19 @@
+option,mechanism,resulting_count_fixed,synthetic_demo_range,matches_paper_1000,ssae_input_dim_consequence,labeled_as
+Option 1: natural nonzero count,"ElasticNet(alpha, l1_ratio).coef_ != 0",False,"23-376 of 500 (SYNTHETIC, illustrative only)","Not guaranteed -- would require search over alpha/l1_ratio, and any such search must not be tuned against test accuracy","Variable -- SSAE input layer would need to match whatever count results, or the architecture must change from the paper's 1000->500->100->2",Natural consequence of Elastic Net; NOT the paper's procedure
+Option 2: rank-to-top-1000,"argsort(-|coef_|)[:1000], training fold only",True,"exactly 100 of 500 by construction (SYNTHETIC, illustrative only)","Yes, by construction (preserves the paper's 1000-feature SSAE input)",Matches paper exactly: 1000 -> 500 -> 100 -> 2 -> Softmax,"Explicit METHODOLOGICAL MODIFICATION (paper describes SVM-RFE's own ranking mechanism, not Elastic-Net-coefficient ranking) -- not a silent equivalence"
+alpha,l1_ratio,n_nonzero_features,total_features,SYNTHETIC
+0.01,0.1,376,500,True
+0.01,0.5,209,500,True
+0.01,0.9,148,500,True
+0.05,0.1,349,500,True
+0.05,0.5,95,500,True
+0.05,0.9,37,500,True
+0.1,0.1,296,500,True
+0.1,0.5,57,500,True
+0.1,0.9,29,500,True
+0.5,0.1,169,500,True
+0.5,0.5,79,500,True
+0.5,0.9,26,500,True
+1.0,0.1,160,500,True
+1.0,0.5,85,500,True
+1.0,0.9,23,500,True

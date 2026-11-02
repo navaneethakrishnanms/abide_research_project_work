@@ -1,0 +1,16 @@
+{
+ "method": "CPM (Pearson edge-label correlation, positive/negative network strengths, L2 logistic regression)",
+ "p_threshold_grid": [
+  0.05,
+  0.01,
+  0.005,
+  0.001
+ ],
+ "inner_cv": "StratifiedKFold(3, seed 42), roc_auc",
+ "outer_cv": "StratifiedKFold(5, shuffle, seed 42) identical to fast experiment",
+ "atlas": "AAL116",
+ "n_subjects": 600,
+ "baseline": "C:\\abide\\results\\fast_accuracy_experiment\\fold_results.csv (AAL116/LR_L2)",
+ "threads": "OMP/MKL/OPENBLAS=1",
+ "runtime_s": 0.3
+}

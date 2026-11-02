@@ -1,0 +1,155 @@
+{
+ "candidates": {
+  "E0_control_baseline": {
+   "grid": "baseline",
+   "training_only_threshold": false
+  },
+  "E1_baseline_grid_threshold": {
+   "grid": "baseline",
+   "training_only_threshold": true
+  },
+  "E2_extended_C_grid": {
+   "grid": "extended",
+   "training_only_threshold": false
+  },
+  "E3_extended_grid_threshold": {
+   "grid": "extended",
+   "training_only_threshold": true
+  }
+ },
+ "grid_base": {
+  "clf__C": [
+   "0.0001",
+   "0.001",
+   "0.01",
+   "0.1"
+  ],
+  "sel__k": [
+   "500",
+   "2000",
+   "all"
+  ]
+ },
+ "grid_ext": {
+  "clf__C": [
+   "1e-05",
+   "3e-05",
+   "0.0001",
+   "0.0003",
+   "0.001",
+   "0.003",
+   "0.01",
+   "0.03",
+   "0.1"
+  ],
+  "sel__k": [
+   "500",
+   "2000",
+   "all"
+  ]
+ },
+ "threshold_grid": [
+  0.3,
+  0.325,
+  0.35,
+  0.375,
+  0.4,
+  0.425,
+  0.45,
+  0.475,
+  0.5,
+  0.525,
+  0.55,
+  0.575,
+  0.6,
+  0.625,
+  0.65,
+  0.675,
+  0.7
+ ],
+ "inner_cv": "StratifiedKFold(3, seed) roc_auc; threshold from StratifiedKFold(5, seed+1000) inner OOF on training rows",
+ "seeds": [
+  42,
+  123,
+  2026
+ ],
+ "outer_cv": "StratifiedKFold(5, shuffle, seed 42) identical to fast experiment",
+ "improvement_rule": "mean accuracy and balanced accuracy >= +0.02 vs E0 (same seed), accuracy improved in >=4/5 folds, in >=2 of 3 seeds",
+ "baseline_reproduction_exact": true,
+ "verdict": {
+  "E1_baseline_grid_threshold": {
+   "seeds_meeting_rule": 0,
+   "improves": false,
+   "acc_diff_by_seed": [
+    -0.0133,
+    0.005,
+    -0.02
+   ],
+   "bacc_diff_by_seed": [
+    -0.0117,
+    0.0097,
+    -0.0149
+   ],
+   "auc_diff_by_seed": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "folds_acc_improved_by_seed": [
+    1,
+    2,
+    1
+   ]
+  },
+  "E2_extended_C_grid": {
+   "seeds_meeting_rule": 0,
+   "improves": false,
+   "acc_diff_by_seed": [
+    0.0083,
+    -0.0233,
+    -0.005
+   ],
+   "bacc_diff_by_seed": [
+    0.0082,
+    -0.0234,
+    -0.0048
+   ],
+   "auc_diff_by_seed": [
+    0.0009,
+    -0.0083,
+    0.0013
+   ],
+   "folds_acc_improved_by_seed": [
+    1,
+    0,
+    1
+   ]
+  },
+  "E3_extended_grid_threshold": {
+   "seeds_meeting_rule": 0,
+   "improves": false,
+   "acc_diff_by_seed": [
+    -0.01,
+    -0.0217,
+    -0.0133
+   ],
+   "bacc_diff_by_seed": [
+    -0.0009,
+    -0.0172,
+    -0.0106
+   ],
+   "auc_diff_by_seed": [
+    0.0009,
+    -0.0083,
+    0.0013
+   ],
+   "folds_acc_improved_by_seed": [
+    2,
+    1,
+    2
+   ]
+  }
+ },
+ "protected_files_changed": 0,
+ "runtime_s": 301.4
+}

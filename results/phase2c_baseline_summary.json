@@ -1,0 +1,176 @@
+{
+  "phase": "2C",
+  "purpose": "Development-only nested CV baseline, reproducing the FC(correlation)+age+sex+LogReg-L2 config behind the original 74.12%/0.8104 result, on the NEW dev-only 676-subject split (holdout excluded throughout).",
+  "n_dev_subjects": 676,
+  "n_holdout_subjects_locked_untouched": 170,
+  "n_features_raw_upper_triangle": 19900,
+  "n_features_final_with_demo": 19902,
+  "atlas": "CC200 (200 ROIs)",
+  "embedding": "TangentEmbedding(kind='correlation', precomputed=True) -- Ledoit-Wolf covariance -> Fisher-z correlation -> upper-triangle vectorization",
+  "demographics": [
+    "AGE_AT_SCAN",
+    "SEX"
+  ],
+  "demographic_imputation": "np.nanmedian on training fold only",
+  "scaler": "StandardScaler, fit on training fold only",
+  "classifier": "LogisticRegression(max_iter=5000, solver='lbfgs', class_weight='balanced')",
+  "hyperparameter_grid": {
+    "C": [
+      0.001,
+      0.01,
+      0.1,
+      1.0,
+      10.0
+    ]
+  },
+  "cv_protocol": {
+    "outer": "StratifiedKFold(n_splits=10, shuffle=True, random_state=seed)",
+    "inner": "StratifiedKFold(n_splits=5, shuffle=True, random_state=seed)",
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "hyperparameter_selection": "GridSearchCV, scoring='roc_auc', inner CV only",
+    "threshold_selection": "Youden's J on outer-loop OOF predictions (seed-level), never on any test fold in isolation, never on holdout"
+  },
+  "cross_seed_summary": {
+    "accuracy_mean": 0.6720907297830375,
+    "accuracy_std": 0.006198128742592005,
+    "balanced_accuracy_mean": 0.6684900119404911,
+    "balanced_accuracy_std": 0.003140962964975688,
+    "roc_auc_mean": 0.7175120358390762,
+    "roc_auc_std": 0.004484064224012003,
+    "f1_mean": 0.6355418105142824,
+    "f1_std": 0.01500333838456216,
+    "sensitivity_mean": 0.6198083067092651,
+    "sensitivity_std": 0.05138376179686824,
+    "specificity_mean": 0.7171717171717171,
+    "specificity_std": 0.0547432821332925,
+    "aggregated_confusion_matrix": [
+      [
+        781,
+        308
+      ],
+      [
+        357,
+        582
+      ]
+    ]
+  },
+  "per_seed": [
+    {
+      "seed": 0,
+      "tau_youden": 0.45484920998266026,
+      "oof_accuracy": 0.665680473372781,
+      "oof_balanced_accuracy": 0.6673619729094605,
+      "oof_roc_auc": 0.7111926702400126,
+      "oof_f1": 0.6565349544072948,
+      "oof_precision": 0.6260869565217392,
+      "oof_sensitivity": 0.6900958466453674,
+      "oof_specificity": 0.6446280991735537,
+      "fold_accuracy_mean": 0.6656716417910448,
+      "fold_accuracy_std": 0.03558470220248735,
+      "fold_balanced_accuracy_mean": 0.6674071248668023,
+      "fold_balanced_accuracy_std": 0.033439439768184705,
+      "confusion_matrix": [
+        [
+          234,
+          129
+        ],
+        [
+          97,
+          216
+        ]
+      ],
+      "chosen_C_per_fold": [
+        0.001,
+        0.001,
+        0.001,
+        0.001,
+        0.001,
+        0.1,
+        0.001,
+        0.001,
+        0.001,
+        0.001
+      ]
+    },
+    {
+      "seed": 1,
+      "tau_youden": 0.5465886662271844,
+      "oof_accuracy": 0.6701183431952663,
+      "oof_balanced_accuracy": 0.6653332629225746,
+      "oof_roc_auc": 0.7202140487066424,
+      "oof_f1": 0.6277128547579299,
+      "oof_precision": 0.6573426573426573,
+      "oof_sensitivity": 0.6006389776357828,
+      "oof_specificity": 0.7300275482093664,
+      "fold_accuracy_mean": 0.6700395083406497,
+      "fold_accuracy_std": 0.03741375374056819,
+      "fold_balanced_accuracy_mean": 0.6653925094449288,
+      "fold_balanced_accuracy_std": 0.03786185243654106,
+      "confusion_matrix": [
+        [
+          265,
+          98
+        ],
+        [
+          125,
+          188
+        ]
+      ],
+      "chosen_C_per_fold": [
+        0.001,
+        0.001,
+        0.001,
+        0.001,
+        0.001,
+        0.001,
+        0.001,
+        0.01,
+        0.001,
+        0.001
+      ]
+    },
+    {
+      "seed": 2,
+      "tau_youden": 0.5728106609658875,
+      "oof_accuracy": 0.6804733727810651,
+      "oof_balanced_accuracy": 0.6727747999894383,
+      "oof_roc_auc": 0.7211293885705736,
+      "oof_f1": 0.6223776223776224,
+      "oof_precision": 0.6872586872586872,
+      "oof_sensitivity": 0.5686900958466453,
+      "oof_specificity": 0.7768595041322314,
+      "fold_accuracy_mean": 0.680443371378402,
+      "fold_accuracy_std": 0.04564230976222285,
+      "fold_balanced_accuracy_mean": 0.6726622287610191,
+      "fold_balanced_accuracy_std": 0.04588676711207743,
+      "confusion_matrix": [
+        [
+          282,
+          81
+        ],
+        [
+          135,
+          178
+        ]
+      ],
+      "chosen_C_per_fold": [
+        0.001,
+        0.001,
+        0.001,
+        0.001,
+        0.01,
+        0.001,
+        0.001,
+        0.01,
+        0.001,
+        0.001
+      ]
+    }
+  ],
+  "holdout_status": "NEVER accessed. Only holdout_guard.load_dev_subject_ids() and assert_no_holdout_leakage()/assert_cv_folds_dev_only() were called; get_locked_holdout_ids() was never called from this script.",
+  "comparison_note": "Compared against fc_v2_results.csv EXP-2A (74.12% acc, 0.8104 AUC), which was measured on the OLD, reused 170-subject holdout (seed=42) -- NOT this run's dev-only CV number. Both numbers are reported side by side in the Phase 2C report but are not the same measurement."
+}

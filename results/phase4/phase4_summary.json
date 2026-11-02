@@ -1,0 +1,94 @@
+{
+  "generated_utc": "2026-09-16T04:55:45.683275+00:00",
+  "authoritative_cohort_source": "C:\\abide\\results\\phase2\\fd_filtered_subjects.csv",
+  "authoritative_data_source": "C:\\abide\\abide_pcp\\ABIDE_pcp\\cpac\\filt_global",
+  "phase2_cohort": {
+    "total": 780,
+    "asd": 351,
+    "control": 429,
+    "duplicates": 0
+  },
+  "aal_files_on_disk": 871,
+  "unique_subject_ids_on_disk": 871,
+  "coverage": {
+    "phase2_total": 780,
+    "aal_available": 780,
+    "missing": 0,
+    "extra_downloaded": 91
+  },
+  "roi_structure": {
+    "observed_roi_counts": [
+      116
+    ],
+    "subjects_with_116_rois": 780,
+    "subjects_with_wrong_roi_count": 0
+  },
+  "timepoints": {
+    "min": 78,
+    "max": 316,
+    "mean": 193.0025641025641,
+    "median": 176.0,
+    "std": 57.70372732727547,
+    "p25": 152.0,
+    "p75": 236.0
+  },
+  "data_quality": {
+    "nan_subjects": 0,
+    "inf_subjects": 0,
+    "missing_value_subjects": 0,
+    "constant_roi_subjects": 47,
+    "unreadable_files": 0,
+    "problematic_roi_indices": [
+      6,
+      9,
+      10,
+      16,
+      25,
+      27,
+      28,
+      87,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      114,
+      115,
+      116
+    ]
+  },
+  "diagnosis_integrity": {
+    "asd": 351,
+    "control": 429,
+    "diagnosis_mismatches": 0
+  },
+  "duplicates": {
+    "duplicate_subject_ids": 0
+  },
+  "valid_subjects": 780,
+  "invalid_subjects": 0,
+  "pass_criteria": {
+    "780/780 authoritative subjects have AAL data": true,
+    "every subject has 116 ROI columns": true,
+    "files are readable": true,
+    "no unexpected corruption (NaN/Inf)": true,
+    "subject IDs map correctly": true,
+    "diagnosis labels match Phase 2": true,
+    "no duplicate subject IDs": true,
+    "previous phases remain unchanged": true
+  },
+  "phase4_status": "PASS",
+  "audit": {
+    "previous_phases_unchanged": true,
+    "cohort_file_unchanged": true,
+    "source_aal_files_untouched": true,
+    "downloads_performed": false,
+    "fc_computed": false,
+    "fisher_z_computed": false,
+    "ml_features_created": false,
+    "model_trained": false
+  }
+}

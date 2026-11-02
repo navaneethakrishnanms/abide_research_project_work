@@ -1,0 +1,26 @@
+{
+ "experiment": "P2_LSVM",
+ "model": "LSVM",
+ "representation": "LW",
+ "pipeline": "Pipeline(steps=[('prep', DemoFCPrep()),\n                ('clf', LinearSVC(class_weight='balanced', max_iter=10000))])",
+ "grid": {
+  "clf__C": [
+   "1e-05",
+   "3e-05",
+   "0.0001",
+   "0.0003",
+   "0.001"
+  ]
+ },
+ "score_kind": "margin",
+ "outer": "StratifiedKFold(10, shuffle, seed)",
+ "inner": "StratifiedKFold(5, shuffle, seed), roc_auc",
+ "threshold_R1": "balanced-accuracy-maximizing threshold on inner 5-fold OOF scores (seed+1000) of the outer-training partition",
+ "seeds": [
+  0,
+  1,
+  2
+ ],
+ "created_utc": "2026-10-26T03:41:17.007449+00:00",
+ "campaign_py_sha256": "f1770d3dc7a2e932ba8bde9446b09513472b681de632dbe5dee4ae9a3d0d33ae"
+}

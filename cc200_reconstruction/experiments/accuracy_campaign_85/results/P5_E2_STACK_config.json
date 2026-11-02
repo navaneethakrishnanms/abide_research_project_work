@@ -1,0 +1,9 @@
+{
+ "experiment": "P5_E2_STACK",
+ "members": [
+  "P3_TS_LR",
+  "P2_LSVM",
+  "P1_LR"
+ ],
+ "construction": "training-only inner OOF scores; Platt calibration (E1) / balanced L2 LR meta-model (E2); R1 threshold from the same inner OOF scores"
+}

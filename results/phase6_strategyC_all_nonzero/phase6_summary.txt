@@ -1,0 +1,95 @@
+{
+  "generated_utc": "2026-09-17T05:53:34.193935+00:00",
+  "cohort": {
+    "total": 780,
+    "asd": 351,
+    "control": 429
+  },
+  "undefined_fc_total": 14025,
+  "phase6_status": "PASS",
+  "problems": [],
+  "results": {
+    "n_folds_completed": 5,
+    "N_per_fold": [
+      498,
+      479,
+      427,
+      463,
+      454
+    ],
+    "N_min": 427,
+    "N_max": 498,
+    "N_mean": 464.2,
+    "N_median": 463.0,
+    "N_std": 23.87802336877992,
+    "unique_features_selected_at_least_once": 1286,
+    "features_selected_every_fold": 50,
+    "fold_metrics": [
+      {
+        "fold": 0,
+        "n_test": 156,
+        "accuracy": 0.6474358974358975,
+        "balanced_accuracy": 0.6451532725766362,
+        "precision": 0.6111111111111112,
+        "sensitivity_recall": 0.6197183098591549,
+        "specificity": 0.6705882352941176,
+        "f1": 0.6153846153846154,
+        "roc_auc": 0.6911350455675227
+      },
+      {
+        "fold": 1,
+        "n_test": 156,
+        "accuracy": 0.5897435897435898,
+        "balanced_accuracy": 0.5813953488372092,
+        "precision": 0.546875,
+        "sensitivity_recall": 0.5,
+        "specificity": 0.6627906976744186,
+        "f1": 0.5223880597014925,
+        "roc_auc": 0.6696013289036545
+      },
+      {
+        "fold": 2,
+        "n_test": 156,
+        "accuracy": 0.6089743589743589,
+        "balanced_accuracy": 0.6001661129568105,
+        "precision": 0.5714285714285714,
+        "sensitivity_recall": 0.5142857142857142,
+        "specificity": 0.686046511627907,
+        "f1": 0.5413533834586466,
+        "roc_auc": 0.6867109634551495
+      },
+      {
+        "fold": 3,
+        "n_test": 156,
+        "accuracy": 0.6346153846153846,
+        "balanced_accuracy": 0.6300664451827243,
+        "precision": 0.5942028985507246,
+        "sensitivity_recall": 0.5857142857142857,
+        "specificity": 0.6744186046511628,
+        "f1": 0.5899280575539568,
+        "roc_auc": 0.6992524916943521
+      },
+      {
+        "fold": 4,
+        "n_test": 156,
+        "accuracy": 0.5961538461538461,
+        "balanced_accuracy": 0.5911960132890366,
+        "precision": 0.5507246376811594,
+        "sensitivity_recall": 0.5428571428571428,
+        "specificity": 0.6395348837209303,
+        "f1": 0.5467625899280576,
+        "roc_auc": 0.6387043189368771
+      }
+    ],
+    "captum_available": true,
+    "shap_available": true,
+    "lime_available": true,
+    "roar_rows_written": 65
+  },
+  "audit": {
+    "previous_phases_unchanged": true,
+    "cohort_modified": false,
+    "aal_files_modified": false,
+    "downloads_performed": "captum/shap/lime pip-installed (software packages, not ABIDE data)"
+  }
+}

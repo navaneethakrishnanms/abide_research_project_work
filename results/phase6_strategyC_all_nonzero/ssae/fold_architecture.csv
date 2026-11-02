@@ -1,0 +1,6 @@
+fold,input_dim_N,hidden1,hidden2,output,activation,optimizer,learning_rate,weight_decay,batch_size,pretrain_epochs_per_layer,finetune_epochs,sparsity_weight,random_seed
+0,498,500,100,2,"ReLU (hidden), Softmax (output, via CrossEntropyLoss)",Adam,0.001,0.0001,32,40,80,0.0001,42
+1,479,500,100,2,"ReLU (hidden), Softmax (output, via CrossEntropyLoss)",Adam,0.001,0.0001,32,40,80,0.0001,42
+2,427,500,100,2,"ReLU (hidden), Softmax (output, via CrossEntropyLoss)",Adam,0.001,0.0001,32,40,80,0.0001,42
+3,463,500,100,2,"ReLU (hidden), Softmax (output, via CrossEntropyLoss)",Adam,0.001,0.0001,32,40,80,0.0001,42
+4,454,500,100,2,"ReLU (hidden), Softmax (output, via CrossEntropyLoss)",Adam,0.001,0.0001,32,40,80,0.0001,42

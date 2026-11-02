@@ -1,0 +1,20 @@
+PHASE 4 -- AAL-116 ROI Time-Series Validation & Preparation
+======================================================================
+
+Phase-2 cohort: 780 (351 ASD, 429 Control)
+AAL files on disk: 871  unique IDs: 871
+Coverage: 780/780  missing=0  extra=91
+
+ROI counts observed: [116]  116-ROI subjects=780  wrong=0
+Timepoints: min=78 max=316 mean=193.0025641025641 median=176.0 std=57.70372732727547
+NaN subjects=0  Inf subjects=0  constant-ROI subjects=47  unreadable=0
+
+ASD=351  Control=429  dup_ids=0
+
+Previous phases unchanged: True
+
+PHASE 4 STATUS: PASS
+
+Phase 4 AAL-116 ROI time-series validation is complete.
+The verified 780-subject dataset is ready for Phase 5:
+subject-level Pearson functional connectivity calculation.

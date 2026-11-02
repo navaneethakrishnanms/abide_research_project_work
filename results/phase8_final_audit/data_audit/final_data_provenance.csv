@@ -1,0 +1,9 @@
+stage,source,verified_by,status
+Phase 1 cohort,"nilearn.datasets.fetch_abide_pcp (ABIDE-I, CPAC, filt_global)","Phase 1 output CSVs, subject/site counts",VERIFIED
+Phase 2 FD filtering,"Per-subject FD values from phenotypic file, threshold 0.2mm","fd_filtered_subjects.csv (780 subjects, 351/429, 20 sites)",VERIFIED
+CPAC AAL data,fetch_abide_pcp(derivatives=['rois_aal']),"Phase 3.6 download + integrity checks (116 ROIs, timepoint consistency)",VERIFIED
+AAL-116 mapping,"nilearn bundled docs + independent web-retrieved table + DPARSF forum, cross-checked against actual file headers","aal116_roi_mapping.csv, Phase 4.1",VERIFIED (3 independent sources)
+Phase 4 constant-ROI findings,Direct computation on the 780-subject AAL time series,"constant_roi_summary.csv, constant_roi_site_summary.csv",VERIFIED
+Strategy C rationale,"Phase 5B/5C/5D methodological comparison, user decision",PHASE5D_DECISION.md and prior phase reports,DOCUMENTED (explicit human decision)
+Phase 6 feature selection,Elastic Net fit fold-wise on real FC data,"fold_feature_selection.csv, fold_feature_counts.csv",VERIFIED
+Phase 7 synthesis,"Aggregation of Phase 6 output CSVs only, no new model computation",Phase 7 freeze-check (this phase and Phase 7 itself),VERIFIED

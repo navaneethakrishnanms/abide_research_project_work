@@ -1,0 +1,57 @@
+{
+  "generated_utc": "2026-09-17T03:30:38.434806+00:00",
+  "cohort": {
+    "total": 780,
+    "asd": 351,
+    "control": 429
+  },
+  "strategy_A": {
+    "subjects": 733,
+    "asd": 330,
+    "control": 403,
+    "rois": 116,
+    "features": 6670
+  },
+  "strategy_B": {
+    "subjects": 780,
+    "asd": 351,
+    "control": 429,
+    "rois": 97,
+    "features": 4656
+  },
+  "strategy_C": {
+    "subjects": 780,
+    "asd": 351,
+    "control": 429,
+    "rois": 116,
+    "features": 6670,
+    "imputed_entries": 14025
+  },
+  "elastic_net_option1_fixed_count": false,
+  "elastic_net_option2_fixed_count": true,
+  "ssae_1000_feature_achievable_all_strategies": true,
+  "synthetic_experiments_performed": [
+    "ElasticNet sparsity grid",
+    "top-K ranking demo",
+    "fold-scoped imputation leakage-logic demo"
+  ],
+  "real_data_used": false,
+  "phase5c_status": "PASS",
+  "human_decision_still_required": true,
+  "phase5_status": "BLOCKED",
+  "phase6_status": "NOT STARTED",
+  "audit": {
+    "previous_phases_unchanged": true,
+    "fc_dataset_written": false,
+    "elastic_net_fit_on_real_data": false,
+    "svm_rfe_run": false,
+    "ssae_trained": false,
+    "softmax_trained": false,
+    "xai_run": false,
+    "roar_run": false,
+    "accuracy_calculated": false,
+    "downloads_performed": false,
+    "cohort_modified": false,
+    "aal_files_modified": false
+  }
+}

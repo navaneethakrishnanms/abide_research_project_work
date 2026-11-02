@@ -1,0 +1,19 @@
+phase_or_set_A,set_B,|A|,|B|,|A∩B|,group,note,kind,share_overlapping
+holdout (170),train list (676),170.0,676,0,holdout vs cohort,,set comparison,
+holdout (170),pool846 (train+holdout),170.0,846,170,holdout vs cohort,,set comparison,
+holdout (170),871 phenotypic table (Phase 1),170.0,871,170,holdout vs cohort,,set comparison,
+holdout (170),780 FD-filtered cohort (Phases 3-10),170.0,780,158,holdout vs cohort,,set comparison,
+holdout (170),FD-removed (91),170.0,91,12,holdout vs cohort,,set comparison,
+holdout (170),dev600 (fast/site/motion experiments),170.0,600,0,holdout vs cohort,,set comparison,
+780 minus train list,holdout (170),180.0,170,158,composition,cohort-780 subjects not in the train list: how many are holdout,set comparison,
+train list minus 780 (FD-removed or other),FD-removed (91),76.0,91,76,composition,,set comparison,
+FD-removed (91),pool846 (train+holdout),91.0,846,88,composition,FD-removed subjects inside the 846-pool,set comparison,
+Phase 1 inventory (871),871 phenotypic table,,871,170,,,phase vs holdout,0.195
+Phase 2 FD filter (871 -> 780),871 phenotypic table,,871,170,,,phase vs holdout,0.195
+"Phases 3-5 (AAL feasibility, FC diagnostics, missing-FC analysis)",780 cohort,,780,158,,,phase vs holdout,0.203
+"Phase 6 (Strategy C + EN + SSAE, XAI, ROAR; 61.5%)",780 cohort,,780,158,,,phase vs holdout,0.203
+"Phases 7-8 (synthesis, audit)",780 cohort,,780,158,,,phase vs holdout,0.203
+Phase 9 (accuracy optimization; 64.9%),780 cohort,,780,158,,,phase vs holdout,0.203
+Phase 10 old run and corrected nested CV (63.0%),780 cohort,,780,158,,,phase vs holdout,0.203
+"Phase 2c-2h dev-only experiments (CC200, 67.2%)",train list (676) via holdout_guard,,676,0,,,phase vs holdout,0.0
+fast / site-centering / motion / diagnostic experiments,dev600,,600,0,,,phase vs holdout,0.0

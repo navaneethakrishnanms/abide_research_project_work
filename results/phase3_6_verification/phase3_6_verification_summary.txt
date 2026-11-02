@@ -1,0 +1,22 @@
+PHASE 3.6 -- Small Cohort Compatibility Verification (metadata only)
+======================================================================
+
+Phase-2 cohort: 780 (351 ASD, 429 Control)
+
+CPAC:
+  {'source_total': 871, 'phase2_total': 780, 'overlap_count': 780, 'phase2_missing_from_source': 0, 'source_not_in_phase2': 91, 'overlap_percentage': 100.0, 'overlap_ASD': 351, 'overlap_Control': 429, 'diagnosis_mismatches': 0}
+  Decision: FULLY COMPATIBLE
+
+DPARSF:
+  {'source_total': 871, 'phase2_total': 780, 'overlap_count': 780, 'phase2_missing_from_source': 0, 'source_not_in_phase2': 91, 'overlap_percentage': 100.0, 'overlap_ASD': 351, 'overlap_Control': 429, 'diagnosis_mismatches': 0}
+  Decision: FULLY COMPATIBLE
+
+Outcome: C
+Recommended source: BOTH (metadata-identical); recommend DPARSF for paper fidelity (matches the paper's reported best-performing pipeline), with CPAC as a fallback given continuity with our existing Phase 1-3 choice. NOTE: per-subject DPARSF derivative FILE existence is still unconfirmed (see finding above).
+
+IMPORTANT FINDING: fetch_abide_pcp's phenotypic CSV fetch is PIPELINE-INDEPENDENT -- verified from source code (Phase 3.6): the phenotypic file and the quality_checked filter are applied identically regardless of the `pipeline` argument; only actual derivative-file fetching (skipped here via derivatives=[]) is pipeline-specific. Consequently the CPAC and DPARSF metadata queries above returned IDENTICAL subject lists (same phenotypic source, same QC columns). This confirms cohort-LEVEL compatibility for both, but does NOT confirm that the actual per-subject rois_aal .1D file exists on the PCP server for DPARSF specifically -- some subjects can pass the phenotypic QC filter yet have no successfully-preprocessed derivative file for a given pipeline. That can only be confirmed by attempting an actual per-subject rois_aal fetch, which is explicitly out of scope for this metadata-only verification.
+
+No download occurred: True
+Audit overall: PASS
+
+Next step: Proceed to the explicitly approved AAL-116 ROI download for the compatible source. Do NOT start Phase 4 processing yet.
