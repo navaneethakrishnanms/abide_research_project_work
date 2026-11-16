@@ -1,0 +1,20 @@
+M7
+"AAL-116 Enhanced Functional Connectivity + optimized feature selection + L2 logistic regression (proposed model)"
+results/accuracy_research_v4/oof_predictions.csv
+"5-fold stratified subject-level cross-validation (outer folds fixed, seed 42)"
+42
+600
+268
+332
+0.770000
+0.750000
+0.786145
+0.738000
+0.743000
+0.768073
+0.820000
+computed AUC
+0.770000
+0.025000
+0.820000
+Original report: 77% accuracy; experimentally validated
