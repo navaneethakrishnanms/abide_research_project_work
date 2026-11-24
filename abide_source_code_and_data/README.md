@@ -11,6 +11,7 @@ Source of the raw time series: public ABIDE Preprocessed Connectomes Project on 
 | Phenotypic_V1_0b.csv | ABIDE phenotype file (age, sex, site, DX_GROUP, ...) |
 | phase2_train_subjects.txt | subject ids of the development/train split |
 | fd_filtered_subjects.csv | subjects remaining after the motion (framewise displacement) filter |
+| raw_roi_timeseries/ | raw ROI time series from S3 (CPAC, filt_global): 871 subjects x two files, `*_rois_cc200.1D` (200 regions) and `*_rois_aal.1D` (116 regions); rows = time points |
 
 ## code/
 | File | Purpose |
