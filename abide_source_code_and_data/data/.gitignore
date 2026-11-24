@@ -1,0 +1,8 @@
+# Raw/derived data — excluded per ABIDE data-use agreement and project policy
+*.npy
+*.npz
+*.csv
+*.txt
+*.json
+*.pkl
+*.joblib
